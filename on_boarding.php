@@ -1,115 +1,303 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PBCom Dashboard</title>
-    <link href="https://fonts.cdnfonts.com/css/aileron" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/538907d71c.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="assets/css/employee.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PBCOM LMS | On-Boarding</title>
+  <link href="https://fonts.cdnfonts.com/css/aileron" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/538907d71c.js" crossorigin="anonymous"></script>
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/courses.css">
+
 </head>
 
 <body>
-    <header>
-        <div class="logo"><a href=""><img src="images/logo.png" width="220px"></a></div>
-        <div class="header-right">
-            <input type="text" class="search-box" placeholder="Search...">
-            <div class="user-info" onclick="toggleDropdown()">
-                <span>Lady Arboleda</span>
-                <div id="userDropdown" class="dropdown-content">
-                    <a href="#">Profile</a>
-                    <a href="#">Log Out</a>
-                </div>
-            </div>
+  <div class="wrapper">
+    <!-- Header -->
+    <?php include 'topbar.php' ?>
+
+    <div class="content-wrapper">
+      <!-- Sidebar -->
+      <aside id="sidebar" class="sidebar">
+        <div class="sidebar-header">
+          <h2>Employee Portal</h2>
         </div>
-    </header>
-
-    <div class="container">
-        <nav class="sidebar">
-            <div class="sidebar-section">
-                <ul>
-                    <li class="" onclick="showDashboard()">Dashboard</li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Courses</a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" onclick="showContent('regulatory')">Regulatory Courses</a>
-                            <a class="dropdown-item" onclick="showContent('onboarding')">On-Boarding Orientation</a>
-                            <a class="dropdown-item" onclick="showContent('behavioural')">Behavioural and Management Training</a>
-                            <a class="dropdown-item" onclick="showContent('development')">Development Program</a>
-                            <a class="dropdown-item" onclick="showContent('technical')">Technical/Job-Specific Systems</a>
-                        </div>
-                    </li>
-                </ul>
+        <nav class="sidebar-nav">
+          <div class="nav-section">
+            <div class="nav-section-title">Main</div>
+            <a href="home.php" class="nav-link">
+              <i class="bi bi-house"></i>
+              <span>Home</span>
+            </a>
+            <a href="employee_dashboard.php" class="nav-link ">
+              <i class="bi bi-bar-chart"></i>
+              <span>Dashboard</span>
+            </a>
+          </div>
+          <div class="nav-section">
+            <div class="nav-section-title">Learning</div>
+            <div class="nav-dropdown">
+              <button class="nav-dropdown-toggle">
+                <i class="bi bi-book"></i>
+                <span>Courses</span>
+                <i class="bi bi-chevron-down dropdown-icon"></i>
+              </button>
+              <div class="nav-dropdown-menu active">
+                <a href="regulatory_courses.php" class="nav-dropdown-item active">Regulatory Courses</a>
+                <a href="on_boarding.php" class="nav-dropdown-item">On-Boarding Orientation</a>
+                <a href="behavioral_management.php" class="nav-dropdown-item">Behavioral and Management</a>
+                <a href="development_program.php" class="nav-dropdown-item">Development Program</a>
+                <a href="tech_job_specific.php" class="nav-dropdown-item">Technical/Job Specific</a>
+              </div>
             </div>
+          </div>
         </nav>
+      </aside>
 
-
-        <main class="main-content">
-            <!-- On-Boarding Orientation Content -->
-            <div id="onboarding-content" class="content-section">
-                <div class="course-header">ON-BOARDING ORIENTATION</div>
-                <div class="course-grid">
-                    <div class="course-card">
-                        <div class="course-image"
-                            style="background-image: url('https://via.placeholder.com/300x120?text=Onboarding+1')"></div>
-                        <h3>Company History</h3>
-                        <p>Learn about PBCOM's rich heritage</p>
-                    </div>
-                    <div class="course-card">
-                        <div class="course-image"
-                            style="background-image: url('https://via.placeholder.com/300x120?text=Onboarding+2')"></div>
-                        <h3>Core Values</h3>
-                        <p>Understanding our corporate values</p>
-                    </div>
-                    <div class="course-card">
-                        <div class="course-image"
-                            style="background-image: url('https://via.placeholder.com/300x120?text=Onboarding+3')"></div>
-                        <h3>Organizational Structure</h3>
-                        <p>How our bank is organized</p>
-                    </div>
-                    <div class="course-card">
-                        <div class="course-image"
-                            style="background-image: url('https://via.placeholder.com/300x120?text=Onboarding+4')"></div>
-                        <h3>Banking Products 101</h3>
-                        <p>Introduction to our financial products</p>
-                    </div>
-                    <div class="course-card">
-                        <div class="course-image"
-                            style="background-image: url('https://via.placeholder.com/300x120?text=Onboarding+5')"></div>
-                        <h3>Customer Service Standards</h3>
-                        <p>Our commitment to excellent service</p>
-                    </div>
-                    <div class="course-card">
-                        <div class="course-image"
-                            style="background-image: url('https://via.placeholder.com/300x120?text=Onboarding+6')"></div>
-                        <h3>Workplace Policies</h3>
-                        <p>Important HR policies and procedures</p>
-                    </div>
-                </div>
-                <div class="pagination">
-                    <button class="active">1</button>
-                </div>
+      <!-- Main Content -->
+      <main class="main-content">
+        <div class="container-fluid">
+          <!-- Mobile Search -->
+          <div class="mobile-search d-md-none mb-4">
+            <div class="input-group">
+              <span class="input-group-text bg-transparent">
+                <i class="fas fa-search"></i>
+              </span>
+              <input type="text" class="form-control" placeholder="Search courses...">
             </div>
-        </main>
+          </div>
+
+          <!-- Page Header -->
+          <div class="page-header mb-4">
+            <div class="d-flex justify-content-between align-items-center">
+              <h1 class="page-title">On-Boarding Orientation</h1>
+              <span class="badge mandatory-badge">Mandatory Training</span>
+            </div>
+            <p class="text-muted mt-2">
+              Take time to read for better understanding of the company's regualations.
+            </p>
+          </div>
+
+          <!-- Course Grid -->
+          <div class="row g-4">
+            <!-- Company History -->
+            <div class="col-md-6 col-lg-4">
+              <div class="course-card">
+                <div class="course-image bg-gradient-red">
+                  <div class="course-icon">
+                    <i class="fas fa-money-bill-wave"></i>
+                  </div>
+                </div>
+                <div class="course-content">
+                  <div class="d-flex justify-content-between align-items-start mb-2">
+                    <h3 class="course-title">Anti-Money Laundering</h3>
+                    <span class="badge required-badge">Required</span>
+                  </div>
+                  <p class="course-description">
+                    Learn about PBCOM's rich heritage.
+                  </p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="course-duration">Duration: 2 hours</div>
+                    <button class="btn btn-link start-course-btn">
+                      Start Course <i class="fas fa-chevron-right ms-1"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Data Privacy Act -->
+            <div class="col-md-6 col-lg-4">
+              <div class="course-card">
+                <div class="course-image bg-gradient-blue">
+                  <div class="course-icon">
+                    <i class="fas fa-shield-alt"></i>
+                  </div>
+                </div>
+                <div class="course-content">
+                  <div class="d-flex justify-content-between align-items-start mb-2">
+                    <h3 class="course-title">Core Values</h3>
+                    <span class="badge required-badge">Required</span>
+                  </div>
+                  <p class="course-description">
+                    Understanding our corporate values.
+                  </p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="course-duration">Duration: 1.5 hours</div>
+                    <button class="btn btn-link start-course-btn">
+                      Start Course <i class="fas fa-chevron-right ms-1"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Bank Secrecy Law -->
+            <div class="col-md-6 col-lg-4">
+              <div class="course-card">
+                <div class="course-image bg-gradient-purple">
+                  <div class="course-icon">
+                    <i class="fas fa-lock"></i>
+                  </div>
+                </div>
+                <div class="course-content">
+                  <div class="d-flex justify-content-between align-items-start mb-2">
+                    <h3 class="course-title">Bank Secrecy Law</h3>
+                    <span class="badge required-badge">Required</span>
+                  </div>
+                  <p class="course-description">
+                    Understanding confidentiality requirements and legal obligations for banking information
+                  </p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="course-duration">Duration: 1 hour</div>
+                    <button class="btn btn-link start-course-btn">
+                      Start Course <i class="fas fa-chevron-right ms-1"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Banking Products 101 -->
+            <div class="col-md-6 col-lg-4">
+              <div class="course-card">
+                <div class="course-image bg-gradient-green">
+                  <div class="course-icon">
+                    <i class="fas fa-users"></i>
+                  </div>
+                </div>
+                <div class="course-content">
+                  <div class="d-flex justify-content-between align-items-start mb-2">
+                    <h3 class="course-title">Banking Products 101</h3>
+                    <span class="badge required-badge">Required</span>
+                  </div>
+                  <p class="course-description">
+                    Introduction to our financial products.
+                  </p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="course-duration">Duration: 1.5 hours</div>
+                    <button class="btn btn-link start-course-btn">
+                      Start Course <i class="fas fa-chevron-right ms-1"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Customer Service Standards -->
+            <div class="col-md-6 col-lg-4">
+              <div class="course-card">
+                <div class="course-image bg-gradient-amber">
+                  <div class="course-icon">
+                    <i class="fas fa-exclamation-triangle"></i>
+                  </div>
+                </div>
+                <div class="course-content">
+                  <div class="d-flex justify-content-between align-items-start mb-2">
+                    <h3 class="course-title">Fraud Prevention</h3>
+                    <span class="badge required-badge">Required</span>
+                  </div>
+                  <p class="course-description">
+                    Our commitment to excellent service
+                  </p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="course-duration">Duration: 2 hours</div>
+                    <button class="btn btn-link start-course-btn">
+                      Start Course <i class="fas fa-chevron-right ms-1"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Workplace Policies
+ -->
+            <div class="col-md-6 col-lg-4">
+              <div class="course-card">
+                <div class="course-image bg-gradient-slate">
+                  <div class="course-icon">
+                    <i class="fas fa-chart-pie"></i>
+                  </div>
+                </div>
+                <div class="course-content">
+                  <div class="d-flex justify-content-between align-items-start mb-2">
+                    <h3 class="course-title">Workplace Policies</h3>
+                    <span class="badge required-badge">Required</span>
+                  </div>
+                  <p class="course-description">
+                    Important HR policies and procedures
+                  </p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="course-duration">Duration: 2.5 hours</div>
+                    <button class="btn btn-link start-course-btn">
+                      Start Course <i class="fas fa-chevron-right ms-1"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pagination -->
+          <div class="pagination-container mt-5">
+            <nav aria-label="Page navigation">
+              <ul class="pagination justify-content-center">
+                <li class="page-item active">
+                  <a class="page-link" href="#">1</a>
+                </li>
+                <li class="page-item">
+                  <a class="page-link" href="#">2</a>
+                </li>
+                <li class="page-item">
+                  <a class="page-link" href="#">
+                    <i class="fas fa-chevron-right"></i>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+          <div class="container-fluid">
+            <div class="text-center">
+              <div class="footer-links">
+                <a href="#">Help</a>
+                <span>|</span>
+                <a href="#">Privacy Policy</a>
+                <span>|</span>
+                <a href="#">Terms of Service</a>
+              </div>
+              <div class="copyright mt-2">
+                © 2025 PBCOM Universal Bank. All rights reserved.
+              </div>
+            </div>
+          </div>
+        </footer>
+      </main>
     </div>
-            
-    <footer>
-        <p>Log Out</p>
-    </footer>
+  </div>
 
-    
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  
+  <!-- SweetAlert 2 CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  
+  <!-- Custom JS -->
+  <script src="assets/js/script.js"></script>
+  <script src="assets/js/sidebar.js"></script>
 </body>
 
 </html>
-
-
- 
- 
-
-            

@@ -70,6 +70,21 @@ body {
 /* ===== Course Cards ===== */
 
 
+.course-image {
+    width: 100%;
+    height: 120px;
+    background-color: #f0f0f0;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #888;
+    font-style: italic;
+    background-size: cover;
+    background-position: center;
+    border-radius: 4px;
+}
+
 /* ===== Pagination ===== */
 .pagination {
     display: flex;

@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PBCOM Dashboard</title>
+  <title>PBCOM LMS | Dashboard</title>
+  <link href="https://fonts.cdnfonts.com/css/aileron" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/538907d71c.js" crossorigin="anonymous"></script>
+
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Bootstrap Icons -->
@@ -11,41 +15,11 @@
   <!-- Custom CSS -->
   <link rel="stylesheet" href="assets/css/dashboard.css">
 </head>
+
 <body>
   <div class="wrapper">
     <!-- Header -->
-    <header class="header">
-      <div class="container-fluid">
-        <div class="row align-items-center">
-          <div class="col d-flex align-items-center">
-            <button id="sidebar-toggle" class="btn btn-link text-white d-md-none me-2">
-              <i class="bi bi-list"></i>
-            </button>
-            <div class="logo">
-              <img src="assets/images/logo.png" width="180px" alt="PBCOM Logo" class="img-fluid">
-            </div>
-          </div>
-          <div class="col-auto d-flex align-items-center">
-            <div class="search-container d-none d-md-block me-3">
-              <i class="bi bi-search search-icon"></i>
-              <input type="text" class="form-control search-input" placeholder="Search...">
-            </div>
-            <div class="notification-bell me-3 position-relative">
-              <i class="bi bi-bell"></i>
-              <span class="notification-indicator"></span>
-            </div>
-            <div class="user-profile d-flex align-items-center">
-              <div class="avatar me-2">
-                <span>LC</span>
-              </div>
-              <div class="user-name d-none d-md-block">
-                Lady Christine <i class="bi bi-chevron-down"></i>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </header>
+    <?php include 'topbar.php' ?>
 
     <div class="content-wrapper">
       <!-- Sidebar -->
@@ -56,11 +30,15 @@
         <nav class="sidebar-nav">
           <div class="nav-section">
             <div class="nav-section-title">Main</div>
+            <a href="home.php" class="nav-link">
+              <i class="bi bi-house"></i>
+              <span>Home</span>
+            </a>
             <a href="#" class="nav-link active">
               <i class="bi bi-bar-chart"></i>
               <span>Dashboard</span>
             </a>
-            
+
           </div>
           <div class="nav-section">
             <div class="nav-section-title">Learning</div>
@@ -77,6 +55,20 @@
                 <a href="development_program.php" class="nav-dropdown-item">Development Program</a>
                 <a href="tech_job_specific.php" class="nav-dropdown-item">Technical/Job Specific</a>
               </div>
+
+              <a href="employee_announcement.php" class="nav-link">
+                <i class="bi bi-megaphone me-2"></i>
+                <span>Announcements</span>
+              </a>
+              <a href="employee_quiz.php" class="nav-link ">
+                <i class="bi bi-journal-check me-2"></i>
+                <span>Quiz</span>
+              </a>
+              </a>
+              <a href="employee_quizlog.php" class="nav-link ">
+                <i class="bi bi-ui-radios me-2"></i>
+                <span>Quiz Log</span>
+              </a>
             </div>
           </div>
         </nav>
@@ -160,7 +152,8 @@
                     <h5 class="card-title">Course Name 1</h5>
                     <p class="card-text text-muted">Completed on 05/10/2023</p>
                     <div class="progress mt-2">
-                      <div class="progress-bar bg-danger" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                      <div class="progress-bar bg-danger" role="progressbar" style="width: 100%" aria-valuenow="100"
+                        aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                   </div>
                 </div>
@@ -176,7 +169,8 @@
                     <h5 class="card-title">Course Name 2</h5>
                     <p class="card-text text-muted">Completed on 04/25/2023</p>
                     <div class="progress mt-2">
-                      <div class="progress-bar bg-danger" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                      <div class="progress-bar bg-danger" role="progressbar" style="width: 100%" aria-valuenow="100"
+                        aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                   </div>
                 </div>
@@ -192,7 +186,8 @@
                     <h5 class="card-title">Course Name 3</h5>
                     <p class="card-text text-muted">Completed on 03/15/2023</p>
                     <div class="progress mt-2">
-                      <div class="progress-bar bg-danger" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                      <div class="progress-bar bg-danger" role="progressbar" style="width: 100%" aria-valuenow="100"
+                        aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                   </div>
                 </div>
@@ -218,7 +213,8 @@
                     <h5 class="card-title">Course Name A</h5>
                     <p class="card-text text-muted">Completed on 02/28/2023</p>
                     <div class="progress mt-2">
-                      <div class="progress-bar bg-danger" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                      <div class="progress-bar bg-danger" role="progressbar" style="width: 100%" aria-valuenow="100"
+                        aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                   </div>
                 </div>
@@ -234,7 +230,8 @@
                     <h5 class="card-title">Course Name B</h5>
                     <p class="card-text text-muted">Completed on 01/15/2023</p>
                     <div class="progress mt-2">
-                      <div class="progress-bar bg-danger" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                      <div class="progress-bar bg-danger" role="progressbar" style="width: 100%" aria-valuenow="100"
+                        aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                   </div>
                 </div>
@@ -250,7 +247,8 @@
                     <h5 class="card-title">Course Name C</h5>
                     <p class="card-text text-muted">Completed on 12/20/2022</p>
                     <div class="progress mt-2">
-                      <div class="progress-bar bg-danger" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                      <div class="progress-bar bg-danger" role="progressbar" style="width: 100%" aria-valuenow="100"
+                        aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                   </div>
                 </div>
@@ -280,7 +278,8 @@
                       <button class="btn btn-sm btn-link text-danger p-0">Continue</button>
                     </div>
                     <div class="progress">
-                      <div class="progress-bar bg-danger" role="progressbar" style="width: 45%" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"></div>
+                      <div class="progress-bar bg-danger" role="progressbar" style="width: 45%" aria-valuenow="45"
+                        aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                   </div>
                 </div>
@@ -300,7 +299,8 @@
                       <button class="btn btn-sm btn-link text-danger p-0">Continue</button>
                     </div>
                     <div class="progress">
-                      <div class="progress-bar bg-danger" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+                      <div class="progress-bar bg-danger" role="progressbar" style="width: 20%" aria-valuenow="20"
+                        aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                   </div>
                 </div>
@@ -320,7 +320,8 @@
                       <button class="btn btn-sm btn-link text-danger p-0">Continue</button>
                     </div>
                     <div class="progress">
-                      <div class="progress-bar bg-danger" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                      <div class="progress-bar bg-danger" role="progressbar" style="width: 10%" aria-valuenow="10"
+                        aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                   </div>
                 </div>
@@ -332,9 +333,20 @@
     </div>
   </div>
 
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
+
+
+  <!-- SweetAlert 2 CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
   <!-- Bootstrap JS Bundle with Popper -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
   <!-- Custom JS -->
+  <script src="assets/js/script.js"></script>
   <script src="assets/js/sidebar.js"></script>
 </body>
+
 </html>
