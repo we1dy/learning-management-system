@@ -1,0 +1,156 @@
+@import url('https://fonts.cdnfonts.com/css/aileron');
+    body {
+      font-family: 'Aileron', sans-serif;
+      background: #f0f0f0;
+      height: 100vh;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #292939;
+    }
+    .d-flex {
+    display: flex;
+    flex-wrap: nowrap;  /* Ensure no wrapping happens */
+
+    }
+
+    #pbcom-logo {
+        max-width: 150px; 
+        width: 100%;
+        border-radius: 15px;
+        flex-shrink: 1;  /* Allow the logo to shrink */
+    }
+
+    #welcome-header {
+        max-width: 600px;
+        width: 100%;
+        flex-shrink: 1;  /* Allow the header to shrink */
+    }
+
+    @media (max-width: 768px) {
+        .d-flex {
+            flex-direction: column; /* Stack the items vertically on smaller screens */
+            align-items: center; /* Center the content */
+        }
+        #pbcom-logo, #welcome-header {
+            width: 90%; /* Ensure the images take up most of the screen on smaller devices */
+            max-width: none; /* Allow images to shrink with screen size */
+        }
+    }
+
+    .fa-solid{
+      font-size: 50px;
+      margin-right: 20px;
+    }
+
+    .left-panel {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.dev/svgjs' width='1440' height='560' preserveAspectRatio='none' viewBox='0 0 1440 560'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1120%26quot%3b)' fill='none'%3e%3crect width='1440' height='560' x='0' y='0' fill='rgba(237%2c 237%2c 237%2c 1)'%3e%3c/rect%3e%3cpath d='M163.32 245.05L315.75 333.05L315.75 509.05L163.32 597.05L10.9 509.05L10.9 333.05zM10.9 509.05L163.32 597.05L163.32 773.05L10.9 861.05L-141.52 773.05L-141.52 597.05zM468.17 245.05L620.6 333.05L620.6 509.05L468.17 597.05L315.75 509.05L315.75 333.05zM315.75 509.05L468.17 597.05L468.17 773.05L315.75 861.05L163.32 773.05L163.32 597.05zM620.6 509.05L773.02 597.05L773.02 773.05L620.6 861.05L468.17 773.05L468.17 597.05zM925.45 509.05L1077.87 597.05L1077.87 773.05L925.45 861.05L773.02 773.05L773.02 597.05zM1230.3 -18.95L1382.72 69.05L1382.72 245.05L1230.3 333.05L1077.87 245.05L1077.87 69.05z' stroke='rgba(228%2c 228%2c 228%2c 1)' stroke-width='2'%3e%3c/path%3e%3cpath d='M145.72 245.05 a17.6 17.6 0 1 0 35.2 0 a17.6 17.6 0 1 0 -35.2 0zM298.15 333.05 a17.6 17.6 0 1 0 35.2 0 a17.6 17.6 0 1 0 -35.2 0zM298.15 509.05 a17.6 17.6 0 1 0 35.2 0 a17.6 17.6 0 1 0 -35.2 0zM145.72 597.05 a17.6 17.6 0 1 0 35.2 0 a17.6 17.6 0 1 0 -35.2 0zM-6.7 509.05 a17.6 17.6 0 1 0 35.2 0 a17.6 17.6 0 1 0 -35.2 0zM-6.7 333.05 a17.6 17.6 0 1 0 35.2 0 a17.6 17.6 0 1 0 -35.2 0zM145.72 773.05 a17.6 17.6 0 1 0 35.2 0 a17.6 17.6 0 1 0 -35.2 0zM-6.7 861.05 a17.6 17.6 0 1 0 35.2 0 a17.6 17.6 0 1 0 -35.2 0zM-159.12 773.05 a17.6 17.6 0 1 0 35.2 0 a17.6 17.6 0 1 0 -35.2 0zM-159.12 597.05 a17.6 17.6 0 1 0 35.2 0 a17.6 17.6 0 1 0 -35.2 0zM450.57 245.05 a17.6 17.6 0 1 0 35.2 0 a17.6 17.6 0 1 0 -35.2 0zM603 333.05 a17.6 17.6 0 1 0 35.2 0 a17.6 17.6 0 1 0 -35.2 0zM603 509.05 a17.6 17.6 0 1 0 35.2 0 a17.6 17.6 0 1 0 -35.2 0zM450.57 597.05 a17.6 17.6 0 1 0 35.2 0 a17.6 17.6 0 1 0 -35.2 0zM450.57 773.05 a17.6 17.6 0 1 0 35.2 0 a17.6 17.6 0 1 0 -35.2 0zM298.15 861.05 a17.6 17.6 0 1 0 35.2 0 a17.6 17.6 0 1 0 -35.2 0zM755.42 597.05 a17.6 17.6 0 1 0 35.2 0 a17.6 17.6 0 1 0 -35.2 0zM755.42 773.05 a17.6 17.6 0 1 0 35.2 0 a17.6 17.6 0 1 0 -35.2 0zM603 861.05 a17.6 17.6 0 1 0 35.2 0 a17.6 17.6 0 1 0 -35.2 0zM907.85 509.05 a17.6 17.6 0 1 0 35.2 0 a17.6 17.6 0 1 0 -35.2 0zM1060.27 597.05 a17.6 17.6 0 1 0 35.2 0 a17.6 17.6 0 1 0 -35.2 0zM1060.27 773.05 a17.6 17.6 0 1 0 35.2 0 a17.6 17.6 0 1 0 -35.2 0zM907.85 861.05 a17.6 17.6 0 1 0 35.2 0 a17.6 17.6 0 1 0 -35.2 0zM1212.7 -18.95 a17.6 17.6 0 1 0 35.2 0 a17.6 17.6 0 1 0 -35.2 0zM1365.12 69.05 a17.6 17.6 0 1 0 35.2 0 a17.6 17.6 0 1 0 -35.2 0zM1365.12 245.05 a17.6 17.6 0 1 0 35.2 0 a17.6 17.6 0 1 0 -35.2 0zM1212.7 333.05 a17.6 17.6 0 1 0 35.2 0 a17.6 17.6 0 1 0 -35.2 0zM1060.27 245.05 a17.6 17.6 0 1 0 35.2 0 a17.6 17.6 0 1 0 -35.2 0zM1060.27 69.05 a17.6 17.6 0 1 0 35.2 0 a17.6 17.6 0 1 0 -35.2 0z' fill='rgba(228%2c 228%2c 228%2c 1)'%3e%3c/path%3e%3cpath d='M89.56 -65.97L170.1 -19.47L170.1 73.53L89.56 120.03L9.02 73.53L9.02 -19.47zM170.1 73.53L250.65 120.03L250.65 213.03L170.1 259.53L89.56 213.03L89.56 120.03zM250.65 -65.97L331.19 -19.47L331.19 73.53L250.65 120.03L170.1 73.53L170.1 -19.47zM331.19 352.53L411.73 399.03L411.73 492.03L331.19 538.53L250.65 492.03L250.65 399.03zM492.27 352.53L572.82 399.03L572.82 492.03L492.27 538.53L411.73 492.03L411.73 399.03zM572.82 492.03L653.36 538.53L653.36 631.53L572.82 678.03L492.27 631.53L492.27 538.53zM733.9 213.03L814.44 259.53L814.44 352.53L733.9 399.03L653.36 352.53L653.36 259.53zM1056.07 -65.97L1136.61 -19.47L1136.61 73.53L1056.07 120.03L975.53 73.53L975.53 -19.47zM1056.07 492.03L1136.61 538.53L1136.61 631.53L1056.07 678.03L975.53 631.53L975.53 538.53zM1217.16 213.03L1297.7 259.53L1297.7 352.53L1217.16 399.03L1136.61 352.53L1136.61 259.53zM1458.79 352.53L1539.33 399.03L1539.33 492.03L1458.79 538.53L1378.24 492.03L1378.24 399.03z' stroke='rgba(226%2c 226%2c 226%2c 1)' stroke-width='2'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1120'%3e%3crect width='1440' height='560' fill='white'%3e%3c/rect%3e%3c/mask%3e%3c/defs%3e%3c/svg%3e");
+      padding: 80px;
+      height: 100%;
+      color: #707172;
+    }
+    .left-panel p {
+      color: #666;
+      font-size: 2vh;
+      margin: 15px 0px 30px 30px;
+    } 
+
+    .right-panel label{
+      text-align-last: left;
+    }
+    
+    .right-panel p{
+      color: #707172;
+    }
+
+    .form-box h2 {
+      font-family:'Arial', sans-serif;
+      font-weight: bold;
+    }
+    .feature {
+      display: flex;
+      align-items: center;
+      margin: 10px 0px 25px 60px;
+    }
+    .feature-icon {
+      font-size: 30px;
+      margin-right: 15px;
+      color: #555;
+    }
+    .feature-title {
+      font-family: 'Arial', sans-serif;
+      font-weight: bold;
+      color: #ef0a0b;
+      font-size: 18px;
+    }
+    .feature-desc {
+      font-size: 14px;
+      color: #666;
+    }
+    .support {
+      margin: 25px 0px 30px 30px;
+      font-size: 1.5vh;
+      color: #555;
+    }
+    .right-panel {
+      /* background: linear-gradient(to bottom right, #ef0a0b, #ff4c4c); */
+      background: url("images/layered-peaks2.png");
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      z-index: 1;
+      padding: 40px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .form-box{
+      -webkit-box-shadow: -1px 1px 15px 9px rgba(88, 2, 2, 0.87);
+      -moz-box-shadow: -1px 1px 15px 9px rgba(88, 2, 2, 0.87);
+      box-shadow: -1px 1px 15px 9px rgba(88, 2, 2, 0.87);
+    }
+    .signup-box {
+      -webkit-box-shadow: -1px 1px 15px 9px rgba(88, 2, 2, 0.87);
+      -moz-box-shadow: -1px 1px 15px 9px rgba(88, 2, 2, 0.875);
+      box-shadow: -1px 1px 15px 9px rgba(88, 2, 2, 0.87);
+    }
+    .form-box, .signup-box {
+      background: #ededed;
+      border-radius: 20px;
+      padding: 35px;
+      width: 100%;
+      max-width: 500px;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .form-box button, .signup-box button {
+      width: 100%;
+      margin-top: 10px;
+      border: none;
+      background-color: #ef0a0b;
+      color: #ededed;
+      border-radius: 10px;
+      font-size: 16px;
+      padding: 12px;
+    }
+    .form-box button:hover, .signup-box button:hover {
+      background-color: #ededed;
+      color: #ef0a0b;
+      box-shadow: 0 0 10px #ef0a0b, 0 0 13px #ef0a0b;
+    }
+    .signup-box button {
+      margin: 10px 10px;
+      width: auto;
+      padding: 10px 25px;
+    }
+    a {
+      color: #707172;
+      font-size: 1  .5vh;
+      text-decoration: none;
+      margin-top: 20px;
+      display: block;
+    }
