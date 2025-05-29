@@ -7,14 +7,9 @@
   <title>PBCOM - Regulatory Courses</title>
   <link href="https://fonts.cdnfonts.com/css/aileron" rel="stylesheet">
   <script src="https://kit.fontawesome.com/538907d71c.js" crossorigin="anonymous"></script>
-
-  <!-- Bootstrap 5 CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Bootstrap Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
-  <!-- Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <!-- Custom CSS -->
   <link rel="stylesheet" href="assets/css/courses.css">
 </head>
 
@@ -25,45 +20,7 @@
 
     <div class="content-wrapper">
       <!-- Sidebar -->
-      <aside id="sidebar" class="sidebar">
-        <div class="sidebar-header">
-          <h2>Employee Portal</h2>
-        </div>
-        <nav class="sidebar-nav">
-          <div class="nav-section">
-            <div class="nav-section-title">Main</div>
-            <a href="home.php" class="nav-link">
-              <i class="bi bi-house"></i>
-              <span>Home</span>
-            </a>
-            <a href="employee_dashboard.php" class="nav-link ">
-              <i class="bi bi-bar-chart"></i>
-              <span>Dashboard</span>
-            </a>
-            <a href="#" class="nav-link ">
-              <i class="bi bi-book"></i>
-              <span>My Library</span>
-            </a>
-          </div>
-          <div class="nav-section">
-            <div class="nav-section-title">Learning</div>
-            <div class="nav-dropdown">
-              <button class="nav-dropdown-toggle">
-                <i class="bi bi-book"></i>
-                <span>Courses</span>
-                <i class="bi bi-chevron-down dropdown-icon"></i>
-              </button>
-              <div class="nav-dropdown-menu active">
-                <a href="regulatory_courses.php" class="nav-dropdown-item active">Regulatory Courses</a>
-                <a href="on_boarding.php" class="nav-dropdown-item">On-Boarding Orientation</a>
-                <a href="behavioral_management.php" class="nav-dropdown-item">Behavioral and Management</a>
-                <a href="development_program.php" class="nav-dropdown-item">Development Program</a>
-                <a href="tech_job_specific.php" class="nav-dropdown-item">Technical/Job Specific</a>
-              </div>
-            </div>
-          </div>
-        </nav>
-      </aside>
+      <?php include 'sidebar.php' ?>
 
       <!-- Main Content -->
       <main class="main-content">
@@ -77,7 +34,9 @@
               <input type="text" class="form-control" placeholder="Search courses...">
             </div>
           </div>
-
+          &nbsp;
+          &nbsp;
+          &nbsp;
           <!-- Page Header -->
           <div class="page-header mb-4">
             <div class="d-flex justify-content-between align-items-center">
@@ -347,22 +306,7 @@
         </div>
 
         <!-- Footer -->
-        <footer class="footer">
-          <div class="container-fluid">
-            <div class="text-center">
-              <div class="footer-links">
-                <a href="#">Help</a>
-                <span>|</span>
-                <a href="#">Privacy Policy</a>
-                <span>|</span>
-                <a href="#">Terms of Service</a>
-              </div>
-              <div class="copyright mt-2">
-                © 2025 PBCOM Universal Bank. All rights reserved.
-              </div>
-            </div>
-          </div>
-        </footer>
+        <?php include 'footer.php' ?>
       </main>
     </div>
   </div>

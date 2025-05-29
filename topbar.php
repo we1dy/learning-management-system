@@ -21,13 +21,19 @@
 				<div class="notification-bell position-relative">
 					<a href="employee_message.php" style="text-decoration:none;">
 						<i class="fa fa-message"></i>
-						</a>
+					</a>
 				</div>
-				<div class="user-profile d-flex align-items-center">
-					<div class="avatar me-2">
-						<span>LC</span>
+				<div class="dropdown">
+					<div class="user-profile d-flex align-items-center" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+						<div class="avatar me-2">
+							<span>LC</span>
+						</div>
+						<i class="bi bi-chevron-down"></i>
 					</div>
-					<i class="bi bi-chevron-down"></i>
+					<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+						<li><a class="dropdown-item" href="employee_profile.php">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="bi bi-person me-2"></i>Profile</a></li>
+						<li><a class="dropdown-item" href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="bi bi-box-arrow-right me-2"></i>Log Out</a></li>
+					</ul>
 				</div>
 			</div>
 		</div>

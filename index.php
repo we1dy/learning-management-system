@@ -15,7 +15,7 @@
   <div class="row vh-100">
     <div class="col-lg-6 d-flex flex-column justify-content-center left-panel">
       <div class="d-flex align-items-mb-4 flex-wrap">
-        <img src="assets/images/header.png" id="welcome-header" class="img-fluid" style="max-width: 750px; width: 100%; flex-shrink: 1;">
+        <img src="assets/images/header.png" id="welcome-header" class="img-fluid" style="max-width: 760px; width: 100%; flex-shrink: 1;">
       </div>
       <br>
       <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Access your accounts securely, manage your finances, and enjoy our comprehensive banking services.</p>
