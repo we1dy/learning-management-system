@@ -7,7 +7,7 @@
   <link href="https://fonts.cdnfonts.com/css/aileron" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://kit.fontawesome.com/538907d71c.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="assets/css/index.css">
 </head>
 <body>
 
@@ -15,7 +15,7 @@
   <div class="row vh-100">
     <div class="col-lg-6 d-flex flex-column justify-content-center left-panel">
       <div class="d-flex align-items-mb-4 flex-wrap">
-        <img src="images/header.png" id="welcome-header" class="img-fluid" style="max-width: 750px; width: 100%; flex-shrink: 1;">
+        <img src="assets/images/header.png" id="welcome-header" class="img-fluid" style="max-width: 750px; width: 100%; flex-shrink: 1;">
       </div>
       <br>
       <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Access your accounts securely, manage your finances, and enjoy our comprehensive banking services.</p>
