@@ -277,6 +277,11 @@ body {
   transition: all 0.2s;
 }
 
+.nav-dropdown.open .nav-dropdown-menu {
+  max-height: 300px;
+}
+
+
 
 /* Main Content */
 .main-content {

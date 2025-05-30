@@ -109,7 +109,6 @@ body {
   color: #333;
 }
 
-
 .avatar {
   width: 33px;
   height: 33px;
@@ -278,6 +277,10 @@ body {
   color: #495057;
   text-decoration: none;
   transition: all 0.2s;
+}
+
+.nav-dropdown.open .nav-dropdown-menu {
+  max-height: 300px;
 }
 
 /* Main Content Styles */
