@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PBCOM LMS | Home</title>
+  <title>PBCOM LMS | Certificate</title>
   <link href="https://fonts.cdnfonts.com/css/aileron" rel="stylesheet">
   <script src="https://kit.fontawesome.com/538907d71c.js" crossorigin="anonymous"></script>
 
@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
 
   <!-- CSS Custom -->
-  <link rel="stylesheet" href="assets/css/dashboard.css">
+  <link rel="stylesheet" href="../assets/css/dashboard.css">
 </head>
 
 <body>
@@ -39,14 +39,14 @@
           &nbsp;
           &nbsp;
           &nbsp;
-          <h1>Announcements</h1>
+          <h1>Certificate</h1>
           <a href="employee_dashboard.php">back</a>
 
           </section>
         </div>
 
         <!-- Footer -->
-        <?php include 'footer.php' ?>
+        <?php include '../footer.php' ?>
       </main>
     </div>
   </div>
@@ -56,8 +56,8 @@
   <!-- Bootstrap JS Bundle with Popper -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
   <!-- Custom JavaScript -->
-  <script src="assets/js/script.js"></script>
-  <script src="assets/js/sidebar.js"></script>
+  <script src="../assets/js/script.js"></script>
+  <script src="../assets/js/sidebar.js"></script>
 </body>
 
 </html>

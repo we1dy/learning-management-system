@@ -1,3 +1,10 @@
+<?php
+require_once "../db.php";
+
+if (session_status() == PHP_SESSION_NONE) {
+  session_start();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,7 +20,7 @@
   <!-- Bootstrap Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
   <!-- Custom CSS -->
-  <link rel="stylesheet" href="assets/css/dashboard.css">
+  <link rel="stylesheet" href="../assets/css/dashboard.css">
 </head>
 
 <body>
@@ -29,16 +36,17 @@
       <nav class="sidebar-nav">
         <div class="nav-section">
           <div class="nav-section-title">Main</div>
-          <a href="home.php" class="nav-link">
-            <i class="bi bi-house"></i>
-            <span>Home</span>
-          </a>
-          <a href="#" class="nav-link">
+          <a href="employee_dashboard.php" class="nav-link">
             <i class="bi bi-bar-chart"></i>
             <span>Dashboard</span>
           </a>
+          <a href="#" class="nav-link">
+            <i class="bi bi-person-circle"></i>
+            <span>Profile</span>
+          </a>
 
-        </div>
+        </div> <!-- end of main nav-section -->
+
         <div class="nav-section">
           <div class="nav-section-title">Learning</div>
           <div class="nav-dropdown">
@@ -54,22 +62,18 @@
               <a href="development_program.php" class="nav-dropdown-item">Development Program</a>
               <a href="tech_job_specific.php" class="nav-dropdown-item">Technical/Job Specific</a>
             </div>
-
-            <a href="employee_announcement.php" class="nav-link">
-              <i class="bi bi-megaphone me-2"></i>
-              <span>Announcements</span>
-            </a>
-            <a href="employee_quiz.php" class="nav-link ">
-              <i class="bi bi-journal-check me-2"></i>
-              <span>Quiz</span>
-            </a>
-            </a>
-            <a href="employee_quizlog.php" class="nav-link ">
-              <i class="bi bi-ui-radios me-2"></i>
-              <span>Quiz Log</span>
-            </a>
           </div>
-        </div>
+
+          <a href="employee_quiz.php" class="nav-link ">
+            <i class="bi bi-journal-check me-2"></i>
+            <span>Quiz</span>
+          </a>
+          </a>
+          <a href="#" class="nav-link">
+            <i class="bi bi-chat-dots me-2"></i>
+            <span>Certificate</span>
+          </a>
+        </div> <!-- end of learning nav-section -->
       </nav>
     </aside>
 

@@ -55,7 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
       // 7. Redirect to home
-      header("Location: home.php");
+      header("Location: employee/employee_dashboard.php");
       exit();
     } else {
       $login_error = "Invalid password.";

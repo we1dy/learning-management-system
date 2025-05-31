@@ -15,7 +15,7 @@
   <!-- Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <!-- Custom CSS -->
-  <link rel="stylesheet" href="assets/css/courses.css">
+  <link rel="stylesheet" href="../assets/css/courses.css">
   <link rel="stylesheet" href="assets/css/employee.css">
 
 </head>
@@ -235,7 +235,7 @@
         </div>
 
         <!-- Footer -->
-        <?php include 'footer.php' ?>
+        <?php include '../footer.php' ?>
       </main>
     </div>
   </div>
@@ -252,8 +252,8 @@
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
   <!-- Custom JS -->
-  <script src="assets/js/script.js"></script>
-  <script src="assets/js/sidebar.js"></script>
+  <script src="../assets/js/script.js"></script>
+  <script src="../assets/js/sidebar.js"></script>
 </body>
 
 </html>

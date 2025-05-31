@@ -102,7 +102,7 @@
 
     .right-panel {
       /* background: linear-gradient(to bottom right, #ef0a0b, #ff4c4c); */
-      background-image: url("assets/images/bg2.png");
+      background-image: url("../images/bg2.png");
       background-size: cover;
       background-position: center;
       position: relative;

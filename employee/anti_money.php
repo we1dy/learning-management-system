@@ -26,7 +26,7 @@ echo "<h1>Welcome to the $course course page!</h1>";
 <body>
   <div class="wrapper">
     <!-- Header -->
-    <?php include 'topbar.php' ?>
+    <?php include '../topbar.php' ?>
 
     <div class="content-wrapper">
       <!-- Sidebar -->
@@ -90,7 +90,7 @@ echo "<h1>Welcome to the $course course page!</h1>";
   <!-- Bootstrap JS Bundle with Popper -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <!-- Custom JS -->
-  <script src="assets/js/sidebar.js"></script>
+  <script src="../assets/js/sidebar.js"></script>
 </body>
 
 </html>
