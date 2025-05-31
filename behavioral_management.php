@@ -32,10 +32,10 @@
         <nav class="sidebar-nav">
           <div class="nav-section">
             <div class="nav-section-title">Main</div>
-            <!-- <a href="home.php" class="nav-link">
+            <a href="home.php" class="nav-link">
               <i class="bi bi-house"></i>
               <span>Home</span>
-            </a> -->
+            </a>
             <a href="employee_dashboard.php" class="nav-link ">
               <i class="bi bi-bar-chart"></i>
               <span>Dashboard</span>
@@ -73,7 +73,9 @@
               <input type="text" class="form-control" placeholder="Search courses...">
             </div>
           </div>
-
+          &nbsp;
+          &nbsp;
+          &nbsp;
           <!-- Page Header -->
           <div class="page-header mb-4">
             <div class="d-flex justify-content-between align-items-center">
@@ -265,22 +267,7 @@
         </div>
 
         <!-- Footer -->
-        <footer class="footer">
-          <div class="container-fluid">
-            <div class="text-center">
-              <div class="footer-links">
-                <a href="#">Help</a>
-                <span>|</span>
-                <a href="#">Privacy Policy</a>
-                <span>|</span>
-                <a href="#">Terms of Service</a>
-              </div>
-              <div class="copyright mt-2">
-                © 2025 PBCOM Universal Bank. All rights reserved.
-              </div>
-            </div>
-          </div>
-        </footer>
+        <<?php include 'footer.php' ?>
       </main>
     </div>
   </div>

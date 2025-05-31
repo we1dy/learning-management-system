@@ -24,59 +24,7 @@
 
     <div class="content-wrapper">
       <!-- Sidebar -->
-      <aside id="sidebar" class="sidebar">
-        <div class="sidebar-header">
-          <h2>Employee Portal</h2>
-        </div>
-        <nav class="sidebar-nav">
-          <div class="nav-section">
-            <div class="nav-section-title">Main</div>
-            <a href="home.php" class="nav-link active">
-              <i class="bi bi-house"></i>
-              <span>Home</span>
-            </a>
-            <a href="employee_dashboard.php" class="nav-link">
-              <i class="bi bi-bar-chart"></i>
-              <span>Dashboard</span>
-            </a>
-            
-
-
-          </div>
-          <div class="nav-section">
-            <div class="nav-section-title">Learning</div>
-            <div class="nav-dropdown">
-              <button class="nav-dropdown-toggle">
-                <i class="bi bi-book"></i>
-                <span>Courses</span>
-                <i class="bi bi-chevron-down dropdown-icon"></i>
-              </button>
-              <div class="nav-dropdown-menu">
-                <a href="regulatory_courses.php" class="nav-dropdown-item">Regulatory Courses</a>
-                <a href="on_boarding.php" class="nav-dropdown-item">On-Boarding Orientation</a>
-                <a href="behavioral_management.php" class="nav-dropdown-item">Behavioral and
-                  Management</a>
-                <a href="development_program.php" class="nav-dropdown-item">Development Program</a>
-                <a href="tech_job_specific.php" class="nav-dropdown-item">Technical/Job Specific</a>
-              </div>
-            </div>
-
-            <a href="employee_announcement.php" class="nav-link">
-              <i class="bi bi-megaphone me-2"></i>
-              <span>Announcements</span>
-            </a>
-            <a href="employee_quiz.php" class="nav-link ">
-              <i class="bi bi-journal-check me-2"></i>
-              <span>Quiz</span>
-            </a>
-            </a>
-            <a href="employee_quizlog.php" class="nav-link ">
-              <i class="bi bi-ui-radios me-2"></i>
-              <span>Quiz Log</span>
-            </a>
-          </div>
-        </nav>
-      </aside>
+      <?php include 'sidebar.php' ?>
 
       <!-- Main Content -->
       <main class="main-content">
@@ -88,18 +36,27 @@
               <input type="text" class="form-control" placeholder="Search...">
             </div>
           </div>
-
-          <h1>home</h1>
+          &nbsp;
+          &nbsp;
+          &nbsp;
+          <h1>Home</h1>
           <a href="employee_dashboard.php">back</a>
 
           </section>
         </div>
+
+        <!-- Footer -->
+        <?php include 'footer.php' ?>
       </main>
     </div>
   </div>
+
+  <!-- SweetAlert 2 CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <!-- Bootstrap JS Bundle with Popper -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <!-- Custom JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Custom JavaScript -->
+  <script src="assets/js/script.js"></script>
   <script src="assets/js/sidebar.js"></script>
 </body>
 
