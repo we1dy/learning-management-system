@@ -30,10 +30,10 @@
         <nav class="sidebar-nav">
           <div class="nav-section">
             <div class="nav-section-title">Main</div>
-            <a href="home.php" class="nav-link">
+            <!-- <a href="home.php" class="nav-link">
               <i class="bi bi-house"></i>
               <span>Home</span>
-            </a>
+            </a> -->
             <a href="#" class="nav-link active">
               <i class="bi bi-bar-chart"></i>
               <span>Dashboard</span>
@@ -56,18 +56,14 @@
                 <a href="tech_job_specific.php" class="nav-dropdown-item">Technical/Job Specific</a>
               </div>
 
-              <a href="employee_announcement.php" class="nav-link">
-                <i class="bi bi-megaphone me-2"></i>
-                <span>Announcements</span>
-              </a>
               <a href="employee_quiz.php" class="nav-link ">
                 <i class="bi bi-journal-check me-2"></i>
                 <span>Quiz</span>
               </a>
               </a>
-              <a href="employee_quizlog.php" class="nav-link ">
+              <a href="" class="nav-link">
                 <i class="bi bi-ui-radios me-2"></i>
-                <span>Quiz Log</span>
+                <span>Certificate</span>
               </a>
             </div>
           </div>

@@ -20,8 +20,8 @@
 				</div>
 				<div class="notification-bell position-relative">
 					<a href="employee_message.php" style="text-decoration:none;">
-						<i class="fa fa-message"></i>
-						</a>
+						<i class="fa-regular fa-message"></i> 
+					</a>
 				</div>
 				<div class="user-profile d-flex align-items-center">
 					<div class="avatar me-2">

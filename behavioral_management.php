@@ -32,10 +32,10 @@
         <nav class="sidebar-nav">
           <div class="nav-section">
             <div class="nav-section-title">Main</div>
-            <a href="home.php" class="nav-link">
+            <!-- <a href="home.php" class="nav-link">
               <i class="bi bi-house"></i>
               <span>Home</span>
-            </a>
+            </a> -->
             <a href="employee_dashboard.php" class="nav-link ">
               <i class="bi bi-bar-chart"></i>
               <span>Dashboard</span>

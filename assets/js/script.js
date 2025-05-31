@@ -106,9 +106,9 @@ document.addEventListener('DOMContentLoaded', function () {
       }
 
       // In a real application, this would load the next page of courses
-      if (this.textContent === '2' || this.innerHTML.includes('chevron-right')) {
-        alert('Loading page 2 of courses...');
-      }
+      // if (this.textContent === '2' || this.innerHTML.includes('chevron-right')) {
+      //   alert('Loading page 2 of courses...');
+      // }
     });
   });
 });

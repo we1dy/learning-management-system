@@ -1,5 +1,5 @@
 <?php
-include 'database/db.php';
+include 'db.php';
 
 $sql = "SELECT username, message, sent_at FROM em_messages ORDER BY sent_at ASC";
 $result = $conn->query($sql);

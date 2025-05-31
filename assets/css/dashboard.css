@@ -80,6 +80,10 @@ body {
   padding: 5px 7px 5px 7px;
 }
 
+.notification-bell a {
+  color: white ;
+}
+
 .notification-indicator {
   position: absolute;
   top: 5px;
