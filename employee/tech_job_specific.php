@@ -4,7 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>PBCom Dashboard</title>
+	<title>PBCOM LMS | Technical/Job Specific</title>
 	<link href="https://fonts.cdnfonts.com/css/aileron" rel="stylesheet">
 	<script src="https://kit.fontawesome.com/538907d71c.js" crossorigin="anonymous"></script>
 
