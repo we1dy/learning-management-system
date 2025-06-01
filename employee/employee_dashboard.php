@@ -63,13 +63,10 @@ $statusClass = [
   <title>PBCOM LMS | Dashboard</title>
   <link href="https://fonts.cdnfonts.com/css/aileron" rel="stylesheet">
   <script src="https://kit.fontawesome.com/538907d71c.js" crossorigin="anonymous"></script>
-
-  <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Bootstrap Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
-  <!-- Custom CSS -->
   <link rel="stylesheet" href="../assets/css/dashboard.css">
+  <link rel="icon" type="image/x-icon" href="assets/images/pbcom.jpg">
 </head>
 
 <body>
@@ -79,53 +76,7 @@ $statusClass = [
 
     <div class="content-wrapper">
       <!-- Sidebar -->
-      <aside id="sidebar" class="sidebar">
-        <div class="sidebar-header">
-          <h2>Employee Portal</h2>
-        </div>
-        <nav class="sidebar-nav">
-          <div class="nav-section">
-            <div class="nav-section-title">Main</div>
-            <a href="employee_dashboard.php" class="nav-link active">
-              <i class="bi bi-bar-chart"></i>
-              <span>Dashboard</span>
-            </a>
-            <a href="#" class="nav-link">
-              <i class="bi bi-person-circle"></i>
-              <span>Profile</span>
-            </a>
-
-          </div> <!-- end of main nav-section -->
-
-          <div class="nav-section">
-            <div class="nav-section-title">Learning</div>
-            <div class="nav-dropdown">
-              <button class="nav-dropdown-toggle">
-                <i class="bi bi-book"></i>
-                <span>Courses</span>
-                <i class="bi bi-chevron-down dropdown-icon"></i>
-              </button>
-              <div class="nav-dropdown-menu">
-                <a href="regulatory_courses.php" class="nav-dropdown-item">Regulatory Courses</a>
-                <a href="on_boarding.php" class="nav-dropdown-item">On-Boarding Orientation</a>
-                <a href="behavioral_management.php" class="nav-dropdown-item">Behavioral and Management</a>
-                <a href="development_program.php" class="nav-dropdown-item">Development Program</a>
-                <a href="tech_job_specific.php" class="nav-dropdown-item">Technical/Job Specific</a>
-              </div>
-            </div>
-
-            <a href="employee_quiz.php" class="nav-link ">
-              <i class="bi bi-journal-check me-2"></i>
-              <span>Quiz</span>
-            </a>
-            </a>
-            <a href="employee_cert.php" class="nav-link">
-              <i class="bi bi-chat-dots me-2"></i>
-              <span>Certificate</span>
-            </a>
-          </div> <!-- end of learning nav-section -->
-        </nav>
-      </aside>
+      <?php include 'sidebar.php' ?>
 
       <!-- Main Content -->
       <main class="main-content">

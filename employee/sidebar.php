@@ -21,22 +21,21 @@
     <div class="nav-section">
       <div class="nav-section-title">Main</div>
 
-      <a href="employee_dashboard.php"
-        class="nav-link <?= ($currentPage == 'employee_dashboard.php') ? 'active' : '' ?>">
+      <a href="employee_dashboard.php" class="nav-link <?= ($currentPage == 'employee_dashboard.php') ? 'active' : '' ?>">
         <i class="bi bi-bar-chart"></i>
         <span>Dashboard</span>
       </a>
+
+      <a href="employee_profile.php" class="nav-link <?= ($currentPage == 'employee_profile.php') ? 'active' : '' ?>">
+        <i class="bi bi-person-circle"></i>
+        <span>Profile</span>
+      </a>
+
     </div>
 
     <div class="nav-section">
       <div class="nav-section-title">Learning</div>
       <div class="nav-dropdown">
-        <!-- <button class="nav-dropdown-toggle">
-          <i class="bi bi-book"></i>
-          <span>Courses</span>
-          <i class="bi bi-chevron-down dropdown-icon"></i>
-        </button> -->
-
         <div class="nav-dropdown <?= $isDropdownActive ? 'open' : '' ?>">
           <a href="#" class="nav-link nav-dropdown-toggle">
             <i class="bi bi-book"></i>
@@ -62,20 +61,18 @@
               Specific</a>
           </div>
         </div>
-
-
-        <!-- <a href="employee_announcement.php" class="nav-link <?= ($currentPage == 'employee_announcement.php') ? 'active' : '' ?>">
-          <i class="bi bi-megaphone me-2"></i>
+        <a href="employee_announcement.php" class="nav-link <?= ($currentPage == 'employee_announcement.php') ? 'active' : '' ?>">
+          <i class="bi bi-megaphone me-2"></i>&nbsp;
           <span>Announcements</span>
-        </a> -->
+        </a>
 
         <a href="employee_quiz.php" class="nav-link <?= ($currentPage == 'employee_quiz.php') ? 'active' : '' ?>">
-          <i class="bi bi-journal-check me-2"></i>
+          <i class="bi bi-journal-check me-2"></i>&nbsp;
           <span>Quiz</span>
         </a>
 
         <a href="employee_cert.php" class="nav-link <?= ($currentPage == 'employee_cert.php') ? 'active' : '' ?>">
-          <i class="bi bi-journal-check me-2"></i>
+          <i class="bi bi-patch-check"></i>
           <span>Certificate</span>
         </a>
 
