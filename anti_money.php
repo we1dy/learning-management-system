@@ -1,20 +1,16 @@
-<<<<<<< HEAD
-=======
 <?php
-require_once "db.php";
+$course = $_GET['course'] ?? 'unknown';
 
-if (session_status() == PHP_SESSION_NONE) {
-  session_start();
-}
+echo "<h1>Welcome to the $course course page!</h1>";
 ?>
->>>>>>> 570c26b (denice first commit (take 2))
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PBCOM LMS | Home</title>
+  <title>PBCOM LMS | Anti-Money Laundering </title>
   <link href="https://fonts.cdnfonts.com/css/aileron" rel="stylesheet">
   <script src="https://kit.fontawesome.com/538907d71c.js" crossorigin="anonymous"></script>
 
@@ -34,9 +30,6 @@ if (session_status() == PHP_SESSION_NONE) {
 
     <div class="content-wrapper">
       <!-- Sidebar -->
-<<<<<<< HEAD
-      <?php include 'sidebar.php' ?>
-=======
       <aside id="sidebar" class="sidebar">
         <div class="sidebar-header">
           <h2>Employee Portal</h2>
@@ -46,30 +39,12 @@ if (session_status() == PHP_SESSION_NONE) {
             <div class="nav-section-title">Main</div>
             <a href="home.php" class="nav-link active">
               <i class="bi bi-house"></i>
-              <span>Home</span>
+              <span>Hone</span>
             </a>
             <a href="employee_dashboard.php" class="nav-link">
               <i class="bi bi-bar-chart"></i>
               <span>Dashboard</span>
             </a>
-             <a href="employee_announcement.php" class="nav-link">
-          <i class="bi bi-megaphone me-2"></i>
-          <span>Announcements</span>
-        </a>
-         <a href="employee_quiz.php" class="nav-link ">
-          <i class="bi bi-journal-check me-2"></i>
-          <span>Quiz</span>
-        </a>
-        </a>
-        <a href="employee_quizlog.php" class="nav-link ">
-          <i class="bi bi-ui-radios me-2"></i>
-          <span>Quiz Log</span>
-        </a>
-        <a href="employee_message.php" class="nav-link">
-          <i class="bi bi-chat-dots me-2"></i>
-          <span>Message</span>
-        </a>
-            
 
           </div>
           <div class="nav-section">
@@ -92,7 +67,6 @@ if (session_status() == PHP_SESSION_NONE) {
           </div>
         </nav>
       </aside>
->>>>>>> 570c26b (denice first commit (take 2))
 
       <!-- Main Content -->
       <main class="main-content">
@@ -104,35 +78,12 @@ if (session_status() == PHP_SESSION_NONE) {
               <input type="text" class="form-control" placeholder="Search...">
             </div>
           </div>
-<<<<<<< HEAD
-          &nbsp;
-          &nbsp;
-          &nbsp;
-          <h1>Home</h1>
-=======
 
-          <h1>home</h1>
->>>>>>> 570c26b (denice first commit (take 2))
+          <h1>Anti-Money Laundering</h1>
           <a href="employee_dashboard.php">back</a>
 
           </section>
         </div>
-<<<<<<< HEAD
-
-        <!-- Footer -->
-        <?php include 'footer.php' ?>
-      </main>
-    </div>
-  </div>
-
-  <!-- SweetAlert 2 CDN -->
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <!-- Bootstrap JS Bundle with Popper -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-  <!-- Custom JavaScript -->
-  <script src="../assets/js/script.js"></script>
-  <script src="../assets/js/sidebar.js"></script>
-=======
       </main>
     </div>
   </div>
@@ -140,7 +91,6 @@ if (session_status() == PHP_SESSION_NONE) {
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <!-- Custom JS -->
   <script src="assets/js/sidebar.js"></script>
->>>>>>> 570c26b (denice first commit (take 2))
 </body>
 
 </html>

@@ -4,27 +4,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PBCOM | Regulatory Courses</title>
+  <title>PBCom Dashboard</title>
   <link href="https://fonts.cdnfonts.com/css/aileron" rel="stylesheet">
   <script src="https://kit.fontawesome.com/538907d71c.js" crossorigin="anonymous"></script>
 
   <!-- Bootstrap 5 CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+  <!-- Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="../assets/css/courses.css">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/courses.css">
+  <link rel="stylesheet" href="assets/css/employee.css">
+
 </head>
 
 <body>
   <div class="wrapper">
     <!-- Header -->
     <?php include 'topbar.php' ?>
-    <?php include 'topbar.php' ?>
 
     <div class="content-wrapper">
       <!-- Sidebar -->
-      <?php include 'sidebar.php' ?>
-      
       <aside id="sidebar" class="sidebar">
         <div class="sidebar-header">
           <h2>Employee Portal</h2>
@@ -73,13 +75,11 @@
               <input type="text" class="form-control" placeholder="Search courses...">
             </div>
           </div>
-          &nbsp;
-          &nbsp;
-          &nbsp;
+
           <!-- Page Header -->
           <div class="page-header mb-4">
             <div class="d-flex justify-content-between align-items-center">
-              <h1 class="page-title">Regulatory Courses</h1>
+              <h1 class="page-title">Development Program</h1>
               <span class="badge mandatory-badge">Mandatory Training</span>
             </div>
             <p class="text-muted mt-2">
@@ -89,7 +89,7 @@
 
           <!-- Course Grid -->
           <div class="row g-4">
-            <!-- Financial Consumer Protection -->
+            <!-- Advanced Leadership -->
             <div class="col-md-6 col-lg-4">
               <div class="course-card">
                 <div class="course-image bg-gradient-red">
@@ -99,50 +99,23 @@
                 </div>
                 <div class="course-content">
                   <div class="d-flex justify-content-between align-items-start mb-2">
-                    <h3 class="course-title">Financial Consumer Protection</h3>
+                    <h3 class="course-title">Advanced Leadership</h3>
                     <span class="badge required-badge">Required</span>
                   </div>
                   <p class="course-description">
-                    Understanding regulations and compliance procedures for financial institutions
+                    For senior managers and executives
                   </p>
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="course-duration">Duration: 2 hours</div>
                     <button class="btn btn-link start-course-btn">
-                      Start Course <i class="fas fa-chevron-right ms-1" data-url="anti_money.php?course=aml"></i>
+                      Start Course <i class="fas fa-chevron-right ms-1"></i>
                     </button>
                   </div>
                 </div>
               </div>
             </div>
 
-            <!-- Anti-Money Laundering -->
-            <div class="col-md-6 col-lg-4">
-              <div class="course-card">
-                <div class="course-image bg-gradient-red">
-                  <div class="course-icon">
-                    <i class="fas fa-money-bill-wave"></i>
-                  </div>
-                </div>
-                <div class="course-content">
-                  <div class="d-flex justify-content-between align-items-start mb-2">
-                    <h3 class="course-title">Anti-Money Laundering</h3>
-                    <span class="badge required-badge">Required</span>
-                  </div>
-                  <p class="course-description">
-                    Understanding AML regulations and compliance procedures for financial institutions
-                  </p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="course-duration">Duration: 2 hours</div>
-                    <button class="btn btn-link start-course-btn">
-                      Start Course <i class="fas fa-chevron-right ms-1" data-url="anti_money.php?course=aml"></i>
-                      Start Course <i class="fas fa-chevron-right ms-1" data-url="anti_money.php?course=aml"></i>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Bank Contiinuity Management -->
+            <!-- Strategic Thinking -->
             <div class="col-md-6 col-lg-4">
               <div class="course-card">
                 <div class="course-image bg-gradient-blue">
@@ -152,11 +125,11 @@
                 </div>
                 <div class="course-content">
                   <div class="d-flex justify-content-between align-items-start mb-2">
-                    <h3 class="course-title">Bank Continuity Management</h3>
+                    <h3 class="course-title">Strategic Thinking</h3>
                     <span class="badge required-badge">Required</span>
                   </div>
                   <p class="course-description">
-                    Compliance with data protection regulations and safeguarding customer information
+                    Developing long-term business strategies
                   </p>
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="course-duration">Duration: 1.5 hours</div>
@@ -168,7 +141,7 @@
               </div>
             </div>
 
-            <!-- Information Security Awareness -->
+            <!-- Financial Analysis -->
             <div class="col-md-6 col-lg-4">
               <div class="course-card">
                 <div class="course-image bg-gradient-purple">
@@ -178,11 +151,11 @@
                 </div>
                 <div class="course-content">
                   <div class="d-flex justify-content-between align-items-start mb-2">
-                    <h3 class="course-title">Information Security Awareness</h3>
+                    <h3 class="course-title">Financial Analysis</h3>
                     <span class="badge required-badge">Required</span>
                   </div>
                   <p class="course-description">
-                    Understanding confidentiality requirements and legal obligations for banking information
+                    Advanced financial statement analysis
                   </p>
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="course-duration">Duration: 1 hour</div>
@@ -194,7 +167,7 @@
               </div>
             </div>
 
-            <!-- Customer Protection -->
+            <!-- Digital Transformation -->
             <div class="col-md-6 col-lg-4">
               <div class="course-card">
                 <div class="course-image bg-gradient-green">
@@ -204,11 +177,11 @@
                 </div>
                 <div class="course-content">
                   <div class="d-flex justify-content-between align-items-start mb-2">
-                    <h3 class="course-title">Customer Protection</h3>
+                    <h3 class="course-title">Leading digital initiatives in banking</h3>
                     <span class="badge required-badge">Required</span>
                   </div>
                   <p class="course-description">
-                    Fair treatment of banking customers and understanding consumer rights protection
+                    Managing workplace conflicts effectively
                   </p>
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="course-duration">Duration: 1.5 hours</div>
@@ -220,7 +193,7 @@
               </div>
             </div>
 
-            <!-- Data Privacy Act -->
+            <!-- Innovation Management -->
             <div class="col-md-6 col-lg-4">
               <div class="course-card">
                 <div class="course-image bg-gradient-amber">
@@ -230,11 +203,11 @@
                 </div>
                 <div class="course-content">
                   <div class="d-flex justify-content-between align-items-start mb-2">
-                    <h3 class="course-title">Data Privacy Act</h3>
+                    <h3 class="course-title">Innovation Management</h3>
                     <span class="badge required-badge">Required</span>
                   </div>
                   <p class="course-description">
-                    Identifying and preventing financial fraud through detection techniques and protocols
+                    Fostering innovation in financial services
                   </p>
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="course-duration">Duration: 2 hours</div>
@@ -246,7 +219,7 @@
               </div>
             </div>
 
-            <!-- PBCOM Onboarding for New Employee -->
+            <!-- Executive Presence -->
             <div class="col-md-6 col-lg-4">
               <div class="course-card">
                 <div class="course-image bg-gradient-slate">
@@ -256,63 +229,11 @@
                 </div>
                 <div class="course-content">
                   <div class="d-flex justify-content-between align-items-start mb-2">
-                    <h3 class="course-title">PBCOM Onboarding for New Employee</h3>
+                    <h3 class="course-title">Executive Presence</h3>
                     <span class="badge required-badge">Required</span>
                   </div>
                   <p class="course-description">
-                    Fundamentals of banking risk management and mitigation strategies
-                  </p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="course-duration">Duration: 2.5 hours</div>
-                    <button class="btn btn-link start-course-btn">
-                      Start Course <i class="fas fa-chevron-right ms-1"></i>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Information Security Awareness -->
-            <div class="col-md-6 col-lg-4">
-              <div class="course-card">
-                <div class="course-image bg-gradient-purple">
-                  <div class="course-icon">
-                    <i class="fas fa-lock"></i>
-                  </div>
-                </div>
-                <div class="course-content">
-                  <div class="d-flex justify-content-between align-items-start mb-2">
-                    <h3 class="course-title">Information Security Awareness</h3>
-                    <span class="badge required-badge">Required</span>
-                  </div>
-                  <p class="course-description">
-                    Understanding confidentiality requirements and legal obligations for banking information
-                  </p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="course-duration">Duration: 1 hour</div>
-                    <button class="btn btn-link start-course-btn">
-                      Start Course <i class="fas fa-chevron-right ms-1"></i>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Social Media Risk Management Framework -->
-            <div class="col-md-6 col-lg-4">
-              <div class="course-card">
-                <div class="course-image bg-gradient-slate">
-                  <div class="course-icon">
-                    <i class="fas fa-chart-pie"></i>
-                  </div>
-                </div>
-                <div class="course-content">
-                  <div class="d-flex justify-content-between align-items-start mb-2">
-                    <h3 class="course-title">Social Media Risk Management Framework</h3>
-                    <span class="badge required-badge">Required</span>
-                  </div>
-                  <p class="course-description">
-                    Fundamentals of banking risk management and mitigation strategies
+                    Developing leadership gravitas
                   </p>
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="course-duration">Duration: 2.5 hours</div>
@@ -346,21 +267,40 @@
         </div>
 
         <!-- Footer -->
-        <?php include '../footer.php' ?>
+        <footer class="footer">
+          <div class="container-fluid">
+            <div class="text-center">
+              <div class="footer-links">
+                <a href="#">Help</a>
+                <span>|</span>
+                <a href="#">Privacy Policy</a>
+                <span>|</span>
+                <a href="#">Terms of Service</a>
+              </div>
+              <div class="copyright mt-2">
+                © 2025 PBCOM Universal Bank. All rights reserved.
+              </div>
+            </div>
+          </div>
+        </footer>
       </main>
     </div>
   </div>
 
-  <!-- SweetAlert 2 CDN -->
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <!-- SweetAlert 2 CDN -->
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <!-- Bootstrap JS Bundle with Popper -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-  <!-- Custom JavaScript -->
-  <script src="../assets/js/script.js"></script>
-  <script src="../assets/js/sidebar.js"></script>
 
+
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
+
+  
+  <!-- SweetAlert 2 CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <!-- Custom JS -->
+  <script src="assets/js/script.js"></script>
+  <script src="assets/js/sidebar.js"></script>
 </body>
 
 </html>

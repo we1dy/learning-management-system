@@ -236,9 +236,8 @@ body {
   border-radius: 5px;
 }
 
-.sidebar .nav-link.active,
-.sidebar .nav-dropdown-item.active {
-  background-color: #59595938;
+.sidebar .nav-link.active {
+  background-color: #59595931;
   color: var(--primary-color);
   font-weight: 500;
   border-left: 4px solid var(--secondary-color);
@@ -258,6 +257,8 @@ body {
   margin-left: auto;
   transition: transform 0.2s;
 }
+
+
 
 .nav-dropdown-menu {
   max-height: 0;
