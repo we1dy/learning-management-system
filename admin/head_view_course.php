@@ -1,5 +1,5 @@
 <?php
-require_once "db.php";
+require_once "../db.php";
 session_start();
 
 $course_id = isset($_GET['course_id']) ? intval($_GET['course_id']) : 0;

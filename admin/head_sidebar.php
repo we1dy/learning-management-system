@@ -89,7 +89,7 @@
                             </button>
                             <div class="nav-dropdown-menu">
                                 <a href="head_user_analytics.php" class="nav-dropdown-item">User Data Analytics</a>
-                                <a href="head_quiz_analytics.php" class="nav-dropdown-item">Test Data Analytics</a>
+                                <a href="head_quiz_analytics.php" class="nav-dropdown-item">Quiz Data Analytics</a>
                                 <a href="head_audit_log.php" class="nav-dropdown-item">Audit Log</a>
 
                             </div>

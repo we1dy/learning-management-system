@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 <?php
 require_once "db.php";
 
@@ -7,7 +5,6 @@ if (session_status() == PHP_SESSION_NONE) {
   session_start();
 }
 ?>
->>>>>>> 570c26b (denice first commit (take 2))
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,9 +31,6 @@ if (session_status() == PHP_SESSION_NONE) {
 
     <div class="content-wrapper">
       <!-- Sidebar -->
-<<<<<<< HEAD
-      <?php include 'sidebar.php' ?>
-=======
       <aside id="sidebar" class="sidebar">
         <div class="sidebar-header">
           <h2>Employee Portal</h2>
@@ -92,7 +86,6 @@ if (session_status() == PHP_SESSION_NONE) {
           </div>
         </nav>
       </aside>
->>>>>>> 570c26b (denice first commit (take 2))
 
       <!-- Main Content -->
       <main class="main-content">
@@ -104,20 +97,12 @@ if (session_status() == PHP_SESSION_NONE) {
               <input type="text" class="form-control" placeholder="Search...">
             </div>
           </div>
-<<<<<<< HEAD
-          &nbsp;
-          &nbsp;
-          &nbsp;
-          <h1>Home</h1>
-=======
 
           <h1>home</h1>
->>>>>>> 570c26b (denice first commit (take 2))
           <a href="employee_dashboard.php">back</a>
 
           </section>
         </div>
-<<<<<<< HEAD
 
         <!-- Footer -->
         <?php include 'footer.php' ?>
@@ -132,15 +117,6 @@ if (session_status() == PHP_SESSION_NONE) {
   <!-- Custom JavaScript -->
   <script src="../assets/js/script.js"></script>
   <script src="../assets/js/sidebar.js"></script>
-=======
-      </main>
-    </div>
-  </div>
-  <!-- Bootstrap JS Bundle with Popper -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <!-- Custom JS -->
-  <script src="assets/js/sidebar.js"></script>
->>>>>>> 570c26b (denice first commit (take 2))
 </body>
 
 </html>
