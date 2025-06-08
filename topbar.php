@@ -1,4 +1,3 @@
-<!-- <?php session_start(); ?> -->
 <header class="header">
 	<div class="container-fluid">
 		<div class="row align-items-center">
@@ -19,15 +18,25 @@
 					<i class="bi bi-bell"></i>
 					<span class="notification-indicator"></span>
 				</div>
-				<div class="user-profile d-flex align-item s-center">
-					<div class="avatar me-2">
-						<span>LC</span>
-					</div>
-					<div class="user-name d-none d-md-block">
-<?php echo htmlspecialchars($_SESSION['employee_name'] ?? ''); ?> <i class="bi bi-chevron-down"></i>
+					<div class="dropdown">
+						<div class="user-profile d-flex align-items-center" id="userDropdown" data-bs-toggle="dropdown"
+							aria-expanded="false">
+							<div class="avatar me-2">
+								<span>LC</span>
+							</div>
+							<div class="user-name d-none d-md-block">
+								<?php echo htmlspecialchars($_SESSION['employee_name'] ?? ''); ?> <i class="bi bi-chevron-down"></i>
 
+							</div>
+						</div>
+						<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+							<li><a class="dropdown-item" href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i
+										class="bi bi-gear me-2"></i>Setting</a></li>
+							<li><a class="dropdown-item" href="logout.php">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i
+										class="bi bi-box-arrow-right me-2"></i>Log Out</a></li>
+						</ul>
 					</div>
-				</div>
+				
 			</div>
 		</div>
 	</div>

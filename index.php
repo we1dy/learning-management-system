@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $_SESSION['user_type_id'] = $user['user_type_id'];
 
       if ($user['user_type_id'] == 1 || $user['user_type_id'] == 2) {
-        header("Location: admin/head_dashboard.php");
+        header("Location: admin/index.php");
         exit();
       } elseif ($user['user_type_id'] == 3) {
         $user_id = $user['user_id'];
