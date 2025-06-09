@@ -1,3 +1,14 @@
+<?php require_once "../db.php";
+if (session_status() == PHP_SESSION_NONE) {
+  session_start();
+}
+$employee_id = $_SESSION['employee_id'];
+$query = "SELECT c.*, cc.course_category_name 
+          FROM course c 
+          INNER JOIN course_category cc ON c.course_category_id = cc.course_category_id
+          WHERE cc.course_category_id= 3";
+$result = mysqli_query($conn, $query);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -54,32 +65,35 @@
           </div>
 
           <!-- Course Grid -->
-          <div class="row g-4">
-            <!-- Leadership Fundamentals -->
-            <div class="col-md-6 col-lg-4">
-              <div class="course-card">
-                <div class="course-image bg-gradient-red">
-                  <div class="course-icon">
-                    <i class="fas fa-money-bill-wave"></i>
-                  </div>
-                </div>
-                <div class="course-content">
-                  <div class="d-flex justify-content-between align-items-start mb-2">
-                    <h3 class="course-title">Leadership Fundamentals</h3>
-                    <span class="badge required-badge">Required</span>
-                  </div>
-                  <p class="course-description">
-                    Essential skills for new managers
-                  </p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="course-duration">Duration: 2 hours</div>
-                    <button class="btn btn-link start-course-btn">
-                      Start Course <i class="fas fa-chevron-right ms-1"></i>
-                    </button>
-                  </div>
-                </div>
+               <div class="row g-4">
+                        <?php while ($row = mysqli_fetch_assoc($result)): ?>
+                        <div class="col-md-6 col-lg-4">
+                          <div class="course-card">
+                              <div class="course-image"
+                                style="background-image: url('<?= $row['course_image'] ?>'); background-size: cover; background-position: center; height: 200px;">
+                                <!-- <div class="course-icon text-white p-2">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              <i class="fas fa-book fa-2x"></i>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            </div> -->
+                              </div>
+                              <div class="course-content p-3">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                  <h5 class="course-title"><?= htmlspecialchars($row['course_name']) ?></h5>
+                                  <span class="badge bg-primary"><?= htmlspecialchars($row['course_category_name']) ?></span>
+                                  </div>
+                                <p class="course-description"><?= htmlspecialchars($row['course_desc']) ?></p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                  <div class="course-duration">Duration: 2 hours</div>
+                                  <button class="btn btn-outline-primary start-course-btn"
+                                    data-url="view_course.php?course_id=<?= $row['course_id'] ?>"
+                                    data-name="<?= htmlspecialchars($row['course_name']) ?>">
+                                    Start Course <i class="fas fa-chevron-right ms-1"></i>
+                                  </button>
+                                  </div>
+                                  </div>
+                                  </div>
+                                  </div>
+              <?php endwhile; ?>
               </div>
-            </div>
 
             <!-- Effective Communication -->
             <div class="col-md-6 col-lg-4">

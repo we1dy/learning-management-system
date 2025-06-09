@@ -1,3 +1,14 @@
+<?php require_once "../db.php";
+if (session_status() == PHP_SESSION_NONE) {
+  session_start();
+}
+$employee_id = $_SESSION['employee_id'];
+$query = "SELECT c.*, cc.course_category_name 
+          FROM course c 
+          INNER JOIN course_category cc ON c.course_category_id = cc.course_category_id
+          WHERE cc.course_category_id= 4";
+$result = mysqli_query($conn, $query);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -56,186 +67,189 @@
 
           <!-- Course Grid -->
           <div class="row g-4">
-            <!-- Advanced Leadership -->
+            <?php while ($row = mysqli_fetch_assoc($result)): ?>
             <div class="col-md-6 col-lg-4">
               <div class="course-card">
-                <div class="course-image bg-gradient-red">
-                  <div class="course-icon">
-                    <i class="fas fa-money-bill-wave"></i>
+                  <div class="course-image"
+                    style="background-image: url('<?= $row['course_image'] ?>'); background-size: cover; background-position: center; height: 200px;">
+                    <!-- <div class="course-icon text-white p-2">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <i class="fas fa-book fa-2x"></i>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              </div> -->
                   </div>
-                </div>
-                <div class="course-content">
-                  <div class="d-flex justify-content-between align-items-start mb-2">
-                    <h3 class="course-title">Advanced Leadership</h3>
-                    <span class="badge required-badge">Required</span>
-                  </div>
-                  <p class="course-description">
-                    For senior managers and executives
-                  </p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="course-duration">Duration: 2 hours</div>
-                    <button class="btn btn-link start-course-btn">
-                      Start Course <i class="fas fa-chevron-right ms-1"></i>
-                    </button>
+                  <div class="course-content p-3">
+                    <div class="d-flex justify-content-between align-items-start mb-2">
+                      <h5 class="course-title"><?= htmlspecialchars($row['course_name']) ?></h5>
+                      <span class="badge bg-primary"><?= htmlspecialchars($row['course_category_name']) ?></span>
+                      </div>
+                    <p class="course-description"><?= htmlspecialchars($row['course_desc']) ?></p>
+                    <div class="d-flex justify-content-between align-items-center">
+                      <div class="course-duration">Duration: 2 hours</div>
+                      <button class="btn btn-outline-primary start-course-btn"
+                        data-url="view_course.php?course_id=<?= $row['course_id'] ?>"
+                        data-name="<?= htmlspecialchars($row['course_name']) ?>">
+                        Start Course <i class="fas fa-chevron-right ms-1"></i>
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+            <?php endwhile; ?>
+          </div>
 
-            <!-- Strategic Thinking -->
-            <div class="col-md-6 col-lg-4">
-              <div class="course-card">
-                <div class="course-image bg-gradient-blue">
-                  <div class="course-icon">
-                    <i class="fas fa-shield-alt"></i>
-                  </div>
-                </div>
-                <div class="course-content">
-                  <div class="d-flex justify-content-between align-items-start mb-2">
-                    <h3 class="course-title">Strategic Thinking</h3>
-                    <span class="badge required-badge">Required</span>
-                  </div>
-                  <p class="course-description">
-                    Developing long-term business strategies
-                  </p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="course-duration">Duration: 1.5 hours</div>
-                    <button class="btn btn-link start-course-btn">
-                      Start Course <i class="fas fa-chevron-right ms-1"></i>
-                    </button>
-                  </div>
+          <!-- Strategic Thinking -->
+          <div class="col-md-6 col-lg-4">
+            <div class="course-card">
+              <div class="course-image bg-gradient-blue">
+                <div class="course-icon">
+                  <i class="fas fa-shield-alt"></i>
                 </div>
               </div>
-            </div>
-
-            <!-- Financial Analysis -->
-            <div class="col-md-6 col-lg-4">
-              <div class="course-card">
-                <div class="course-image bg-gradient-purple">
-                  <div class="course-icon">
-                    <i class="fas fa-lock"></i>
-                  </div>
+              <div class="course-content">
+                <div class="d-flex justify-content-between align-items-start mb-2">
+                  <h3 class="course-title">Strategic Thinking</h3>
+                  <span class="badge required-badge">Required</span>
                 </div>
-                <div class="course-content">
-                  <div class="d-flex justify-content-between align-items-start mb-2">
-                    <h3 class="course-title">Financial Analysis</h3>
-                    <span class="badge required-badge">Required</span>
-                  </div>
-                  <p class="course-description">
-                    Advanced financial statement analysis
-                  </p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="course-duration">Duration: 1 hour</div>
-                    <button class="btn btn-link start-course-btn">
-                      Start Course <i class="fas fa-chevron-right ms-1"></i>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Digital Transformation -->
-            <div class="col-md-6 col-lg-4">
-              <div class="course-card">
-                <div class="course-image bg-gradient-green">
-                  <div class="course-icon">
-                    <i class="fas fa-users"></i>
-                  </div>
-                </div>
-                <div class="course-content">
-                  <div class="d-flex justify-content-between align-items-start mb-2">
-                    <h3 class="course-title">Leading digital initiatives in banking</h3>
-                    <span class="badge required-badge">Required</span>
-                  </div>
-                  <p class="course-description">
-                    Managing workplace conflicts effectively
-                  </p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="course-duration">Duration: 1.5 hours</div>
-                    <button class="btn btn-link start-course-btn">
-                      Start Course <i class="fas fa-chevron-right ms-1"></i>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Innovation Management -->
-            <div class="col-md-6 col-lg-4">
-              <div class="course-card">
-                <div class="course-image bg-gradient-amber">
-                  <div class="course-icon">
-                    <i class="fas fa-exclamation-triangle"></i>
-                  </div>
-                </div>
-                <div class="course-content">
-                  <div class="d-flex justify-content-between align-items-start mb-2">
-                    <h3 class="course-title">Innovation Management</h3>
-                    <span class="badge required-badge">Required</span>
-                  </div>
-                  <p class="course-description">
-                    Fostering innovation in financial services
-                  </p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="course-duration">Duration: 2 hours</div>
-                    <button class="btn btn-link start-course-btn">
-                      Start Course <i class="fas fa-chevron-right ms-1"></i>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Executive Presence -->
-            <div class="col-md-6 col-lg-4">
-              <div class="course-card">
-                <div class="course-image bg-gradient-slate">
-                  <div class="course-icon">
-                    <i class="fas fa-chart-pie"></i>
-                  </div>
-                </div>
-                <div class="course-content">
-                  <div class="d-flex justify-content-between align-items-start mb-2">
-                    <h3 class="course-title">Executive Presence</h3>
-                    <span class="badge required-badge">Required</span>
-                  </div>
-                  <p class="course-description">
-                    Developing leadership gravitas
-                  </p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="course-duration">Duration: 2.5 hours</div>
-                    <button class="btn btn-link start-course-btn">
-                      Start Course <i class="fas fa-chevron-right ms-1"></i>
-                    </button>
-                  </div>
+                <p class="course-description">
+                  Developing long-term business strategies
+                </p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="course-duration">Duration: 1.5 hours</div>
+                  <button class="btn btn-link start-course-btn">
+                    Start Course <i class="fas fa-chevron-right ms-1"></i>
+                  </button>
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- Pagination -->
-          <div class="pagination-container mt-5">
-            <nav aria-label="Page navigation">
-              <ul class="pagination justify-content-center">
-                <li class="page-item active">
-                  <a class="page-link" href="#">1</a>
-                </li>
-                <li class="page-item">
-                  <a class="page-link" href="#">2</a>
-                </li>
-                <li class="page-item">
-                  <a class="page-link" href="#">
-                    <i class="fas fa-chevron-right"></i>
-                  </a>
-                </li>
-              </ul>
-            </nav>
+          <!-- Financial Analysis -->
+          <div class="col-md-6 col-lg-4">
+            <div class="course-card">
+              <div class="course-image bg-gradient-purple">
+                <div class="course-icon">
+                  <i class="fas fa-lock"></i>
+                </div>
+              </div>
+              <div class="course-content">
+                <div class="d-flex justify-content-between align-items-start mb-2">
+                  <h3 class="course-title">Financial Analysis</h3>
+                  <span class="badge required-badge">Required</span>
+                </div>
+                <p class="course-description">
+                  Advanced financial statement analysis
+                </p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="course-duration">Duration: 1 hour</div>
+                  <button class="btn btn-link start-course-btn">
+                    Start Course <i class="fas fa-chevron-right ms-1"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Digital Transformation -->
+          <div class="col-md-6 col-lg-4">
+            <div class="course-card">
+              <div class="course-image bg-gradient-green">
+                <div class="course-icon">
+                  <i class="fas fa-users"></i>
+                </div>
+              </div>
+              <div class="course-content">
+                <div class="d-flex justify-content-between align-items-start mb-2">
+                  <h3 class="course-title">Leading digital initiatives in banking</h3>
+                  <span class="badge required-badge">Required</span>
+                </div>
+                <p class="course-description">
+                  Managing workplace conflicts effectively
+                </p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="course-duration">Duration: 1.5 hours</div>
+                  <button class="btn btn-link start-course-btn">
+                    Start Course <i class="fas fa-chevron-right ms-1"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Innovation Management -->
+          <div class="col-md-6 col-lg-4">
+            <div class="course-card">
+              <div class="course-image bg-gradient-amber">
+                <div class="course-icon">
+                  <i class="fas fa-exclamation-triangle"></i>
+                </div>
+              </div>
+              <div class="course-content">
+                <div class="d-flex justify-content-between align-items-start mb-2">
+                  <h3 class="course-title">Innovation Management</h3>
+                  <span class="badge required-badge">Required</span>
+                </div>
+                <p class="course-description">
+                  Fostering innovation in financial services
+                </p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="course-duration">Duration: 2 hours</div>
+                  <button class="btn btn-link start-course-btn">
+                    Start Course <i class="fas fa-chevron-right ms-1"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Executive Presence -->
+          <div class="col-md-6 col-lg-4">
+            <div class="course-card">
+              <div class="course-image bg-gradient-slate">
+                <div class="course-icon">
+                  <i class="fas fa-chart-pie"></i>
+                </div>
+              </div>
+              <div class="course-content">
+                <div class="d-flex justify-content-between align-items-start mb-2">
+                  <h3 class="course-title">Executive Presence</h3>
+                  <span class="badge required-badge">Required</span>
+                </div>
+                <p class="course-description">
+                  Developing leadership gravitas
+                </p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="course-duration">Duration: 2.5 hours</div>
+                  <button class="btn btn-link start-course-btn">
+                    Start Course <i class="fas fa-chevron-right ms-1"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
-        <!-- Footer -->
-        <?php include '../footer.php' ?>
-      </main>
+        <!-- Pagination -->
+        <div class="pagination-container mt-5">
+          <nav aria-label="Page navigation">
+            <ul class="pagination justify-content-center">
+              <li class="page-item active">
+                <a class="page-link" href="#">1</a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="#">2</a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="#">
+                  <i class="fas fa-chevron-right"></i>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <?php include '../footer.php' ?>
+    </main>
     </div>
   </div>
 
@@ -246,7 +260,7 @@
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
 
-  
+
   <!-- SweetAlert 2 CDN -->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 

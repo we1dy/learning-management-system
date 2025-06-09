@@ -99,7 +99,7 @@ $statusClass = [
                   <div class="d-flex justify-content-between align-items-center">
                     <div>
                       <div id="card_title">
-                        <h3 class="mb-1">Welcome back, Eklabu!</h3>
+                        <h3 class="mb-1">Welcome back, <?php echo htmlspecialchars($_SESSION['employee_name'] ?? ''); ?></h3>
                       </div>
                       <p class="text-muted mb-1">Track your progress</p>
                     </div>

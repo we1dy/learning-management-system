@@ -1,3 +1,14 @@
+<?php require_once "../db.php";
+if (session_status() == PHP_SESSION_NONE) {
+	session_start();
+}
+$employee_id = $_SESSION['employee_id'];
+$query = "SELECT c.*, cc.course_category_name 
+          FROM course c 
+          INNER JOIN course_category cc ON c.course_category_id = cc.course_category_id
+          WHERE cc.course_category_id= 5";
+$result = mysqli_query($conn, $query);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,7 +37,7 @@
 
 		<div class="content-wrapper">
 			<!-- Sidebar -->
-			 <?php include 'sidebar.php' ?>
+			<?php include 'sidebar.php' ?>
 
 			<!-- Main Content -->
 			<main class="main-content">
@@ -56,186 +67,189 @@
 
 					<!-- Course Grid -->
 					<div class="row g-4">
-						<!-- Core Banking System -->
+						<?php while ($row = mysqli_fetch_assoc($result)): ?>
 						<div class="col-md-6 col-lg-4">
 							<div class="course-card">
-								<div class="course-image bg-gradient-red">
-									<div class="course-icon">
-										<i class="fas fa-money-bill-wave"></i>
+									<div class="course-image"
+										style="background-image: url('<?= $row['course_image'] ?>'); background-size: cover; background-position: center; height: 200px;">
+										<!-- <div class="course-icon text-white p-2">
+																																																																																																																																																																																															  <i class="fas fa-book fa-2x"></i>
+																																																																																																																																																																																															</div> -->
 									</div>
-								</div>
-								<div class="course-content">
-									<div class="d-flex justify-content-between align-items-start mb-2">
-										<h3 class="course-title">Core Banking System</h3>
-										<span class="badge required-badge">Required</span>
-									</div>
-									<p class="course-description">
-										Mastering our primary banking platform
-									</p>
-									<div class="d-flex justify-content-between align-items-center">
-										<div class="course-duration">Duration: 2 hours</div>
-										<button class="btn btn-link start-course-btn">
-											Start Course <i class="fas fa-chevron-right ms-1"></i>
-										</button>
+									<div class="course-content p-3">
+										<div class="d-flex justify-content-between align-items-start mb-2">
+											<h5 class="course-title"><?= htmlspecialchars($row['course_name']) ?></h5>
+											<span class="badge bg-primary"><?= htmlspecialchars($row['course_category_name']) ?></span>
+											</div>
+										<p class="course-description"><?= htmlspecialchars($row['course_desc']) ?></p>
+										<div class="d-flex justify-content-between align-items-center">
+											<div class="course-duration">Duration: 2 hours</div>
+											<button class="btn btn-outline-primary start-course-btn"
+												data-url="view_course.php?course_id=<?= $row['course_id'] ?>"
+												data-name="<?= htmlspecialchars($row['course_name']) ?>">
+												Start Course <i class="fas fa-chevron-right ms-1"></i>
+											</button>
+										</div>
 									</div>
 								</div>
 							</div>
-						</div>
+						<?php endwhile; ?>
+					</div>
 
-						<!-- Loan Processing -->
-						<div class="col-md-6 col-lg-4">
-							<div class="course-card">
-								<div class="course-image bg-gradient-blue">
-									<div class="course-icon">
-										<i class="fas fa-shield-alt"></i>
-									</div>
-								</div>
-								<div class="course-content">
-									<div class="d-flex justify-content-between align-items-start mb-2">
-										<h3 class="course-title">Loan Processing</h3>
-										<span class="badge required-badge">Required</span>
-									</div>
-									<p class="course-description">
-										End-to-end loan application workflow
-									</p>
-									<div class="d-flex justify-content-between align-items-center">
-										<div class="course-duration">Duration: 1.5 hours</div>
-										<button class="btn btn-link start-course-btn">
-											Start Course <i class="fas fa-chevron-right ms-1"></i>
-										</button>
-									</div>
+					<!-- Loan Processing -->
+					<div class="col-md-6 col-lg-4">
+						<div class="course-card">
+							<div class="course-image bg-gradient-blue">
+								<div class="course-icon">
+									<i class="fas fa-shield-alt"></i>
 								</div>
 							</div>
-						</div>
-
-						<!-- CRM System -->
-						<div class="col-md-6 col-lg-4">
-							<div class="course-card">
-								<div class="course-image bg-gradient-purple">
-									<div class="course-icon">
-										<i class="fas fa-lock"></i>
-									</div>
+							<div class="course-content">
+								<div class="d-flex justify-content-between align-items-start mb-2">
+									<h3 class="course-title">Loan Processing</h3>
+									<span class="badge required-badge">Required</span>
 								</div>
-								<div class="course-content">
-									<div class="d-flex justify-content-between align-items-start mb-2">
-										<h3 class="course-title">CRM System</h3>
-										<span class="badge required-badge">Required</span>
-									</div>
-									<p class="course-description">
-										Customer relationship management tools
-									</p>
-									<div class="d-flex justify-content-between align-items-center">
-										<div class="course-duration">Duration: 1 hour</div>
-										<button class="btn btn-link start-course-btn">
-											Start Course <i class="fas fa-chevron-right ms-1"></i>
-										</button>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<!-- Fraud Detection Systems -->
-						<div class="col-md-6 col-lg-4">
-							<div class="course-card">
-								<div class="course-image bg-gradient-green">
-									<div class="course-icon">
-										<i class="fas fa-users"></i>
-									</div>
-								</div>
-								<div class="course-content">
-									<div class="d-flex justify-content-between align-items-start mb-2">
-										<h3 class="course-title">Fraud Detection Systems</h3>
-										<span class="badge required-badge">Required</span>
-									</div>
-									<p class="course-description">
-										Using technology to identify fraud
-									</p>
-									<div class="d-flex justify-content-between align-items-center">
-										<div class="course-duration">Duration: 1.5 hours</div>
-										<button class="btn btn-link start-course-btn">
-											Start Course <i class="fas fa-chevron-right ms-1"></i>
-										</button>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<!-- Data Analytics Tools -->
-						<div class="col-md-6 col-lg-4">
-							<div class="course-card">
-								<div class="course-image bg-gradient-amber">
-									<div class="course-icon">
-										<i class="fas fa-exclamation-triangle"></i>
-									</div>
-								</div>
-								<div class="course-content">
-									<div class="d-flex justify-content-between align-items-start mb-2">
-										<h3 class="course-title">Data Analytics Tools</h3>
-										<span class="badge required-badge">Required</span>
-									</div>
-									<p class="course-description">
-										Business intelligence for banking
-									</p>
-									<div class="d-flex justify-content-between align-items-center">
-										<div class="course-duration">Duration: 2 hours</div>
-										<button class="btn btn-link start-course-btn">
-											Start Course <i class="fas fa-chevron-right ms-1"></i>
-										</button>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<!-- Compliance Reporting -->
-						<div class="col-md-6 col-lg-4">
-							<div class="course-card">
-								<div class="course-image bg-gradient-slate">
-									<div class="course-icon">
-										<i class="fas fa-chart-pie"></i>
-									</div>
-								</div>
-								<div class="course-content">
-									<div class="d-flex justify-content-between align-items-start mb-2">
-										<h3 class="course-title">Compliance Reporting</h3>
-										<span class="badge required-badge">Required</span>
-									</div>
-									<p class="course-description">
-										Automated regulatory reporting systems
-									</p>
-									<div class="d-flex justify-content-between align-items-center">
-										<div class="course-duration">Duration: 2.5 hours</div>
-										<button class="btn btn-link start-course-btn">
-											Start Course <i class="fas fa-chevron-right ms-1"></i>
-										</button>
-									</div>
+								<p class="course-description">
+									End-to-end loan application workflow
+								</p>
+								<div class="d-flex justify-content-between align-items-center">
+									<div class="course-duration">Duration: 1.5 hours</div>
+									<button class="btn btn-link start-course-btn">
+										Start Course <i class="fas fa-chevron-right ms-1"></i>
+									</button>
 								</div>
 							</div>
 						</div>
 					</div>
 
-					<!-- Pagination -->
-					<div class="pagination-container mt-5">
-						<nav aria-label="Page navigation">
-							<ul class="pagination justify-content-center">
-								<li class="page-item active">
-									<a class="page-link" href="#">1</a>
-								</li>
-								<li class="page-item">
-									<a class="page-link" href="#">2</a>
-								</li>
-								<li class="page-item">
-									<a class="page-link" href="#">
-										<i class="fas fa-chevron-right"></i>
-									</a>
-								</li>
-							</ul>
-						</nav>
+					<!-- CRM System -->
+					<div class="col-md-6 col-lg-4">
+						<div class="course-card">
+							<div class="course-image bg-gradient-purple">
+								<div class="course-icon">
+									<i class="fas fa-lock"></i>
+								</div>
+							</div>
+							<div class="course-content">
+								<div class="d-flex justify-content-between align-items-start mb-2">
+									<h3 class="course-title">CRM System</h3>
+									<span class="badge required-badge">Required</span>
+								</div>
+								<p class="course-description">
+									Customer relationship management tools
+								</p>
+								<div class="d-flex justify-content-between align-items-center">
+									<div class="course-duration">Duration: 1 hour</div>
+									<button class="btn btn-link start-course-btn">
+										Start Course <i class="fas fa-chevron-right ms-1"></i>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Fraud Detection Systems -->
+					<div class="col-md-6 col-lg-4">
+						<div class="course-card">
+							<div class="course-image bg-gradient-green">
+								<div class="course-icon">
+									<i class="fas fa-users"></i>
+								</div>
+							</div>
+							<div class="course-content">
+								<div class="d-flex justify-content-between align-items-start mb-2">
+									<h3 class="course-title">Fraud Detection Systems</h3>
+									<span class="badge required-badge">Required</span>
+								</div>
+								<p class="course-description">
+									Using technology to identify fraud
+								</p>
+								<div class="d-flex justify-content-between align-items-center">
+									<div class="course-duration">Duration: 1.5 hours</div>
+									<button class="btn btn-link start-course-btn">
+										Start Course <i class="fas fa-chevron-right ms-1"></i>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Data Analytics Tools -->
+					<div class="col-md-6 col-lg-4">
+						<div class="course-card">
+							<div class="course-image bg-gradient-amber">
+								<div class="course-icon">
+									<i class="fas fa-exclamation-triangle"></i>
+								</div>
+							</div>
+							<div class="course-content">
+								<div class="d-flex justify-content-between align-items-start mb-2">
+									<h3 class="course-title">Data Analytics Tools</h3>
+									<span class="badge required-badge">Required</span>
+								</div>
+								<p class="course-description">
+									Business intelligence for banking
+								</p>
+								<div class="d-flex justify-content-between align-items-center">
+									<div class="course-duration">Duration: 2 hours</div>
+									<button class="btn btn-link start-course-btn">
+										Start Course <i class="fas fa-chevron-right ms-1"></i>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Compliance Reporting -->
+					<div class="col-md-6 col-lg-4">
+						<div class="course-card">
+							<div class="course-image bg-gradient-slate">
+								<div class="course-icon">
+									<i class="fas fa-chart-pie"></i>
+								</div>
+							</div>
+							<div class="course-content">
+								<div class="d-flex justify-content-between align-items-start mb-2">
+									<h3 class="course-title">Compliance Reporting</h3>
+									<span class="badge required-badge">Required</span>
+								</div>
+								<p class="course-description">
+									Automated regulatory reporting systems
+								</p>
+								<div class="d-flex justify-content-between align-items-center">
+									<div class="course-duration">Duration: 2.5 hours</div>
+									<button class="btn btn-link start-course-btn">
+										Start Course <i class="fas fa-chevron-right ms-1"></i>
+									</button>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 
-				<!-- Footer -->
-				<?php include '../footer.php' ?>
-			</main>
+				<!-- Pagination -->
+				<div class="pagination-container mt-5">
+					<nav aria-label="Page navigation">
+						<ul class="pagination justify-content-center">
+							<li class="page-item active">
+								<a class="page-link" href="#">1</a>
+							</li>
+							<li class="page-item">
+								<a class="page-link" href="#">2</a>
+							</li>
+							<li class="page-item">
+								<a class="page-link" href="#">
+									<i class="fas fa-chevron-right"></i>
+								</a>
+							</li>
+						</ul>
+					</nav>
+				</div>
+		</div>
+
+		<!-- Footer -->
+		<?php include '../footer.php' ?>
+		</main>
 		</div>
 	</div>
 

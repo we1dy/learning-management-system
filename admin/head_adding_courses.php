@@ -1,5 +1,5 @@
 <?php
-require_once "db.php";
+require_once "../db.php";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $title = $_POST['courseTitle'];
@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Handle image upload if file is provided
     if (!empty($_FILES['courseImage']['name'])) {
-        $targetDir = "assets/images/courses/";
+        $targetDir = "../assets/images/courses/";
         if (!is_dir($targetDir)) {
             mkdir($targetDir, 0777, true);
         }

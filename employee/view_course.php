@@ -62,12 +62,12 @@ $course = $result->fetch_assoc();
 
       <!-- Main Content -->
       <main class="main-content">
-        <!-- Course Header -->
+        <!-- Course Header -->  
         <div class="mb-4">
           <div class="breadcrumb-container mb-3">
-            <span>Courses</span>
-            <i class="bi bi-chevron-right"></i>
-            <span>Compliance Training</span>
+            <a href="regulatory_courses.php" style="text-decoration: none; color:black"><span>Regulatory</span></a>
+            <!-- <i class="bi bi-chevron-right"></i>
+            <a href="employee_dashboard.php"><span>Compliance Training</span></a> -->
             <i class="bi bi-chevron-right"></i>
             <span class="current">Money Laundering</span>
           </div>

@@ -1,3 +1,29 @@
+<?php require_once "../db.php";
+if (session_status() == PHP_SESSION_NONE) {
+  session_start();
+}
+$employee_id = $_SESSION['employee_id'];
+// var_dump($_SESSION);
+// $stmt = $conn->prepare("
+//   SELECT c.*, ec.last_accessed, ec.status
+//   FROM employee_courses ec
+//   JOIN course c ON c.course_id = ec.course_id
+//   WHERE ec.employee_id = ?
+//   ORDER BY ec.last_accessed DESC
+//   LIMIT 3
+//   ");
+// $stmt->bind_param("i", $employee_id);
+// $stmt->execute();
+// $history_result = $stmt->get_result();
+
+// Query to get course data with category
+$query = "SELECT c.*, cc.course_category_name 
+          FROM course c 
+          INNER JOIN course_category cc ON c.course_category_id = cc.course_category_id
+          WHERE cc.course_category_id= 1";
+$result = mysqli_query($conn, $query);
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -59,33 +85,64 @@
           <!-- Course Grid -->
           <div class="row g-4">
             <!-- Financial Consumer Protection -->
-            <div class="col-md-6 col-lg-4">
-              <div class="course-card">
-                <div class="course-image bg-gradient-red">
-                  <div class="course-icon">
-                    <i class="fas fa-money-bill-wave"></i>
+
+            <!-- <div class="col-md-6 col-lg-4">
+                <div class="course-card">
+                  <div class="course-image bg-gradient-red">
+                    <div class="course-icon">
+                      <i class="fas fa-money-bill-wave"></i>
+                    </div>
                   </div>
-                </div>
-                <div class="course-content">
-                  <div class="d-flex justify-content-between align-items-start mb-2">
-                    <h3 class="course-title">Financial Consumer Protection</h3>
-                    <span class="badge required-badge">Required</span>
-                  </div>
-                  <p class="course-description">
-                    Understanding regulations and compliance procedures for financial institutions
-                  </p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="course-duration">Duration: 2 hours</div>
-                    <button class="btn btn-link start-course-btn">
-                      Start Course <i class="fas fa-chevron-right ms-1" data-url="anti_money.php?course=aml"></i>
-                    </button>
-                  </div>
-                </div>
+                  <div class="course-content">
+                    <div class="d-flex justify-content-between align-items-start mb-2">
+                      <h3 class="course-title">Financial Consumer Protection</h3>
+                      <span class="badge required-badge">Required</span>
+                    </div>
+                    <p class="course-description">
+                      Understanding regulations and compliance procedures for financial institutions
+                    </p>
+                    <div class="d-flex justify-content-between align-items-center">
+                      <div class="course-duration">Duration: 2 hours</div>
+                      <a href="view_course.php?course_id=<?= $row['course_id'] ?>" class="btn btn-primary">Go to
+                        Course</a>
+                      </div>
+                      </div>
+                      </div>
+                      </div> -->
+                      
+                      
+                      <div class="row g-4">
+                        <?php while ($row = mysqli_fetch_assoc($result)): ?>
+                          <div class="col-md-6 col-lg-4">
+                            <div class="course-card">
+                              <div class="course-image"
+                                style="background-image: url('<?= $row['course_image'] ?>'); background-size: cover; background-position: center; height: 200px;">
+                                <!-- <div class="course-icon text-white p-2">
+                                                                                                                                                                                                                                                                                                                                                                                                                        <i class="fas fa-book fa-2x"></i>
+                                                                                                                                                                                                                                                                                                                                                                                                                      </div> -->
+                              </div>
+                              <div class="course-content p-3">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                  <h5 class="course-title"><?= htmlspecialchars($row['course_name']) ?></h5>
+                                  <span class="badge bg-primary"><?= htmlspecialchars($row['course_category_name']) ?></span>
+                                </div>
+                                <p class="course-description"><?= htmlspecialchars($row['course_desc']) ?></p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                  <div class="course-duration">Duration: 2 hours</div>
+                                  <button class="btn btn-outline-primary start-course-btn"
+                                    data-url="view_course.php?course_id=<?= $row['course_id'] ?>"
+                                    data-name="<?= htmlspecialchars($row['course_name']) ?>">
+                                  Start Course <i class="fas fa-chevron-right ms-1"></i>
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+              <?php endwhile; ?>
               </div>
-            </div>
 
             <!-- Anti-Money Laundering -->
-            <div class="col-md-6 col-lg-4">
+            <!-- <div class="col-md-6 col-lg-4">
               <div class="course-card">
                 <div class="course-image bg-gradient-red">
                   <div class="course-icon">
@@ -110,7 +167,7 @@
               </div>
             </div>
 
-            <!-- Bank Contiinuity Management -->
+             Bank Contiinuity Management 
             <div class="col-md-6 col-lg-4">
               <div class="course-card">
                 <div class="course-image bg-gradient-blue">
@@ -136,7 +193,7 @@
               </div>
             </div>
 
-            <!-- Information Security Awareness -->
+             Information Security Awareness 
             <div class="col-md-6 col-lg-4">
               <div class="course-card">
                 <div class="course-image bg-gradient-purple">
@@ -162,7 +219,7 @@
               </div>
             </div>
 
-            <!-- Customer Protection -->
+             Customer Protection 
             <div class="col-md-6 col-lg-4">
               <div class="course-card">
                 <div class="course-image bg-gradient-green">
@@ -188,7 +245,7 @@
               </div>
             </div>
 
-            <!-- Data Privacy Act -->
+             Data Privacy Act 
             <div class="col-md-6 col-lg-4">
               <div class="course-card">
                 <div class="course-image bg-gradient-amber">
@@ -214,7 +271,7 @@
               </div>
             </div>
 
-            <!-- PBCOM Onboarding for New Employee -->
+             PBCOM Onboarding for New Employee 
             <div class="col-md-6 col-lg-4">
               <div class="course-card">
                 <div class="course-image bg-gradient-slate">
@@ -240,7 +297,7 @@
               </div>
             </div>
 
-            <!-- Information Security Awareness -->
+            Information Security Awareness 
             <div class="col-md-6 col-lg-4">
               <div class="course-card">
                 <div class="course-image bg-gradient-purple">
@@ -266,7 +323,7 @@
               </div>
             </div>
 
-            <!-- Social Media Risk Management Framework -->
+             Social Media Risk Management Framework 
             <div class="col-md-6 col-lg-4">
               <div class="course-card">
                 <div class="course-image bg-gradient-slate">
@@ -291,7 +348,7 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
 
           <!-- Pagination -->
           <div class="pagination-container mt-5">
@@ -311,6 +368,7 @@
               </ul>
             </nav>
           </div>
+          
         </div>
 
         <!-- Footer -->
@@ -326,11 +384,11 @@
   <!-- Bootstrap JS Bundle with Popper -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
-  <!-- Custom JavaScript -->
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       const currentPath = window.location.pathname.split("/").pop(); // get current filename
       const dropdowns = document.querySelectorAll(".nav-dropdown");
+      const startButtons = document.querySelectorAll('.start-course-btn');
 
       dropdowns.forEach(dropdown => {
         const items = dropdown.querySelectorAll(".nav-dropdown-menu");
@@ -344,8 +402,41 @@
           }
         });
       });
+
+      startButtons.forEach(button => {
+        button.addEventListener('click', function (e) {
+          e.preventDefault();
+
+          const courseCard = this.closest('.course-card');
+          const courseName = courseCard.querySelector('.course-title').textContent.trim();
+          const courseURL = this.getAttribute('data-url');
+
+          Swal.fire({
+            title: 'Start Course',
+            text: `Are you ready to begin "${courseName}"?`,
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonText: 'Yes, start it!',
+            cancelButtonText: 'Cancel'
+          }).then((result) => {
+            if (result.isConfirmed) {
+              window.location.href = courseURL;
+            }
+          });
+        });
+      });
     });
   </script>
+  <!-- <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      
+
+      
+    });
+  </script> -->
+
+  <!-- Custom JavaScript -->
+
 
   <script src="../assets/js/script.js"></script>
   <script src="../assets/js/sidebar.js"></script>
