@@ -18,11 +18,11 @@
                                 <i class="bi bi-chevron-down dropdown-icon"></i>
                             </button>
                             <div class="nav-dropdown-menu">
-                                <a href="head_register_employee.php" class="nav-dropdown-item">Register Employee</a>
+                                <a href="head_register_employee.php" class="nav-dropdown-item">Employee List</a>
                                 <!-- <a href="on_boarding.php" class="nav-dropdown-item">View/Reset Password</a> -->
-                                <a href="head_view_employees.php" class="nav-dropdown-item">View Enrolled
+                                <!-- <a href="head_view_employees.php" class="nav-dropdown-item">View Enrolled
                                     Employees</a>
-                                <a href="head_manage_details.php" class="nav-dropdown-item">Manage Details & Segments</a>
+                                <a href="head_manage_details.php" class="nav-dropdown-item">Manage Details & Segments</a> -->
                             </div>
                         </div>
                         <!-- <a href="#" class="nav-link active">

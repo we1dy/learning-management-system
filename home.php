@@ -4,6 +4,44 @@ require_once "db.php";
 if (session_status() == PHP_SESSION_NONE) {
   session_start();
 }
+
+if (!isset($_SESSION['user_id']) || !is_numeric($_SESSION['user_id'])) {
+  ?>
+          <!DOCTYPE html>
+          <html>
+
+          <head>
+            <title>Redirecting...</title>
+            <!-- SweetAlert2 CDN -->
+            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+              <link href="https://fonts.cdnfonts.com/css/aileron" rel="stylesheet">
+          </head>
+
+          <body>
+            <script>
+              Swal.fire({
+                icon: 'warning',
+                title: 'Unauthorized Access',
+                text: 'You must be logged in to continue. Redirecting in 5 seconds.',
+                confirmButtonText: 'Go to Login',
+                allowOutsideClick: false
+              }).then((result) => {
+                if (result.isConfirmed) {
+                  window.location.href = 'index.php';
+                }
+              });
+
+              // Auto-redirect after 5 seconds (optional fallback)
+              setTimeout(() => {
+                window.location.href = 'index.php';
+              }, 5000);
+            </script>
+          </body>
+
+          </html>
+          <?php
+          exit();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -46,24 +84,24 @@ if (session_status() == PHP_SESSION_NONE) {
               <i class="bi bi-bar-chart"></i>
               <span>Dashboard</span>
             </a>
-             <a href="employee_announcement.php" class="nav-link">
-          <i class="bi bi-megaphone me-2"></i>
-          <span>Announcements</span>
-        </a>
-         <a href="employee_quiz.php" class="nav-link ">
-          <i class="bi bi-journal-check me-2"></i>
-          <span>Quiz</span>
-        </a>
-        </a>
-        <a href="employee_quizlog.php" class="nav-link ">
-          <i class="bi bi-ui-radios me-2"></i>
-          <span>Quiz Log</span>
-        </a>
-        <a href="employee_message.php" class="nav-link">
-          <i class="bi bi-chat-dots me-2"></i>
-          <span>Message</span>
-        </a>
-            
+            <a href="employee_announcement.php" class="nav-link">
+              <i class="bi bi-megaphone me-2"></i>
+              <span>Announcements</span>
+            </a>
+            <a href="employee_quiz.php" class="nav-link ">
+              <i class="bi bi-journal-check me-2"></i>
+              <span>Quiz</span>
+            </a>
+            </a>
+            <a href="employee_quizlog.php" class="nav-link ">
+              <i class="bi bi-ui-radios me-2"></i>
+              <span>Quiz Log</span>
+            </a>
+            <a href="employee_message.php" class="nav-link">
+              <i class="bi bi-chat-dots me-2"></i>
+              <span>Message</span>
+            </a>
+
 
           </div>
           <div class="nav-section">
