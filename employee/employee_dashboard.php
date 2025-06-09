@@ -65,8 +65,10 @@ $statusClass = [
   <script src="https://kit.fontawesome.com/538907d71c.js" crossorigin="anonymous"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+
+  <!-- Custom CSS -->
   <link rel="stylesheet" href="../assets/css/dashboard.css">
-  <link rel="icon" type="image/x-icon" href="assets/images/pbcom.jpg">
+  <link rel="icon" type="image/x-icon" href="../assets/images/pbcom.jpg">
 </head>
 
 <body>
@@ -91,6 +93,23 @@ $statusClass = [
 
           <!-- Stats Cards -->
           <div class="row mb-4">
+            <div class="col-md-12 mb-3 mb-md-3">
+              <div class="card stat-card">
+                <div class="card-body">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                      <div id="card_title">
+                        <h3 class="mb-1">Welcome back, Eklabu!</h3>
+                      </div>
+                      <p class="text-muted mb-1">Track your progress</p>
+                    </div>
+                    <div class="stat-icon bg-primary-light text-primary">
+                      <i class="bi bi-clock"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
             <div class="col-md-4 mb-3 mb-md-0">
               <div class="card stat-card">
                 <div class="card-body">
@@ -107,7 +126,6 @@ $statusClass = [
                   </div>
                 </div>
               </div>
-
             </div>
             <div class="col-md-4 mb-3 mb-md-0">
               <div class="card stat-card">

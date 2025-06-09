@@ -7,59 +7,28 @@
   <title>PBCOM | Regulatory Courses</title>
   <link href="https://fonts.cdnfonts.com/css/aileron" rel="stylesheet">
   <script src="https://kit.fontawesome.com/538907d71c.js" crossorigin="anonymous"></script>
+  <!-- Logo icon-->
+  <link rel="icon" type="image/x-icon" href="../assets/images/pbcom.jpg">
 
   <!-- Bootstrap 5 CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Custom CSS -->
   <link rel="stylesheet" href="../assets/css/courses.css">
+  <link rel="stylesheet" href="../assets/css/dashboard.css">
+
 </head>
 
 <body>
   <div class="wrapper">
     <!-- Header -->
     <?php include 'topbar.php' ?>
-    <?php include 'topbar.php' ?>
 
     <div class="content-wrapper">
       <!-- Sidebar -->
       <?php include 'sidebar.php' ?>
-      
-      <aside id="sidebar" class="sidebar">
-        <div class="sidebar-header">
-          <h2>Employee Portal</h2>
-        </div>
-        <nav class="sidebar-nav">
-          <div class="nav-section">
-            <div class="nav-section-title">Main</div>
-            <a href="home.php" class="nav-link">
-              <i class="bi bi-house"></i>
-              <span>Home</span>
-            </a>
-            <a href="#" class="nav-link ">
-              <i class="bi bi-bar-chart"></i>
-              <span>Dashboard</span>
-            </a>
-          </div>
-          <div class="nav-section">
-            <div class="nav-section-title">Learning</div>
-            <div class="nav-dropdown">
-              <button class="nav-dropdown-toggle">
-                <i class="bi bi-book"></i>
-                <span>Courses</span>
-                <i class="bi bi-chevron-down dropdown-icon"></i>
-              </button>
-              <div class="nav-dropdown-menu active">
-                <a href="regulatory_courses.php" class="nav-dropdown-item active">Regulatory Courses</a>
-                <a href="on_boarding.php" class="nav-dropdown-item">On-Boarding Orientation</a>
-                <a href="behavioral_management.php" class="nav-dropdown-item">Behavioral and Management</a>
-                <a href="development_program.php" class="nav-dropdown-item">Development Program</a>
-                <a href="tech_job_specific.php" class="nav-dropdown-item">Technical/Job Specific</a>
-              </div>
-            </div>
-          </div>
-        </nav>
-      </aside>
 
       <!-- Main Content -->
       <main class="main-content">
@@ -134,7 +103,6 @@
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="course-duration">Duration: 2 hours</div>
                     <button class="btn btn-link start-course-btn">
-                      Start Course <i class="fas fa-chevron-right ms-1" data-url="anti_money.php?course=aml"></i>
                       Start Course <i class="fas fa-chevron-right ms-1" data-url="anti_money.php?course=aml"></i>
                     </button>
                   </div>
@@ -357,7 +325,28 @@
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <!-- Bootstrap JS Bundle with Popper -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
   <!-- Custom JavaScript -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const currentPath = window.location.pathname.split("/").pop(); // get current filename
+      const dropdowns = document.querySelectorAll(".nav-dropdown");
+
+      dropdowns.forEach(dropdown => {
+        const items = dropdown.querySelectorAll(".nav-dropdown-menu");
+
+        items.forEach(item => {
+          const href = item.getAttribute("href");
+
+          if (href === currentPath) {
+            item.classList.add("active");                 // highlight item
+            dropdown.classList.add("open");               // keep dropdown open
+          }
+        });
+      });
+    });
+  </script>
+
   <script src="../assets/js/script.js"></script>
   <script src="../assets/js/sidebar.js"></script>
 

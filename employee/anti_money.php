@@ -91,6 +91,27 @@ echo "<h1>Welcome to the $course course page!</h1>";
   <!-- Bootstrap JS Bundle with Popper -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <!-- Custom JS -->
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const currentPath = window.location.pathname.split("/").pop(); // get current filename
+      const dropdowns = document.querySelectorAll(".nav-dropdown");
+
+      dropdowns.forEach(dropdown => {
+        const items = dropdown.querySelectorAll(".nav-dropdown-item");
+
+        items.forEach(item => {
+          const href = item.getAttribute("href");
+
+          if (href === currentPath) {
+            item.classList.add("active");                 // highlight item
+            dropdown.classList.add("open");               // keep dropdown open
+          }
+        });
+      });
+    });
+  </script>
+
   <script src="../assets/js/sidebar.js"></script>
 </body>
 

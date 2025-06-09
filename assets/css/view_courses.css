@@ -1,0 +1,234 @@
+/* Global Styles */
+:root {
+  --primary-color: #dc3545;
+  --primary-dark: #c82333;
+  --primary-light: #f8d7da;
+  --secondary-color: #6c757d;
+  --success-color: #28a745;
+  --info-color: #17a2b8;
+  --warning-color: #ffc107;
+  --danger-color: #dc3545;
+  --light-color: #f8f9fa;
+  --dark-color: #343a40;
+  --blue-light: #cfe2ff;
+  --green-light: #d1e7dd;
+  --purple: #6f42c1;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to bottom right, #f8f9fa, #e9ecef);
+  min-height: 100vh;
+  margin: 0;
+  color: #333;
+}
+
+/* Header Styles */
+
+/* Sidebar Styles */
+.sidebar {
+  width: 250px;
+  background-color: white;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
+  min-height: calc(100vh - 60px);
+  flex-shrink: 0;
+}
+
+.sidebar-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Main Content Styles */
+.main-content {
+  flex: 1;
+  padding: 2rem;
+  overflow-y: auto;
+}
+
+.breadcrumb-container {
+  display: flex;
+  align-items: center;
+  font-size: 0.875rem;
+  color: #6c757d;
+}
+
+.breadcrumb-container i {
+  font-size: 0.75rem;
+  margin: 0 0.5rem;
+}
+
+.breadcrumb-container .current {
+  color: #333;
+}
+
+.course-title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: #212529;
+}
+
+.badge-text {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: #6c757d;
+  font-size: 0.875rem;
+}
+
+.bg-light-blue {
+  background-color: var(--blue-light);
+  color: #0d6efd;
+}
+
+.bg-light-green {
+  background-color: var(--green-light);
+  color: var(--success-color);
+}
+
+/* Card Styles */
+.card {
+  border: none;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  margin-bottom: 1.5rem;
+}
+
+.card-header {
+  background-color: white;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 1rem 1.25rem;
+}
+
+.card-title {
+  margin-bottom: 0;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.card-subtitle {
+  color: #6c757d;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+.progress-card {
+  width: 22rem;
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+.progress-card .card-header {
+  border-radius: 0.5rem;
+}
+
+
+.progress {
+  height: 0.5rem;
+}
+
+.progress-bar {
+  background-color: var(--primary-color);
+}
+
+/* Stats */
+.stat-value {
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+.stat-label {
+  font-size: 0.875rem;
+  color: #6c757d;
+}
+
+.text-purple {
+  color: var(--purple);
+}
+
+/* Module Items */
+.modules-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.module-item {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid #dee2e6;
+  transition: all 0.2s ease;
+}
+
+.module-item:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border-color: #ced4da;
+}
+
+.module-item.completed {
+  background-color: rgba(209, 231, 221, 0.3);
+  border-color: #d1e7dd;
+}
+
+.module-item.current {
+  background-color: rgba(207, 226, 255, 0.3);
+  border-color: #cfe2ff;
+}
+
+.module-icon {
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.module-title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.module-description {
+  font-size: 0.875rem;
+  color: #6c757d;
+  margin-bottom: 0.5rem;
+}
+
+.module-duration {
+  font-size: 0.75rem;
+  color: #6c757d;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .sidebar {
+    width: 200px;
+  }
+}
+
+@media (max-width: 768px) {
+  .d-flex {
+    flex-wrap: wrap;
+  }
+
+  .sidebar {
+    width: 100%;
+    min-height: auto;
+  }
+
+  .main-content {
+    width: 100%;
+  }
+
+  .progress-card {
+    width: 100%;
+    margin-top: 1rem;
+  }
+}

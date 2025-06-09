@@ -55,7 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['employee_id'] = $employee_id;
         $_SESSION['employee_name'] = $first_name;
 
-        header("Location: home.php");
+        header("Location: employee/employee_dashboard.php");
         exit();
       } else {
         $login_error = "Invalid user role.";
@@ -134,15 +134,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
               <div class="mb-3">
                 <label class="form-label">Username</label>
                 <input type="text" name="username" class="form-control" placeholder="Enter your username"
-                  value="<?php echo isset($_COOKIE['remember_username']) ? $_COOKIE['remember_username'] : ''; ?>" required>
+                  value="<?php echo isset($_COOKIE['remember_username']) ? $_COOKIE['remember_username'] : ''; ?>"
+                  required>
               </div>
 
               <div class="mb-3 position-relative">
                 <label class="form-label">Password</label>
                 <input type="password" name="password" id="password-field" class="form-control"
                   placeholder="Enter your password" required>
-                <span class="position-absolute end-0 top-50 translate-middle-y me-3" style="cursor: pointer;"
-                  onclick="togglePassword()">
+                <span class="password translate-middle-y " onclick="togglePassword()">
                   <i id="toggleIcon" class="fa-solid fa-eye"></i>
                 </span>
               </div>
@@ -170,7 +170,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
   </div>
 
-
+  <!-- Custom JS -->
   <script>
     function togglePassword() {
       const passwordField = document.getElementById('password-field');
@@ -181,6 +181,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       toggleIcon.classList.toggle('fa-eye-slash');
     }
   </script>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
