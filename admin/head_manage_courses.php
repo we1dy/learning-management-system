@@ -187,7 +187,7 @@ $statusClass = [
                                     <div class="col-md-4 mb-3">
                                         <div class="card course-card">
                                             <div class="course-image">
-                                                <img src="../<?= htmlspecialchars($row['course_image'] ?? 'images/placeholder.jpg') ?>"
+                                                <img src="<?= htmlspecialchars($row['course_image'] ?? 'images/placeholder.jpg') ?>"
                                                     alt="<?= htmlspecialchars($row['course_name']) ?>"
                                                     style="width: 100%; height: 150px; object-fit: cover;">
                                             </div>

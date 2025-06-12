@@ -170,6 +170,7 @@ $statusClass = [
               <button class="btn btn-outline-secondary btn-sm">View All</button>
             </div>
             <div class="row">
+              <?php if ($in_progress_result->num_rows > 0): ?>
               <?php while ($row = mysqli_fetch_assoc($history_result)): ?>
                 <div class="col-md-4 mb-3">
                   <div class="card course-card">
@@ -196,6 +197,11 @@ $statusClass = [
                   </div>
                 </div>
               <?php endwhile; ?>
+              <?php else: ?>
+              <div class="col-12">
+                <p class="text-muted">No recently accessed courses.</p>
+              </div>
+              <?php endif; ?>
             </div>
           </section>
 
@@ -229,6 +235,7 @@ $statusClass = [
             </div>
             <div class="row">
               <!-- Course Card A -->
+              <?php if ($in_progress_result->num_rows > 0): ?>
               <?php while ($row = mysqli_fetch_assoc($completed_result)): ?>
                 <div class="col-md-4 mb-3">
                   <div class="card course-card">
@@ -253,6 +260,11 @@ $statusClass = [
                   </div>
                 </div>
               <?php endwhile; ?>
+              <?php else: ?>
+              <div class="col-12">
+                <p class="text-muted">No completed courses at the moment.</p>
+              </div>
+              <?php endif; ?>
               <!-- Course Card B -->
               <!-- <div class="col-md-4 mb-3">
                 <div class="card course-card">
