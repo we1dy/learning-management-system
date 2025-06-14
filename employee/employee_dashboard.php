@@ -61,14 +61,23 @@ $statusClass = [
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PBCOM LMS | Dashboard</title>
+  <!-- Aileron Font -->
   <link href="https://fonts.cdnfonts.com/css/aileron" rel="stylesheet">
+  <!-- FontAwesome Icons -->
   <script src="https://kit.fontawesome.com/538907d71c.js" crossorigin="anonymous"></script>
+  <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+<<<<<<< HEAD
+  <!-- CSS Custom -->
+  <link rel="stylesheet" href="../assets/css/dashboard.css">
+=======
 
   <!-- Custom CSS -->
   <link rel="stylesheet" href="../assets/css/dashboard.css">
   <link rel="icon" type="image/x-icon" href="../assets/images/pbcom.jpg">
+>>>>>>> bbc0b812c5269a573af50c6593a3a04ed9bcfa5a
 </head>
 
 <body>
@@ -83,6 +92,7 @@ $statusClass = [
       <!-- Main Content -->
       <main class="main-content">
         <div class="container-fluid">
+
           <!-- Mobile Search -->
           <div class="mobile-search d-md-none mb-3">
             <div class="position-relative">
@@ -90,6 +100,8 @@ $statusClass = [
               <input type="text" class="form-control" placeholder="Search...">
             </div>
           </div>
+        
+          <h1 class="dashboard-title">Dashboard</h1>
 
           <!-- Stats Cards -->
           <div class="row mb-4">
@@ -205,28 +217,6 @@ $statusClass = [
             </div>
           </section>
 
-          <!-- Course Card 2 -->
-
-          <!-- Course Card 3 -->
-          <!-- <div class="col-md-4 mb-3">
-                  <div class="card course-card">
-                    <div class="course-image">
-                      <img src="https://via.placeholder.com/300x150" alt="Course Name 3">
-                      <span class="badge bg-success">Completed</span>
-                    </div>
-                    <div class="card-body">
-                      <h5 class="card-title">Course Name 3</h5>
-                      <p class="card-text text-muted">Completed on 03/15/2023</p>
-                      <div class="progress mt-2">
-                        <div class="progress-bar bg-danger" role="progressbar" style="width: 100%" aria-valuenow="100"
-                          aria-valuemin="0" aria-valuemax="100"></div>
-                      </div>
-                    </div>
-                  </div>
-                </div> -->
-          <!-- </div>
-          </section> -->
-
           <!-- Completed Section -->
           <section class="mb-5">
             <div class="d-flex justify-content-between align-items-center mb-3">
@@ -234,6 +224,7 @@ $statusClass = [
               <button class="btn btn-outline-secondary btn-sm">View All</button>
             </div>
             <div class="row">
+
               <!-- Course Card A -->
               <?php if ($in_progress_result->num_rows > 0): ?>
               <?php while ($row = mysqli_fetch_assoc($completed_result)): ?>
@@ -260,6 +251,8 @@ $statusClass = [
                   </div>
                 </div>
               <?php endwhile; ?>
+<<<<<<< HEAD
+=======
               <?php else: ?>
               <div class="col-12">
                 <p class="text-muted">No completed courses at the moment.</p>
@@ -285,6 +278,7 @@ $statusClass = [
               <!-- Course Card C -->
 
 
+>>>>>>> bbc0b812c5269a573af50c6593a3a04ed9bcfa5a
             </div>
           </section>
 
@@ -338,8 +332,12 @@ $statusClass = [
               <?php endif; ?>
             </div>
           </section>
-
         </div>
+        &nbsp;
+        &nbsp;
+        &nbsp;
+        <!-- Footer -->
+        <?php include '../footer.php' ?>
       </main>
     </div>
   </div>
@@ -378,11 +376,13 @@ $statusClass = [
 
 
     function formatDate(dateStr) {
-      const options = { year: 'numeric', month: 'long', day: 'numeric' };
+      const options = {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      };
       return new Date(dateStr).toLocaleDateString(undefined, options);
     }
-
-
   </script>
 
 

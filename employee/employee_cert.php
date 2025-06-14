@@ -18,6 +18,10 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
   <!-- CSS Custom -->
   <link rel="stylesheet" href="../assets/css/dashboard.css">
+<<<<<<< HEAD
+  <link rel="icon" type="image/x-icon" href="assets/images/pbcom.jpg">
+=======
+>>>>>>> bbc0b812c5269a573af50c6593a3a04ed9bcfa5a
 </head>
 
 <body>
@@ -32,6 +36,7 @@
       <!-- Main Content -->
       <main class="main-content">
         <div class="container-fluid">
+
           <!-- Mobile Search -->
           <div class="mobile-search d-md-none mb-3">
             <div class="position-relative">
@@ -45,7 +50,6 @@
           <h1>Certificate</h1>
           <a href="employee_dashboard.php">back</a>
 
-          </section>
         </div>
 
         <!-- Footer -->

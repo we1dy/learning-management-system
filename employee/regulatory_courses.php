@@ -34,8 +34,17 @@ $numCourses = $result1->fetch_assoc();
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PBCOM | Regulatory Courses</title>
+  <!-- Aileron Font -->
   <link href="https://fonts.cdnfonts.com/css/aileron" rel="stylesheet">
+  <!-- FontAwesome Icons -->
   <script src="https://kit.fontawesome.com/538907d71c.js" crossorigin="anonymous"></script>
+<<<<<<< HEAD
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+  <!-- CSS Custom -->
+=======
   <!-- Logo icon-->
   <link rel="icon" type="image/x-icon" href="../assets/images/pbcom.jpg">
 
@@ -47,6 +56,7 @@ $numCourses = $result1->fetch_assoc();
   <!-- Custom CSS -->
      <link rel="stylesheet" href="../assets/css/view_courses.css">
   <link rel="stylesheet" href="../assets/css/card_list.css">
+>>>>>>> bbc0b812c5269a573af50c6593a3a04ed9bcfa5a
   <link rel="stylesheet" href="../assets/css/courses.css">
   <link rel="stylesheet" href="../assets/css/dashboard.css">
 
@@ -60,10 +70,15 @@ $numCourses = $result1->fetch_assoc();
     <div class="content-wrapper">
       <!-- Sidebar -->
       <?php include 'sidebar.php' ?>
+<<<<<<< HEAD
+      
+=======
 
+>>>>>>> bbc0b812c5269a573af50c6593a3a04ed9bcfa5a
       <!-- Main Content -->
       <main class="main-content">
         <div class="container-fluid">
+
           <!-- Mobile Search -->
           <div class="mobile-search d-md-none mb-4">
             <div class="input-group">
@@ -76,6 +91,7 @@ $numCourses = $result1->fetch_assoc();
           &nbsp;
           &nbsp;
           &nbsp;
+
           <!-- Page Header -->
           <div class="page-header mb-4">
             <div class="d-flex justify-content-between align-items-center">
@@ -87,6 +103,33 @@ $numCourses = $result1->fetch_assoc();
             </p>
           </div>
 
+<<<<<<< HEAD
+          <!-- Course Grid -->
+          <div class="row g-4">
+
+            <!-- Financial Consumer Protection -->
+            <div class="col-md-6 col-lg-4">
+              <div class="course-card">
+                <div class="course-image bg-gradient-red">
+                  <div class="course-icon">
+                    <i class="fas fa-money-bill-wave"></i>
+                  </div>
+                </div>
+                <div class="course-content">
+                  <div class="d-flex justify-content-between align-items-start mb-2">
+                    <h3 class="course-title">Financial Consumer Protection</h3>
+                    <span class="badge required-badge">Required</span>
+                  </div>
+                  <p class="course-description">
+                    Understanding regulations and compliance procedures for financial institutions
+                  </p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="course-duration">Duration: 2 hours</div>
+                    <button class="btn btn-link start-course-btn">
+                      Start Course <i class="fas fa-chevron-right ms-1" data-url="anti_money.php?course=aml"></i>
+                    </button>
+                  </div>
+=======
          <!-- Course Description -->
           <div class="card mb-3 p-2">
             <div class="card-header">
@@ -114,6 +157,7 @@ $numCourses = $result1->fetch_assoc();
                 <div class="col-md-4">
                   <div class="stat-value text-purple">95%</div>
                   <div class="stat-label">Pass Rate</div>
+>>>>>>> bbc0b812c5269a573af50c6593a3a04ed9bcfa5a
                 </div>
               </div>
             </div>
@@ -429,10 +473,12 @@ $numCourses = $result1->fetch_assoc();
 
   <!-- SweetAlert 2 CDN -->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <!-- SweetAlert 2 CDN -->
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
   <!-- Bootstrap JS Bundle with Popper -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<<<<<<< HEAD
+  
+=======
 
   <script>
 document.addEventListener("DOMContentLoaded", function () {
@@ -505,6 +551,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   </script> -->
 
+>>>>>>> bbc0b812c5269a573af50c6593a3a04ed9bcfa5a
   <!-- Custom JavaScript -->
 
 

@@ -18,6 +18,10 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
   <!-- CSS Custom -->
   <link rel="stylesheet" href="../assets/css/dashboard.css">
+<<<<<<< HEAD
+  <link rel="icon" type="image/x-icon" href="assets/images/pbcom.jpg">
+=======
+>>>>>>> bbc0b812c5269a573af50c6593a3a04ed9bcfa5a
 </head>
 
 <body>

@@ -1,6 +1,5 @@
 <?php
 require_once "../db.php";
-
 if (session_status() == PHP_SESSION_NONE) {
   session_start();
 }
@@ -9,140 +8,177 @@ if (session_status() == PHP_SESSION_NONE) {
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PBCOM LMS | Message</title>
+<<<<<<< HEAD
+  <link href="https://fonts.cdnfonts.com/css/aileron" rel="stylesheet" />
+=======
   <!-- Logo icon-->
   <link rel="icon" type="image/x-icon" href="../assets/     images/pbcom.jpg">
 
   <link href="https://fonts.cdnfonts.com/css/aileron" rel="stylesheet">
+>>>>>>> bbc0b812c5269a573af50c6593a3a04ed9bcfa5a
   <script src="https://kit.fontawesome.com/538907d71c.js" crossorigin="anonymous"></script>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
-  <link rel="stylesheet" href="../assets/css/dashboard.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" />
+  <link rel="stylesheet" href="../assets/css/dashboard.css" />
+  <style>
+    .messages-container {
+      display: flex;
+      height: 68vh;
+      background: #f5f5f5;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.11);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .contacts-panel {
+      width: 250px;
+      background: #e6e6e6;
+      padding: 15px;
+      border-right: 1px solid #ccc;
+    }
+
+    .contact {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+      cursor: pointer;
+    }
+
+    .contact .avatar {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+
+    .chat-panel {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 15px;
+      background: #f9f9f9;
+    }
+
+    .chat-header {
+      font-weight: bold;
+      margin-bottom: 10px;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 5px;
+    }
+
+    .chat-messages {
+      flex-grow: 1;
+      overflow-y: auto;
+      margin-bottom: 10px;
+      padding: 10px;
+      background: white;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .chat-input {
+      display: flex;
+      gap: 10px;
+    }
+
+    .chat-input input {
+      flex-grow: 1;
+    }
+  </style>
 </head>
 
 <body>
+  <div class="wrapper">
+    <!-- Header -->
+    <?php include 'topbar.php' ?>
+    <div class="content-wrapper">
+    
+      <!-- Sidebar -->
+      <?php include 'sidebar.php' ?>
 
-  <?php include 'topbar.php' ?>
+      <!-- Main Content -->
+      <main class="main-content">
+        <div class="container-fluid mt-4">
+          <h1>Messages</h1>
+          &nbsp;
+          <div class="messages-container">
 
-  <div class="content-wrapper">
-    <!-- Sidebar -->
-    <aside id="sidebar" class="sidebar">
-      <div class="sidebar-header">
-        <h2>Employee Portal</h2>
-      </div>
-      <nav class="sidebar-nav">
-        <div class="nav-section">
-          <div class="nav-section-title">Main</div>
-          <a href="employee_dashboard.php" class="nav-link">
-            <i class="bi bi-bar-chart"></i>
-            <span>Dashboard</span>
-          </a>
-          <a href="#" class="nav-link">
-            <i class="bi bi-person-circle"></i>
-            <span>Profile</span>
-          </a>
-
-        </div> <!-- end of main nav-section -->
-
-        <div class="nav-section">
-          <div class="nav-section-title">Learning</div>
-          <div class="nav-dropdown">
-            <button class="nav-dropdown-toggle">
-              <i class="bi bi-book"></i>
-              <span>Courses</span>
-              <i class="bi bi-chevron-down dropdown-icon"></i>
-            </button>
-            <div class="nav-dropdown-menu">
-              <a href="regulatory_courses.php" class="nav-dropdown-item">Regulatory Courses</a>
-              <a href="on_boarding.php" class="nav-dropdown-item">On-Boarding Orientation</a>
-              <a href="behavioral_management.php" class="nav-dropdown-item">Behavioral and Management</a>
-              <a href="development_program.php" class="nav-dropdown-item">Development Program</a>
-              <a href="tech_job_specific.php" class="nav-dropdown-item">Technical/Job Specific</a>
+            <!-- Contacts Panel -->
+            <div class="contacts-panel">
+              <input type="text" class="form-control mb-3" placeholder="Search..." />
+              <!-- placeholder muna toh ⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️ -->
+              <div class="contact"><div class="avatar" style="background: pink;"></div>Angeline Bedis</div>
+              <div class="contact"><div class="avatar" style="background: #a94442;"></div>Yeye Tirazona</div>
+              <div class="contact"><div class="avatar" style="background: #732626;"></div>Louise Majadas</div>
+              <!-- placeholder muna toh ⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️ -->
             </div>
-          </div>
 
-          <a href="employee_quiz.php" class="nav-link ">
-            <i class="bi bi-journal-check me-2"></i>
-            <span>Quiz</span>
-          </a>
-          </a>
-          <a href="#" class="nav-link">
-            <i class="bi bi-chat-dots me-2"></i>
-            <span>Certificate</span>
-          </a>
-        </div> <!-- end of learning nav-section -->
-      </nav>
-    </aside>
-
-    <!-- Main Content -->
-    <main class="main-content">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-md-8 offset-md-2">
-            <div class="card mt-4">
-              <div class="card-header bg-danger text-white">
-                <h5 class="mb-0">Employee Chat</h5>
-              </div>
-              <div class="card-body">
-                <div id="chat-box" class="border p-3 mb-3"
-                  style="height: 300px; overflow-y: scroll; background: #f9f9f9;"></div>
-
-                <div class="mb-2">
-                  <input type="text" id="username" class="form-control mb-2" placeholder="Your name">
-                  <input type="text" id="message" class="form-control" placeholder="Type a message">
-                </div>
-                <button class="btn btn-danger" onclick="sendMessage()">Send</button>
+            <!-- Chat Panel -->
+            <div class="chat-panel">
+              <div class="chat-header">Name of the person user is currently chatting</div>
+              <div id="chat-box" class="chat-messages"></div>
+              <div class="chat-input">
+                <input type="text" id="message" class="form-control" placeholder="Type a message" />
+                <button class="btn btn-danger" onclick="sendMessage()">
+                  <i class="bi bi-send"></i>
+                </button>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </main>
+        &nbsp;
+        &nbsp;
+        &nbsp;
+
+        <!-- Footer -->
+        <?php include '../footer.php' ?>&nbsp;
+      </main>
+    </div>
   </div>
 
   <script>
-    function sendMessage() {
-      const username = document.getElementById("username").value.trim();
-      const message = document.getElementById("message").value.trim();
+      function sendMessage() {
+        const username = document.getElementById("username").value.trim();
+        const message = document.getElementById("message").value.trim();
 
-      if (!message) {
-        alert("Message cannot be empty.");
-        return;
-      }
+        if (!message) {
+          alert("Message cannot be empty.");
+          return;
+        }
 
 
-      // Immediately show the message on screen
-      const chatBox = document.getElementById("chat-box");
-      const msgHTML = `
+        // Immediately show the message on screen
+        const chatBox = document.getElementById("chat-box");
+        const msgHTML = `
       <div class='chat-message user'>
         <strong>${username}</strong> <small>[Now]</small><br>
         ${message}
       </div>`;
-      chatBox.innerHTML += msgHTML;
-      chatBox.scrollTop = chatBox.scrollHeight;
+        chatBox.innerHTML += msgHTML;
+        chatBox.scrollTop = chatBox.scrollHeight;
 
-      // Clear the input
-      document.getElementById("message").value = "";
+        // Clear the input
+        document.getElementById("message").value = "";
 
-      // Send to database
-      const xhr = new XMLHttpRequest();
-      xhr.open("POST", "employee_sendmesage.php", true);
-      xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-      xhr.onload = function () {
-        if (xhr.responseText.trim() !== "success") {
-          alert("Error sending message: " + xhr.responseText);
-        }
-      };
-      xhr.send("username=" + encodeURIComponent(username) + "&message=" + encodeURIComponent(message));
-    }
-  </script>
+        // Send to database
+        const xhr = new XMLHttpRequest();
+        xhr.open("POST", "employee_sendmesage.php", true);
+        xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhr.onload = function() {
+          if (xhr.responseText.trim() !== "success") {
+            alert("Error sending message: " + xhr.responseText);
+          }
+        };
+        xhr.send("username=" + encodeURIComponent(username) + "&message=" + encodeURIComponent(message));
+      }
+    </script>
 
-  <!-- Scripts -->
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script src="assets/js/sidebar.js"></script>
-
 </body>
 
 </html>

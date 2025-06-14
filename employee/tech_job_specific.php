@@ -34,19 +34,23 @@ $numCourses = $result1->fetch_assoc();
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>PBCOM LMS | Technical/Job Specific</title>
+	<!-- Aileron Font -->
 	<link href="https://fonts.cdnfonts.com/css/aileron" rel="stylesheet">
+	<!-- FontAwesome Icons -->
 	<script src="https://kit.fontawesome.com/538907d71c.js" crossorigin="anonymous"></script>
-
-
-	<!-- Bootstrap 5 CSS -->
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+	<!-- Bootstrap CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 	<!-- Bootstrap Icons -->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+<<<<<<< HEAD
+	<!-- CSS Custom -->
+=======
 	<!-- Font Awesome for icons -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 	<!-- Custom CSS -->
 	   <link rel="stylesheet" href="../assets/css/view_courses.css">
   <link rel="stylesheet" href="../assets/css/card_list.css">
+>>>>>>> bbc0b812c5269a573af50c6593a3a04ed9bcfa5a
 	<link rel="stylesheet" href="../assets/css/courses.css">
 </head>
 
@@ -62,6 +66,7 @@ $numCourses = $result1->fetch_assoc();
 			<!-- Main Content -->
 			<main class="main-content">
 				<div class="container-fluid">
+
 					<!-- Mobile Search -->
 					<div class="mobile-search d-md-none mb-4">
 						<div class="input-group">
@@ -74,6 +79,7 @@ $numCourses = $result1->fetch_assoc();
 					&nbsp;
 					&nbsp;
 					&nbsp;
+
 					<!-- Page Header -->
 					<div class="page-header mb-4">
 						<div class="d-flex justify-content-between align-items-center">
@@ -85,6 +91,18 @@ $numCourses = $result1->fetch_assoc();
 						</p>
 					</div>
 
+<<<<<<< HEAD
+					<!-- Course Grid -->
+					<div class="row g-4">
+
+						<!-- Core Banking System -->
+						<div class="col-md-6 col-lg-4">
+							<div class="course-card">
+								<div class="course-image bg-gradient-red">
+									<div class="course-icon">
+										<i class="fas fa-money-bill-wave"></i>
+									</div>
+=======
 					<!-- Course Description -->
           <div class="card mb-3 p-2">
             <div class="card-header">
@@ -104,6 +122,7 @@ $numCourses = $result1->fetch_assoc();
                 <div class="col-md-4">
                   <div class="stat-value text-primary"><?= htmlspecialchars($numCourses['total_courses']) ?></div>
 									<div class="stat-label">Modules</div>
+>>>>>>> bbc0b812c5269a573af50c6593a3a04ed9bcfa5a
 								</div>
 								<div class="col-md-4">
 									<div class="stat-value text-success">2.5h</div>
@@ -345,7 +364,6 @@ $numCourses = $result1->fetch_assoc();
 		</main>
 		</div>
 	</div>
-
 
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
