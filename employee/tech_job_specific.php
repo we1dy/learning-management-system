@@ -91,18 +91,6 @@ $numCourses = $result1->fetch_assoc();
 						</p>
 					</div>
 
-<<<<<<< HEAD
-					<!-- Course Grid -->
-					<div class="row g-4">
-
-						<!-- Core Banking System -->
-						<div class="col-md-6 col-lg-4">
-							<div class="course-card">
-								<div class="course-image bg-gradient-red">
-									<div class="course-icon">
-										<i class="fas fa-money-bill-wave"></i>
-									</div>
-=======
 					<!-- Course Description -->
           <div class="card mb-3 p-2">
             <div class="card-header">
@@ -122,7 +110,6 @@ $numCourses = $result1->fetch_assoc();
                 <div class="col-md-4">
                   <div class="stat-value text-primary"><?= htmlspecialchars($numCourses['total_courses']) ?></div>
 									<div class="stat-label">Modules</div>
->>>>>>> bbc0b812c5269a573af50c6593a3a04ed9bcfa5a
 								</div>
 								<div class="col-md-4">
 									<div class="stat-value text-success">2.5h</div>

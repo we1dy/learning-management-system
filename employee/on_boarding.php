@@ -88,17 +88,6 @@ $numCourses = $result1->fetch_assoc();
             </p>
           </div>
 
-<<<<<<< HEAD
-          <!-- Course Grid -->
-          <div class="row g-4">
-            
-            <!-- Company History -->
-            <div class="col-md-6 col-lg-4">
-              <div class="course-card">
-                <div class="course-image bg-gradient-red">
-                  <div class="course-icon">
-                    <i class="fas fa-money-bill-wave"></i>
-=======
          <!-- Course Description -->
           <div class="card mb-3 p-2">
             <div class="card-header">
@@ -144,7 +133,6 @@ $numCourses = $result1->fetch_assoc();
                 <div class="course-card">
                   <div class="course-image"
                     style="background-image: url('<?= $row['course_image'] ?>'); background-size: cover; background-position: center; height: 200px;">
->>>>>>> bbc0b812c5269a573af50c6593a3a04ed9bcfa5a
                   </div>
                   <div class="course-content p-3">
                     <div class="d-flex justify-content-between align-items-start mb-2">

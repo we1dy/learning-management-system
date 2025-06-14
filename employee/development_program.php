@@ -92,34 +92,6 @@ $numCourses = $result1->fetch_assoc();
             </p>
           </div>
 
-<<<<<<< HEAD
-          <!-- Course Grid -->
-          <div class="row g-4">
-
-            <!-- Advanced Leadership -->
-            <div class="col-md-6 col-lg-4">
-              <div class="course-card">
-                <div class="course-image bg-gradient-red">
-                  <div class="course-icon">
-                    <i class="fas fa-money-bill-wave"></i>
-                  </div>
-                </div>
-                <div class="course-content">
-                  <div class="d-flex justify-content-between align-items-start mb-2">
-                    <h3 class="course-title">Advanced Leadership</h3>
-                    <span class="badge required-badge">Required</span>
-                  </div>
-                  <p class="course-description">
-                    For senior managers and executives
-                  </p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="course-duration">Duration: 2 hours</div>
-                    <button class="btn btn-link start-course-btn">
-                      Start Course <i class="fas fa-chevron-right ms-1"></i>
-                    </button>
-                  </div>
-                </div>
-=======
          <!-- Course Description -->
           <div class="card mb-3 p-2">
             <div class="card-header">
@@ -147,7 +119,6 @@ $numCourses = $result1->fetch_assoc();
               <div class="col-md-4">
                 <div class="stat-value text-purple">95%</div>
                 <div class="stat-label">Pass Rate</div>
->>>>>>> bbc0b812c5269a573af50c6593a3a04ed9bcfa5a
               </div>
             </div>
           </div>
