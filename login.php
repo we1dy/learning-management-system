@@ -18,6 +18,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($result && $result->num_rows === 1) {
         $user = $result->fetch_assoc();
 
+        // Check account status
+        if ($user['account_status'] !== 'Active') {
+            $login_error = "Your account is inactive.";
+        }
         if ($password === $user['password']) {
 
             $_SESSION['user_id'] = $user['user_id'];
@@ -34,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $stmt->fetch();
             $stmt->close();
 
-           
+
             if (!$employee_id) {
                 die('Error: User ID = ' . htmlspecialchars($user_id) . ' not found in the employee database.');
             }
@@ -52,7 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['employee_id'] = $employee_id;
             $_SESSION['employee_name'] = $first_name;
             // $_SESSION['employee_name'] = $first_name . ' ' . $last_name;
-           
+
 
             // 7. Redirect to home
             header("Location: home.php");
@@ -88,8 +92,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <?php endif; ?>
                     <form action="login.php" method="POST">
                         <div class="mb-3">
-                            <label for="email" class="form-label">Email address</label>
-                            <input type="email" name="email" class="form-control" required>
+                            <label for="email" class="form-label">Username</label>
+                            <input type="text" name="email" class="form-control" required>
                         </div>
                         <div class="mb-3">
                             <label for="password" class="form-label">Password</label>

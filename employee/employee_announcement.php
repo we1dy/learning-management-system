@@ -5,6 +5,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PBCOM LMS | Announcements</title>
+  <!-- Logo icon-->
+  <link rel="icon" type="image/x-icon" href="../images/pbcom.jpg">
+
   <!-- Aileron Font -->
   <link href="https://fonts.cdnfonts.com/css/aileron" rel="stylesheet">
   <!-- FontAwesome Icons -->
@@ -15,7 +18,10 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
   <!-- CSS Custom -->
   <link rel="stylesheet" href="../assets/css/dashboard.css">
+<<<<<<< HEAD
   <link rel="icon" type="image/x-icon" href="assets/images/pbcom.jpg">
+=======
+>>>>>>> bbc0b812c5269a573af50c6593a3a04ed9bcfa5a
 </head>
 
 <body>

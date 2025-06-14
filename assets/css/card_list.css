@@ -1,0 +1,17 @@
+
+  #cardView, #listView {
+    transition: opacity 0.3s ease;
+  }
+  .list-course-item {
+    background-color: #f8f9fa;
+  }
+
+  @media (max-width: 576px) {
+    .list-course-item h5 {
+      font-size: 1rem;
+    }
+    .list-course-item .btn {
+      width: 100%;
+    }
+  }
+

@@ -148,6 +148,17 @@ CREATE TABLE `employee_courses` (
   `completed_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+
+--
+-- Table structure for table `emp_messages`
+--
+CREATE TABLE `em_messages` (
+  `id` int(11) NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `message` text NOT NULL,
+  `sent_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 --
 -- Dumping data for table `employee_courses`
 --

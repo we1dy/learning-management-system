@@ -69,8 +69,15 @@ $statusClass = [
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Bootstrap Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+<<<<<<< HEAD
   <!-- CSS Custom -->
   <link rel="stylesheet" href="../assets/css/dashboard.css">
+=======
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="../assets/css/dashboard.css">
+  <link rel="icon" type="image/x-icon" href="../assets/images/pbcom.jpg">
+>>>>>>> bbc0b812c5269a573af50c6593a3a04ed9bcfa5a
 </head>
 
 <body>
@@ -98,6 +105,23 @@ $statusClass = [
 
           <!-- Stats Cards -->
           <div class="row mb-4">
+            <div class="col-md-12 mb-3 mb-md-3">
+              <div class="card stat-card">
+                <div class="card-body">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                      <div id="card_title">
+                        <h3 class="mb-1">Welcome back, <?php echo htmlspecialchars($_SESSION['employee_name'] ?? ''); ?></h3>
+                      </div>
+                      <p class="text-muted mb-1">Track your progress</p>
+                    </div>
+                    <div class="stat-icon bg-primary-light text-primary">
+                      <i class="bi bi-clock"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
             <div class="col-md-4 mb-3 mb-md-0">
               <div class="card stat-card">
                 <div class="card-body">
@@ -114,7 +138,6 @@ $statusClass = [
                   </div>
                 </div>
               </div>
-
             </div>
             <div class="col-md-4 mb-3 mb-md-0">
               <div class="card stat-card">
@@ -159,6 +182,7 @@ $statusClass = [
               <button class="btn btn-outline-secondary btn-sm">View All</button>
             </div>
             <div class="row">
+              <?php if ($in_progress_result->num_rows > 0): ?>
               <?php while ($row = mysqli_fetch_assoc($history_result)): ?>
                 <div class="col-md-4 mb-3">
                   <div class="card course-card">
@@ -185,6 +209,11 @@ $statusClass = [
                   </div>
                 </div>
               <?php endwhile; ?>
+              <?php else: ?>
+              <div class="col-12">
+                <p class="text-muted">No recently accessed courses.</p>
+              </div>
+              <?php endif; ?>
             </div>
           </section>
 
@@ -197,6 +226,7 @@ $statusClass = [
             <div class="row">
 
               <!-- Course Card A -->
+              <?php if ($in_progress_result->num_rows > 0): ?>
               <?php while ($row = mysqli_fetch_assoc($completed_result)): ?>
                 <div class="col-md-4 mb-3">
                   <div class="card course-card">
@@ -221,6 +251,34 @@ $statusClass = [
                   </div>
                 </div>
               <?php endwhile; ?>
+<<<<<<< HEAD
+=======
+              <?php else: ?>
+              <div class="col-12">
+                <p class="text-muted">No completed courses at the moment.</p>
+              </div>
+              <?php endif; ?>
+              <!-- Course Card B -->
+              <!-- <div class="col-md-4 mb-3">
+                <div class="card course-card">
+                  <div class="course-image">
+                    <img src="https://via.placeholder.com/300x150" alt="Course Name B">
+                    <span class="badge bg-success">Completed</span>
+                  </div>
+                  <div class="card-body">
+                    <h5 class="card-title">Course Name B</h5>
+                    <p class="card-text text-muted">Completed on 01/15/2023</p>
+                    <div class="progress mt-2">
+                      <div class="progress-bar bg-danger" role="progressbar" style="width: 100%" aria-valuenow="100"
+                        aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                  </div>
+                </div>
+              </div> -->
+              <!-- Course Card C -->
+
+
+>>>>>>> bbc0b812c5269a573af50c6593a3a04ed9bcfa5a
             </div>
           </section>
 

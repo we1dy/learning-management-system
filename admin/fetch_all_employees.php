@@ -1,5 +1,5 @@
 <?php
-require_once "db.php";
+require_once "../db.php";
 
 header('Content-Type: application/json');
 
@@ -27,5 +27,4 @@ if ($result && $result->num_rows > 0) {
         $employees[] = $row;
     }
 }
-
 echo json_encode($employees);
