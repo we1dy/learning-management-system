@@ -69,12 +69,12 @@ $course = $result->fetch_assoc();
             <!-- <i class="bi bi-chevron-right"></i>
             <a href="employee_dashboard.php"><span>Compliance Training</span></a> -->
             <i class="bi bi-chevron-right"></i>
-            <span class="current">Money Laundering</span>
+            <span class="current"><?= htmlspecialchars($course['course_name']) ?></span>
           </div>
 
           <div class="d-flex justify-content-between align-items-start flex-wrap">
             <div>
-              <h1 class="course-title mb-3">Money Laundering Prevention</h1>
+              <h1 class="course-title mb-3"><?= htmlspecialchars($course['course_name']) ?></h1>
               <div class="d-flex gap-3 mb-4 flex-wrap">
                 <span class="badge bg-light-blue">
                   <i class="bi bi-clock"></i>
@@ -84,10 +84,10 @@ $course = $result->fetch_assoc();
                   <i class="bi bi-shield"></i>
                   <span>Compliance Required</span>
                 </div>
-                <div class="badge-text">
+                <!-- <div class="badge-text">
                   <i class="bi bi-star-fill text-warning"></i>
                   <span>4.8 Rating</span>
-                </div>
+                </div> -->
               </div>
             </div>
 
@@ -188,7 +188,7 @@ $course = $result->fetch_assoc();
                       <i class="bi bi-check-circle-fill text-success"></i>
                     </div>
                     <div>
-                      <h5 class="module-title">Introduction to Money Laundering</h5>
+                      <h5 class="module-title">Introduction to <?= htmlspecialchars($course['course_name']) ?></h5>
                       <p class="module-description">Understanding the basics of money laundering and its impact on
                         financial institutions</p>
                       <div class="d-flex gap-2 align-items-center">
@@ -341,6 +341,7 @@ $course = $result->fetch_assoc();
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Custom JavaScript -->
     <script src="script.js"></script>
+    <script src="../assets/js/sidebar.js"></script>
 </body>
 
 </html>
