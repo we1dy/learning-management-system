@@ -287,7 +287,9 @@ $statusClass = [
             const panel = document.getElementById('newCoursePanel');
             panel.style.display = panel.style.display === 'none' ? 'block' : 'none';
         }
+
     </script>
+    
 
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>

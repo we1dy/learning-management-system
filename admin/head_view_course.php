@@ -363,5 +363,42 @@ $modules = $stmt->get_result();
             fetchEmployees();
         });
     </script>
+    <!-- SweetAlert -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+document.getElementById('uploadForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const form = e.target;
+    const formData = new FormData(form);
+
+    fetch('upload_module.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(res => res.json())
+    .then(data => {
+        Swal.fire({
+            icon: data.status,
+            title: data.status === 'success' ? 'Success' : 'Error',
+            text: data.message
+        }).then(() => {
+            if (data.status === 'success') {
+                window.location.href = 'head_view_course.php?course_id=' + form.course_id.value;
+            }
+        });
+    })
+    .catch(err => {
+        console.error('Error:', err);
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Something went wrong with the request.'
+        });
+    });
+});
+</script>
+
 </body>
 </html>
