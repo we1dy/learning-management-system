@@ -22,14 +22,12 @@ if ($result->num_rows !== 1) {
 }
 
 $course = $result->fetch_assoc();
-
 // Load modules for this course
 $module_query = "SELECT * FROM course_modules WHERE course_id = ?";
 $stmt = $conn->prepare($module_query);
 $stmt->bind_param("i", $course_id);
 $stmt->execute();
 $modules = $stmt->get_result();
-
 ?>
 
 <!DOCTYPE html>
@@ -44,36 +42,13 @@ $modules = $stmt->get_result();
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <!-- Custom CSS -->
+    <!-- <link rel="stylesheet" href="../assets/css/head_dashboard.css"> -->
     <title><?= htmlspecialchars($course['course_name']) ?> - Course View</title>
 </head>
 
 <body>
     <div class="container mt-4">
-        <!-- Success/Error Messages -->
-        <?php if (isset($_GET['deleted'])): ?>
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                Module deleted successfully.
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-        <?php endif; ?>
-        
-        <?php if (isset($_GET['uploaded'])): ?>
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                Module uploaded successfully.
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-        <?php endif; ?>
-        
-        <?php if (isset($_GET['assigned'])): ?>
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                <?= htmlspecialchars($_GET['assigned']) ?> course(s) assigned successfully.
-                <?php if (isset($_GET['duplicates']) && $_GET['duplicates'] > 0): ?>
-                    <?= htmlspecialchars($_GET['duplicates']) ?> duplicate(s) skipped.
-                <?php endif; ?>
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-        <?php endif; ?>
-
         <h2><?= htmlspecialchars($course['course_name']) ?></h2>
 
         <div class="card mb-3">
@@ -85,6 +60,7 @@ $modules = $stmt->get_result();
         </div>
 
         <hr>
+
 
         <!-- Button to trigger upload form -->
         <button class="btn btn-primary mb-3" data-bs-toggle="collapse" data-bs-target="#uploadForm">
@@ -145,43 +121,46 @@ $modules = $stmt->get_result();
                                     class="btn btn-sm btn-danger">Delete</a>
                             </div>
                         </div>
-                    </li>
-                <?php endwhile; ?>
-                    </ul>
-                    <?php endif; ?>
-        <!-- Edit Module Modals -->
-        <?php
-        // Reset the result pointer to create modals
-        $stmt->execute();
-        $modules = $stmt->get_result();
-        while ($mod = $modules->fetch_assoc()):
-            ?>
-                <div class="modal fade" id="editModuleModal<?= $mod['id'] ?>" tabindex="-1" aria-labelledby="editLabel<?= $mod['id'] ?>"
-                aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <form method="post" action="edit_module.php" enctype="multipart/form-data">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="editLabel<?= $mod['id'] ?>">Edit Module</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <input type="hidden" name="module_id" value="<?= $mod['id'] ?>">
-                                <input type="hidden" name="course_id" value="<?= $course_id ?>">
-                                <div class="mb-3">
-                                    <label class="form-label">Module Title</label>
-                                    <input type="text" class="form-control" name="title"
-                                        value="<?= htmlspecialchars($mod['title']) ?>" required>
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Module Description</label>
-                                    <input type="text" class="form-control" name="description"
-                                        value="<?= htmlspecialchars($mod['description'] ?? '') ?>">
-                                </div>
+                        </li>
+                        <?php endwhile; ?>
+                        </ul>
+                        <?php endif; ?>
+                        
+                        <!-- Edit Module Modals (outside the loop) -->
+                        <?php
+                        // Reset the result pointer to create modals
+                        $stmt->execute();
+                        $modules = $stmt->get_result();
+                        while ($mod = $modules->fetch_assoc()):
+                            ?>
+                            <div class="modal fade" id="editModuleModal<?= $mod['id'] ?>" tabindex="-1" aria-labelledby="editLabel<?= $mod['id'] ?>"
+                                aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <form method="post" action="edit_module.php" enctype="multipart/form-data">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="editLabel<?= $mod['id'] ?>">Edit Module</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <input type="hidden" name="module_id" value="<?= $mod['id'] ?>">
+                                                <input type="hidden" name="course_id" value="<?= $course_id ?>">
+                                                <div class="mb-3">
+                                                    <label class="form-label">Module Title</label>
+                                                    <input type="text" class="form-control" name="title"
+                                                        value="<?= htmlspecialchars($mod['title']) ?>" required>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label">Module Description</label>
+                                                    <input type="text" class="form-control" name="description"
+                                                        value="<?= htmlspecialchars($mod['description'] ?? '') ?>">
+                                            </div>
+
                                 <div class="mb-3">
                                     <label class="form-label">Current File</label>
                                     <p class="form-text"><?= basename($mod['file_path']) ?></p>
                                 </div>
+
                                 <div class="mb-3">
                                     <label class="form-label">Upload New File (PDF/PPT) - Optional</label>
                                     <input type="file" class="form-control" name="new_module_file" accept=".pdf,.ppt,.pptx">
@@ -197,102 +176,124 @@ $modules = $stmt->get_result();
                 </div>
             </div>
         <?php endwhile; ?>
+                                <!-- Assign Course Modal -->
+                                <div class="modal fade" id="assignCourseModal" tabindex="-1" aria-labelledby="assignCourseModalLabel"
+                                    aria-hidden="true">
+                                    <div class="modal-dialog modal-xl">
+                                        <div class="modal-content">
+                                            <form action="assign_course.php" method="post">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="assignCourseModalLabel">Assign Course to Employees</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                
+                                                <div class="modal-body">
+                                                    <input type="hidden" name="course_id" value="<?= $course_id ?>">
+                                                
+                                                    <!-- Filter controls -->
+                                                    <div class="row mb-3">
+                                                        <div class="col">
+                                                            <label class="form-label">Group</label>
+                                                            <select id="filterGroup" class="form-select">
+                                                                <option value="">All</option>
+                                                                <?php
+                                                                $groups = $conn->query("SELECT * FROM `group`");
+                                                                while ($g = $groups->fetch_assoc()):
+                                                                    ?>
+                                                                    <option value="<?= $g['group_id'] ?>"><?= htmlspecialchars($g['group_name']) ?>
+                                                                    </option>
+                                                                <?php endwhile; ?>
+                                                            </select>
+                                                        </div>
+                                                        <div class="col">
+                                                            <label class="form-label">Segment</label>
+                                                            <select id="filterSegment" class="form-select">
+                                                                <option value="">All</option>
+                                                                <?php
+                                                                $segments = $conn->query("SELECT * FROM segment");
+                                                                while ($s = $segments->fetch_assoc()):
+                                                                    ?>
+                                                                    <option value="<?= $s['segment_id'] ?>">
+                                                                        <?= htmlspecialchars($s['segment_name']) ?>
+                                                                    </option>
+                                                                <?php endwhile; ?>
+                                                            </select>
+                                                        </div>
+                                                        <div class="col">
+                                                            <label class="form-label">Division</label>
+                                                            <select id="filterDivision" class="form-select">
+                                                                <option value="">All</option>
+                                                                <?php
+                                                                $divisions = $conn->query("SELECT * FROM division");
+                                                                while ($d = $divisions->fetch_assoc()):
+                                                                    ?>
+                                                                    <option value="<?= $d['division_id'] ?>">
+                                                                        <?= htmlspecialchars($d['division_name']) ?>
+                                                                    </option>
+                                                                <?php endwhile; ?>
+                                        </select>
+                                        </div>
+                                        </div>
+                                        
+                                        <!-- Employee list -->
+                                        <div class="mb-3">
+                                            <label class="form-label">Select Employees</label>
+                                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                        
+                                                <button type="button" class="btn btn-sm btn-primary" id="toggleSelectAll">Select
+                                                    All</button>
+                                            </div>
+                                            <div id="employeeCheckboxList" class="border p-2" style="max-height: 250px; overflow-y: auto;">
+                                                <!-- Checkboxes will be populated here -->
+                                            </div>
+                                            <small class="text-muted">You can select multiple employees by checking the
+                                                boxes.</small>
+                                        
+                                        </div>
+                                        </div>
+                                        
+                                        
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                            <button type="submit" class="btn btn-success">Assign</button>
+                                        </div>
+                                        </form>
+                                        </div>
+                                        </div>
+                                        </div>
+                                        
+                                        
+                                        <a href="head_manage_courses.php" class="btn btn-secondary mt-3">Back to Dashboard</a>
+                                        </div>
+                                        <?php if (isset($_GET['deleted'])): ?>
+                                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                                Module deleted successfully.
+                                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                            </div>
+                                        <?php endif; ?>
+                                        <?php if (isset($_GET['uploaded'])): ?>
+                                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                                Module uploaded successfully.
+                                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                            </div>
+                                        <?php endif; ?>
 
-        <!-- Assign Course Modal -->
-        <div class="modal fade" id="assignCourseModal" tabindex="-1" aria-labelledby="assignCourseModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-xl">
-                <div class="modal-content">
-                    <form action="assign_course.php" method="post">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="assignCourseModalLabel">Assign Course to Employees</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-        
-                        <div class="modal-body">
-                            <input type="hidden" name="course_id" value="<?= $course_id ?>">
-        
-                            <!-- Filter controls -->
-                            <div class="row mb-3">
-                                <div class="col-3">
-                                    <label class="form-label">Group</label>
-                                    <select id="filterGroup" class="form-select">
-                                        <option value="">All</option>
-                                        <?php
-                                        $groups = $conn->query("SELECT * FROM `group`");
-                                        while ($g = $groups->fetch_assoc()):
-                                            ?>
-                                                        <option value="<?= $g['group_id'] ?>"><?= htmlspecialchars($g['group_name']) ?></option>
-                                                    <?php endwhile; ?>
-                                                    </select>
-                                                    </div>
-                                <div class="col-3">
-                                    <label class="form-label">Segment</label>
-                                    <select id="filterSegment" class="form-select">
-                                        <option value="">All</option>
-                                        <?php
-                                        $segments = $conn->query("SELECT * FROM segment");
-                                        while ($s = $segments->fetch_assoc()):
-                                            ?>
-                                                        <option value="<?= $s['segment_id'] ?>"><?= htmlspecialchars($s['segment_name']) ?></option>
-                                                    <?php endwhile; ?>
-                                                    </select>
-                                                    </div>
-                                <div class="col-3">
-                                    <label class="form-label">Division</label>
-                                    <select id="filterDivision" class="form-select">
-                                        <option value="">All</option>
-                                        <?php
-                                        $divisions = $conn->query("SELECT * FROM division");
-                                        while ($d = $divisions->fetch_assoc()):
-                                            ?>
-                                                        <option value="<?= $d['division_id'] ?>"><?= htmlspecialchars($d['division_name']) ?></option>
-                                                    <?php endwhile; ?>
-                                                    </select>
-                                                    </div>
-                                <div class="col-3">
-                                    <label class="form-label">Search</label>
-                                    <input type="text" id="searchEmployees" class="form-control" placeholder="Search employees...">
-                                </div>
-                            </div>
-
-                            <!-- Employee list -->
-                            <div class="mb-3">
-                                <div class="d-flex justify-content-between align-items-center mb-2">
-                                    <label class="form-label">Select Employees</label>
-                                    <button type="button" class="btn btn-sm btn-primary" id="toggleSelectAll">Select All</button>
-                                </div>
-
-                                <!-- Table header -->
-                                <div class="border bg-light p-2 fw-bold d-flex" style="font-size: 14px;">
-                                    <div class="me-2" style="width: 30px;"></div>
-                                    <div style="width: 100px;">Emp No.</div>
-                                    <div style="width: 150px;">Last Name</div>
-                                    <div style="width: 150px;">First Name</div>
-                                    <div style="width: 100px;">Middle Initial</div>
-                                    <div style="width: 150px;">Email</div>
-                                </div>
-
-                                <!-- Employee checkbox list -->
-                                <div id="employeeCheckboxList" class="border p-2" style="max-height: 250px; overflow-y: auto;">
-                                    <!-- Fetched checkboxes go here -->
-                                </div>
-
-                                <small class="text-muted">You can select multiple employees by checking the boxes.</small>
-                            </div>
-                        </div>
-
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                            <button type="submit" class="btn btn-success">Assign</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
+    <?php if (isset($_GET['assigned'])): ?>
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            Course assigned successfully.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
-
-        <a href="head_manage_courses.php" class="btn btn-secondary mt-3">Back to Dashboard</a>
+    <?php endif; ?>
+    <?php if (isset($_GET['assigned'])): ?>
+        <div class="alert alert-success">
+            <?= $_GET['assigned'] ?> course(s) assigned.
+            <?php if ($_GET['duplicates'] > 0): ?>
+                <?= $_GET['duplicates'] ?> duplicate(s) skipped.
+            <?php endif; ?>
     </div>
-
+    <?php endif; ?>
+    
+    
     <!-- Bootstrap JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
@@ -300,64 +301,41 @@ $modules = $stmt->get_result();
             const groupFilter = document.getElementById('filterGroup');
             const segmentFilter = document.getElementById('filterSegment');
             const divisionFilter = document.getElementById('filterDivision');
-            const searchInput = document.getElementById('searchEmployees');
             const checkboxContainer = document.getElementById('employeeCheckboxList');
             const toggleBtn = document.getElementById('toggleSelectAll');
 
             let allSelected = false;
-            let searchTimeout;
 
             function fetchEmployees() {
                 const group = groupFilter.value;
                 const segment = segmentFilter.value;
                 const division = divisionFilter.value;
-                const search = searchInput.value.trim();
 
-                const formData = new FormData();
-                formData.append('group_id', group);
-                formData.append('segment_id', segment);
-                formData.append('division_id', division);
-                formData.append('search', search);
-
-                fetch('fetch_employees.php', {
-                    method: 'POST',
-                    body: formData
-                })
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok');
+                const xhr = new XMLHttpRequest();
+                xhr.open('POST', 'fetch_employees.php', true);
+                xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                xhr.onload = function () {
+                    if (this.status === 200) {
+                        checkboxContainer.innerHTML = this.responseText;
+                        allSelected = false; // Reset select all state
+                        toggleBtn.textContent = 'Select All';
                     }
-                    return response.text();
-                })
-                .then(html => {
-                    checkboxContainer.innerHTML = html;
-                    allSelected = false;
-                    toggleBtn.textContent = 'Select All';
-                })
-                .catch(error => {
-                    console.error('Error fetching employees:', error);
-                    checkboxContainer.innerHTML = '<div class="text-danger">Error loading employees. Please try again.</div>';
-                });
+                };
+                xhr.send(`group_id=${group}&segment_id=${segment}&division_id=${division}`);
             }
 
-            // Event listeners for filters
+            // Filters trigger
             groupFilter.addEventListener('change', fetchEmployees);
             segmentFilter.addEventListener('change', fetchEmployees);
             divisionFilter.addEventListener('change', fetchEmployees);
 
-            // Search with debounce
-            searchInput.addEventListener('input', function() {
-                clearTimeout(searchTimeout);
-                searchTimeout = setTimeout(fetchEmployees, 300); // Wait 300ms after user stops typing
-            });
-
-            // Select All / Deselect All toggle
-            toggleBtn.addEventListener('click', () => {
-                const checkboxes = checkboxContainer.querySelectorAll('input[type="checkbox"]');
-                checkboxes.forEach(cb => cb.checked = !allSelected);
-                allSelected = !allSelected;
-                toggleBtn.textContent = allSelected ? 'Deselect All' : 'Select All';
-            });
+    // Select All / Deselect All toggle
+    toggleBtn.addEventListener('click', () => {
+        const checkboxes = checkboxContainer.querySelectorAll('input[type="checkbox"]');
+        checkboxes.forEach(cb => cb.checked = !allSelected);
+        allSelected = !allSelected;
+        toggleBtn.textContent = allSelected ? 'Deselect All' : 'Select All';
+    });
 
             // Initial load
             fetchEmployees();
@@ -401,4 +379,5 @@ document.getElementById('uploadForm').addEventListener('submit', function(e) {
 </script>
 
 </body>
+
 </html>
