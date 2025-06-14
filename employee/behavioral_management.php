@@ -126,13 +126,28 @@ $numCourses = $result1->fetch_assoc();
 
 
           <!-- Course Grid -->
-          <div class="row g-4">
-            <!-- Leadership Fundamentals -->
-            <div class="col-md-6 col-lg-4">
-              <div class="course-card">
-                <div class="course-image bg-gradient-red">
-                  <div class="course-icon">
-                    <i class="fas fa-money-bill-wave"></i>
+          <div id="cardView" class="row g-4">
+            <?php if ($result->num_rows > 0): ?>
+            <?php while ($row = mysqli_fetch_assoc($result)): ?>
+              <div class="col-md-6 col-lg-4">
+                <div class="course-card">
+                  <div class="course-image"
+                    style="background-image: url('<?= $row['course_image'] ?>'); background-size: cover; background-position: center; height: 200px;">
+                  </div>
+                  <div class="course-content p-3">
+                    <div class="d-flex justify-content-between align-items-start mb-2">
+                      <h5 class="course-title"><?= htmlspecialchars($row['course_name']) ?></h5>
+                      <span class="badge bg-primary"><?= htmlspecialchars($row['course_category_name']) ?></span>
+                    </div>
+                    <p class="course-description"><?= htmlspecialchars($row['course_desc']) ?></p>
+                    <div class="d-flex justify-content-between align-items-center">
+                      <div class="course-duration">Duration: 2 hours</div>
+                      <button class="btn btn-outline-primary start-course-btn"
+                        data-url="view_course.php?course_id=<?= $row['course_id'] ?>"
+                        data-name="<?= htmlspecialchars($row['course_name']) ?>">
+                        Start Course <i class="fas fa-chevron-right ms-1"></i>
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
