@@ -1,3 +1,44 @@
+<?php
+require_once "../db.php";
+// Example: Total employees
+$result = $conn->query("SELECT COUNT(*) AS total FROM employee");
+$row = $result->fetch_assoc();
+$totalEmployees = $row['total'];
+
+
+// Completion stats
+$result = $conn->query("SELECT 
+  COUNT(*) AS total, 
+  SUM(CASE WHEN status = 'Completed' THEN 1 ELSE 0 END) AS completed,
+  SUM(CASE WHEN status = 'In Progress' THEN 1 ELSE 0 END) AS inprogress
+FROM employee_courses");
+$stats = $result->fetch_assoc();
+
+
+// Monthly completions
+$monthly = [];
+$months = [];
+$monthlyCounts = [];
+
+$result = $conn->query("SELECT 
+  MONTHNAME(completed_at) AS month, 
+  COUNT(*) AS count
+FROM employee_courses
+WHERE status = 'Completed' AND completed_at IS NOT NULL
+GROUP BY MONTH(completed_at)
+ORDER BY MONTH(completed_at)");
+
+while ($row = $result->fetch_assoc()) {
+    $months[] = $row['month'];
+    $monthlyCounts[] = $row['count'];
+}
+
+
+// Convert to arrays for JS
+$months = array_column($monthly, 'month');
+$monthlyCounts = array_column($monthly, 'count');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,6 +55,23 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../assets/css/head_dashboard.css">
 </head>
+<style>
+    .block {
+        background: url("../images/pixel-60fff.png") repeat scroll 0 0 rgba(0, 0, 0, 0) !important;
+        border: 1px solid #ccc;
+        background: white;
+        margin: 1em 0em;
+        border-top: none;
+        -webkit-box-shadow: 2px 2px 5px rgba(0, 0, 6, 0.75);
+        -moz-box-shadow: 2px 2px 5px rgba(0, 0, 6, 0.75);
+        box-shadow: 2px 2px 5px rgba(0, 0, 6, 0.75);
+    }
+
+    .block-content {
+        margin: 1em;
+        min-height: .25em;
+    }
+</style>
 
 <body>
 
@@ -38,14 +96,60 @@
 
                     <h1>User Data Analytics</h1>
 
+                    <div class="card stat-card">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center">
 
 
-                </div>
+
+
+                                <!-- <div>
+                                    <p class="text-muted mb-1">Completed Courses</p>
+                                    <div id="completed_courses_card">
+                                        <h3 class="mb-0">Loading...</h3>
+                                    </div>
+                                </div>
+                                <div class="stat-icon bg-success-light text-success">
+                                    <i class="bi bi-award"></i>
+                                </div>
+                            </div> -->
+                            </div>
+                        </div>
+                        <div class="card">Total Employees: <?= $totalEmployees ?></div>
+                        <div class="card">Courses Completed: <?= $stats['completed'] ?></div>
+                        <div class="card">In Progress: <?= $stats['inprogress'] ?></div>
+                    
+                       
+                    </div>
 
             </main>
 
         </div>
     </div>
+    <canvas id="courseCompletionChart"></canvas>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const months = <?= json_encode($months) ?>;
+        const counts = <?= json_encode($monthlyCounts) ?>;
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: <?= json_encode($months) ?>,
+                datasets: [{
+                    label: 'Courses Completed',
+                    data: <?= json_encode($monthlyCounts) ?>,
+                    backgroundColor: 'rgba(75, 192, 192, 0.6)',
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: { beginAtZero: true }
+                }
+            }
+        });
+    </script>
+
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const currentPath = window.location.pathname.split("/").pop(); // get current filename
