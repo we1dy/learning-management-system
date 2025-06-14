@@ -143,8 +143,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="signup-box">
           <h4>New to PBCOM LMS?</h4>
           <p>Sign up now!</p>
-          <button>I'm an Employee</button>
-          <button>I'm an Admin</button>
+          <button>Register</button>
         </div>
       </div>
     </div>

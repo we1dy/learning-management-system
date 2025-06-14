@@ -30,6 +30,7 @@
       <!-- Main Content -->
       <main class="main-content">
         <div class="container-fluid">
+
           <!-- Mobile Search -->
           <div class="mobile-search d-md-none mb-4">
             <div class="input-group">
@@ -42,6 +43,7 @@
           &nbsp;
           &nbsp;
           &nbsp;
+
           <!-- Page Header -->
           <div class="page-header mb-4">
             <div class="d-flex justify-content-between align-items-center">
@@ -55,6 +57,7 @@
 
           <!-- Course Grid -->
           <div class="row g-4">
+            
             <!-- Leadership Fundamentals -->
             <div class="col-md-6 col-lg-4">
               <div class="course-card">

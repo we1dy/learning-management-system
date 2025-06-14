@@ -14,8 +14,7 @@
   <!-- Bootstrap Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
   <!-- CSS Custom -->
-  <link rel="stylesheet" href="assets/css/courses.css">
-  <link rel="stylesheet" href="assets/css/employee.css">
+  <link rel="stylesheet" href="../assets/css/courses.css">
   <link rel="icon" type="image/x-icon" href="assets/images/pbcom.jpg">
 </head>
 
@@ -31,6 +30,7 @@
       <!-- Main Content -->
       <main class="main-content">
         <div class="container-fluid">
+
           <!-- Mobile Search -->
           <div class="mobile-search d-md-none mb-4">
             <div class="input-group">
@@ -43,6 +43,7 @@
           &nbsp;
           &nbsp;
           &nbsp;
+
           <!-- Page Header -->
           <div class="page-header mb-4">
             <div class="d-flex justify-content-between align-items-center">
@@ -56,6 +57,7 @@
 
           <!-- Course Grid -->
           <div class="row g-4">
+
             <!-- Advanced Leadership -->
             <div class="col-md-6 col-lg-4">
               <div class="course-card">
@@ -239,14 +241,10 @@
     </div>
   </div>
 
-
-
-
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
 
-  
   <!-- SweetAlert 2 CDN -->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 

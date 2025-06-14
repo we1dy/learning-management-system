@@ -5,18 +5,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PBCOM LMS | On-Boarding</title>
+  <<!-- Aileron Font -->
   <link href="https://fonts.cdnfonts.com/css/aileron" rel="stylesheet">
+  <!-- FontAwesome Icons -->
   <script src="https://kit.fontawesome.com/538907d71c.js" crossorigin="anonymous"></script>
-
-  <!-- Bootstrap 5 CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Bootstrap Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
-  <!-- Font Awesome for icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <!-- Custom CSS -->
+  <!-- CSS Custom -->
   <link rel="stylesheet" href="../assets/css/courses.css">
-
 </head>
 
 <body>
@@ -31,6 +29,7 @@
       <!-- Main Content -->
       <main class="main-content">
         <div class="container-fluid">
+
           <!-- Mobile Search -->
           <div class="mobile-search d-md-none mb-4">
             <div class="input-group">
@@ -40,9 +39,7 @@
               <input type="text" class="form-control" placeholder="Search courses...">
             </div>
           </div>
-          &nbsp;
-          &nbsp;
-          &nbsp;
+
           <!-- Page Header -->
           <div class="page-header mb-4">
             <div class="d-flex justify-content-between align-items-center">
@@ -56,6 +53,7 @@
 
           <!-- Course Grid -->
           <div class="row g-4">
+            
             <!-- Company History -->
             <div class="col-md-6 col-lg-4">
               <div class="course-card">
@@ -186,8 +184,7 @@
               </div>
             </div>
 
-            <!-- Workplace Policies
- -->
+            <!-- Workplace Policies-->
             <div class="col-md-6 col-lg-4">
               <div class="course-card">
                 <div class="course-image bg-gradient-slate">
@@ -244,7 +241,6 @@
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
 
-  
   <!-- SweetAlert 2 CDN -->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   

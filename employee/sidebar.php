@@ -41,24 +41,18 @@
             <i class="bi bi-book"></i>
             <span>Courses</span>
             <i class="bi bi-chevron-down dropdown-icon"></i>
-            </button>
           </a>
           <div class="nav-dropdown-menu">
             <a href="regulatory_courses.php"
-              class="nav-dropdown-item <?= ($currentPage == 'regulatory_courses.php') ? 'active' : '' ?>">Regulatory
-              Courses</a>
+              class="nav-dropdown-item <?= ($currentPage == 'regulatory_courses.php') ? 'active' : '' ?>">Regulatory Courses</a>
             <a href="on_boarding.php"
-              class="nav-dropdown-item <?= ($currentPage == 'on_boarding.php') ? 'active' : '' ?>">On-Boarding
-              Orientation</a>
+              class="nav-dropdown-item <?= ($currentPage == 'on_boarding.php') ? 'active' : '' ?>">On-Boarding Orientation</a>
             <a href="behavioral_management.php"
-              class="nav-dropdown-item <?= ($currentPage == 'behavioral_management.php') ? 'active' : '' ?>">Behavioral
-              and Management</a>
+              class="nav-dropdown-item <?= ($currentPage == 'behavioral_management.php') ? 'active' : '' ?>">Behavioral and Management</a>
             <a href="development_program.php"
-              class="nav-dropdown-item <?= ($currentPage == 'development_program.php') ? 'active' : '' ?>">Development
-              Program</a>
+              class="nav-dropdown-item <?= ($currentPage == 'development_program.php') ? 'active' : '' ?>">Development Program</a>
             <a href="tech_job_specific.php"
-              class="nav-dropdown-item <?= ($currentPage == 'tech_job_specific.php') ? 'active' : '' ?>">Technical/Job
-              Specific</a>
+              class="nav-dropdown-item <?= ($currentPage == 'tech_job_specific.php') ? 'active' : '' ?>">Technical/Job Specific</a>
           </div>
         </div>
         <a href="employee_announcement.php" class="nav-link <?= ($currentPage == 'employee_announcement.php') ? 'active' : '' ?>">

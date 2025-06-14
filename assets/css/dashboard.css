@@ -6,7 +6,7 @@
   --secondary-color: #595959;
   --text-color: #333;
   --text-muted: #6c757d;
-  --border-color: #e9ecef;
+  --border-color: #ededed;
   --card-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   --card-hover-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   --sidebar-width: 250px;
@@ -132,7 +132,7 @@ body {
 }
 
 .user-profile:hover {
-  background-color: #FF5757;
+  background-color: #4d020242;
   border-radius: 15px;
 }
 
@@ -143,7 +143,7 @@ body {
 /* Content Wrapper */
 .content-wrapper {
   display: flex;
-  min-height: calc(100vh - var(--header-height));
+  min-height: calc(90vh - var(--header-height));
   padding-top: var(--header-height);
 }
 
@@ -236,7 +236,8 @@ body {
   border-radius: 5px;
 }
 
-.sidebar .nav-link.active {
+.sidebar .nav-link.active,
+.nav-dropdown-menu .nav-dropdown-item.active {
   background-color: #59595931;
   color: var(--primary-color);
   font-weight: 500;
@@ -257,8 +258,6 @@ body {
   margin-left: auto;
   transition: transform 0.2s;
 }
-
-
 
 .nav-dropdown-menu {
   max-height: 0;
@@ -287,13 +286,16 @@ body {
 }
 
 
-
 /* Main Content */
 .main-content {
   flex: 1;
   margin-left: var(--sidebar-width);
   padding: 1.5rem;
   transition: margin-left 0.3s ease;
+}
+
+.dashboard-title h1 {
+  margin: 0px;
 }
 
 

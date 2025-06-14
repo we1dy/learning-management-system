@@ -7,7 +7,7 @@
   --secondary-color: #595959;
   --text-color: #333;
   --text-muted: #6c757d;
-  --border-color: #e9ecef;
+  --border-color: #ededed;
   --card-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   --card-hover-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   --sidebar-width: 250px;
@@ -110,20 +110,16 @@ body {
   padding: 10px 0px;
 }
 
-.notification-indicator {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 8px;
-  height: 8px;
-  background-color: #ffc107;
-  border-radius: 50%;
+.dropdown-menu .dropdown-item:hover {
+  background-color: #d4d4d4;
+  color: #333;
 }
 
 .avatar {
-  width: 32px;
-  height: 32px;
-  border: 2px solid rgba(255, 255, 255, 0.4);
+  width: 33px;
+  height: 33px;
+  background-color: var(--secondary-color);
+  border: 2px solid var(--secondary-color);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -138,10 +134,8 @@ body {
 }
 
 .user-profile:hover {
-  background-color: #FF5757;
+  background-color: #4d020242;
   border-radius: 15px;
-  font-size: 0.75rem;
-  font-weight: 600;
 }
 
 .user-name {
@@ -175,7 +169,6 @@ body {
   margin-left: var(--sidebar-width);
   padding: 1.5rem;
   transition: margin-left 0.3s ease;
-  background-image: url("data:image/svg+xml,<svg id='patternId' width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><defs><pattern id='a' patternUnits='userSpaceOnUse' width='29' height='50.115' patternTransform='scale(1) rotate(0)'><rect x='0' y='0' width='100%' height='100%' fill='%23edededff'/><path d='M14.498 16.858L0 8.488.002-8.257l14.5-8.374L29-8.26l-.002 16.745zm0 50.06L0 58.548l.002-16.745 14.5-8.373L29 41.8l-.002 16.744zM28.996 41.8l-14.498-8.37.002-16.744L29 8.312l14.498 8.37-.002 16.745zm-29 0l-14.498-8.37.002-16.744L0 8.312l14.498 8.37-.002 16.745z'  stroke-width='4.5' stroke='%23d9d9d932' fill='none'/></pattern></defs><rect width='800%' height='800%' transform='translate(-5,0)' fill='url(%23a)'/></svg>");
 }
 
 .sidebar-header {
@@ -231,9 +224,10 @@ body {
   border-radius: 5px;
 }
 
-.sidebar .nav-link.active {
-  background-color: #fff1f1;
-  color: var(--secondary-color);
+.sidebar .nav-link.active,
+.nav-dropdown-menu .nav-dropdown-item.active {
+  background-color: #59595931;
+  color: var(--primary-color);
   font-weight: 500;
   border-left: 4px solid var(--secondary-color);
   border-radius: 5px;
@@ -302,7 +296,6 @@ body {
 }
 
 .page-title {
-  font-size: 1.75rem;
   font-weight: 700;
   color: #333;
   margin-bottom: 0;
