@@ -36,7 +36,7 @@
                         </div>
                     </div>
 
-                    <h1>Upload Certificates</h1>
+                    <h1>Upload Certifications</h1>
 
 
 

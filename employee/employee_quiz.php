@@ -15,6 +15,8 @@
 
   <!-- CSS Custom -->
   <link rel="stylesheet" href="../assets/css/dashboard.css">
+    <link rel="stylesheet" href="../assets/css/top_nsidebar.css">
+
 </head>
 
 <body>
