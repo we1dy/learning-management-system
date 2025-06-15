@@ -22,6 +22,8 @@
   <link rel="icon" type="image/x-icon" href="assets/images/pbcom.jpg">
 =======
 >>>>>>> bbc0b812c5269a573af50c6593a3a04ed9bcfa5a
+    <link rel="stylesheet" href="../assets/css/top_nsidebar.css">
+
 </head>
 
 <body>

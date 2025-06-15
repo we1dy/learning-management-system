@@ -52,7 +52,7 @@
                             <div class="nav-dropdown-menu">
                                 <a href="head_manage_courses.php" class="nav-dropdown-item">Manage Courses</a>
                                 <!-- <a href="head_manage_courses.php" class="nav-dropdown-item"> dasd</a> -->
-                                <a href="head_upload_certs.php" class="nav-dropdown-item">Upload Certificates</a>
+                                <a href="head_upload_certs.php" class="nav-dropdown-item">Upload Certifications</a>
                                 <a href="head_add_quiz.php" class="nav-dropdown-item">Add/Edit Test</a>
                                 <a href="head_quiz_records.php" class="nav-dropdown-item">View Quiz Records</a>
                             </div>
@@ -68,7 +68,7 @@
                         </a>
                         <a href="employee_quizlog.php" class="nav-link ">
                             <i class="bi bi-ui-radios me-2"></i>
-                            <span>Upload Certificates</span>
+                            <span>Upload Certifications</span>
                         </a>
 
                         <a href="employee_quizlog.php" class="nav-link ">

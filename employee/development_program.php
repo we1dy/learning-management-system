@@ -34,6 +34,9 @@ $numCourses = $result1->fetch_assoc();
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PBCOM LMS | Development Program</title>
+  <!-- Logo Icon -->
+  <link rel="icon" type="image/x-icon" href="../assets/images/pbcom.jpg">
+
   <!-- Aileron Font -->
   <link href="https://fonts.cdnfonts.com/css/aileron" rel="stylesheet">
   <!-- FontAwesome Icons -->
@@ -49,6 +52,7 @@ $numCourses = $result1->fetch_assoc();
 =======
      <link rel="stylesheet" href="../assets/css/view_courses.css">
   <link rel="stylesheet" href="../assets/css/card_list.css">
+  <link rel="stylesheet" href="../assets/css/top_nsidebar.css">
   <link rel="stylesheet" href="../assets/css/courses.css">
   <link rel="stylesheet" href="../assets/css/employee.css">
   <link rel="icon" type="image/x-icon" href="../assets/images/pbcom.jpg">
@@ -92,34 +96,6 @@ $numCourses = $result1->fetch_assoc();
             </p>
           </div>
 
-<<<<<<< HEAD
-          <!-- Course Grid -->
-          <div class="row g-4">
-
-            <!-- Advanced Leadership -->
-            <div class="col-md-6 col-lg-4">
-              <div class="course-card">
-                <div class="course-image bg-gradient-red">
-                  <div class="course-icon">
-                    <i class="fas fa-money-bill-wave"></i>
-                  </div>
-                </div>
-                <div class="course-content">
-                  <div class="d-flex justify-content-between align-items-start mb-2">
-                    <h3 class="course-title">Advanced Leadership</h3>
-                    <span class="badge required-badge">Required</span>
-                  </div>
-                  <p class="course-description">
-                    For senior managers and executives
-                  </p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="course-duration">Duration: 2 hours</div>
-                    <button class="btn btn-link start-course-btn">
-                      Start Course <i class="fas fa-chevron-right ms-1"></i>
-                    </button>
-                  </div>
-                </div>
-=======
          <!-- Course Description -->
           <div class="card mb-3 p-2">
             <div class="card-header">
@@ -138,25 +114,25 @@ $numCourses = $result1->fetch_assoc();
               <div class="row mt-4 pt-3 border-top text-center">
                 <div class="col-md-4">
                   <div class="stat-value text-primary"><?= htmlspecialchars($numCourses['total_courses']) ?></div>
-                <div class="stat-label">Modules</div>
-              </div>
-              <div class="col-md-4">
-                <div class="stat-value text-success">2.5h</div>
-                <div class="stat-label">Duration</div>
-              </div>
-              <div class="col-md-4">
-                <div class="stat-value text-purple">95%</div>
-                <div class="stat-label">Pass Rate</div>
->>>>>>> bbc0b812c5269a573af50c6593a3a04ed9bcfa5a
+                  <div class="stat-label">Modules</div>
+                </div>
+                <div class="col-md-4">
+                  <div class="stat-value text-success">2.5h</div>
+                  <div class="stat-label">Duration</div>
+                </div>
+                <div class="col-md-4">
+                  <div class="stat-value text-purple">95%</div>
+                  <div class="stat-label">Pass Rate</div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        
-        <div class="d-flex justify-content-end mb-3">
-          <button class="btn btn-outline-primary me-2" id="toggleCard"><i class="fas fa-th-large"></i> Card View</button>
-          <button class="btn btn-outline-secondary" id="toggleList"><i class="fas fa-list"></i> List View</button>
-        </div>
+
+          <div class="d-flex justify-content-end mb-3">
+            <button class="btn btn-outline-primary me-2" id="toggleCard"><i class="fas fa-th-large"></i> Card
+              View</button>
+            <button class="btn btn-outline-secondary" id="toggleList"><i class="fas fa-list"></i> List View</button>
+          </div>
 
          <!-- Course Grid -->
           <div id="cardView" class="row g-4">
@@ -356,29 +332,29 @@ $numCourses = $result1->fetch_assoc();
           </div>
         </div> -->
 
-        <!-- Pagination -->
-        <div class="pagination-container mt-5">
-          <nav aria-label="Page navigation">
-            <ul class="pagination justify-content-center">
-              <li class="page-item active">
-                <a class="page-link" href="#">1</a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="#">2</a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="#">
-                  <i class="fas fa-chevron-right"></i>
-                </a>
-              </li>
-            </ul>
-          </nav>
+          <!-- Pagination -->
+          <div class="pagination-container mt-5">
+            <nav aria-label="Page navigation">
+              <ul class="pagination justify-content-center">
+                <li class="page-item active">
+                  <a class="page-link" href="#">1</a>
+                </li>
+                <li class="page-item">
+                  <a class="page-link" href="#">2</a>
+                </li>
+                <li class="page-item">
+                  <a class="page-link" href="#">
+                    <i class="fas fa-chevron-right"></i>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
         </div>
-    </div>
 
-    <!-- Footer -->
-    <?php include '../footer.php' ?>
-    </main>
+        <!-- Footer -->
+        <?php include '../footer.php' ?>
+      </main>
     </div>
   </div>
 
@@ -392,66 +368,66 @@ $numCourses = $result1->fetch_assoc();
 >>>>>>> bbc0b812c5269a573af50c6593a3a04ed9bcfa5a
   <!-- SweetAlert 2 CDN -->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
- <script>
-document.addEventListener("DOMContentLoaded", function () {
-  const currentPath = window.location.pathname.split("/").pop();
-  const dropdowns = document.querySelectorAll(".nav-dropdown");
-  const startButtons = document.querySelectorAll('.start-course-btn');
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const currentPath = window.location.pathname.split("/").pop();
+      const dropdowns = document.querySelectorAll(".nav-dropdown");
+      const startButtons = document.querySelectorAll('.start-course-btn');
 
-  // Highlight nav
-  dropdowns.forEach(dropdown => {
-    const items = dropdown.querySelectorAll(".nav-dropdown-menu");
-    items.forEach(item => {
-      const href = item.getAttribute("href");
-      if (href === currentPath) {
-        item.classList.add("active");
-        dropdown.classList.add("open");
-      }
-    });
-  });
+      // Highlight nav
+      dropdowns.forEach(dropdown => {
+        const items = dropdown.querySelectorAll(".nav-dropdown-menu");
+        items.forEach(item => {
+          const href = item.getAttribute("href");
+          if (href === currentPath) {
+            item.classList.add("active");
+            dropdown.classList.add("open");
+          }
+        });
+      });
 
-  // Start course buttons (card + list view)
-  startButtons.forEach(button => {
-    button.addEventListener('click', function (e) {
-      e.preventDefault();
+      // Start course buttons (card + list view)
+      startButtons.forEach(button => {
+        button.addEventListener('click', function (e) {
+          e.preventDefault();
 
-      // Get course name directly from data attribute OR fallback to DOM
-      const courseName = this.getAttribute('data-name') || 
-                         this.closest('.course-card, .list-course-item')?.querySelector('.course-title')?.textContent?.trim() || 
-                         'this course';
-      const courseURL = this.getAttribute('data-url');
+          // Get course name directly from data attribute OR fallback to DOM
+          const courseName = this.getAttribute('data-name') ||
+            this.closest('.course-card, .list-course-item')?.querySelector('.course-title')?.textContent?.trim() ||
+            'this course';
+          const courseURL = this.getAttribute('data-url');
 
-      Swal.fire({
-        title: 'Start Course',
-        text: `Are you ready to begin "${courseName}"?`,
-        icon: 'question',
-        showCancelButton: true,
-        confirmButtonText: 'Yes, start it!',
-        cancelButtonText: 'Cancel'
-      }).then((result) => {
-        if (result.isConfirmed) {
-          window.location.href = courseURL;
-        }
+          Swal.fire({
+            title: 'Start Course',
+            text: `Are you ready to begin "${courseName}"?`,
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonText: 'Yes, start it!',
+            cancelButtonText: 'Cancel'
+          }).then((result) => {
+            if (result.isConfirmed) {
+              window.location.href = courseURL;
+            }
+          });
+        });
       });
     });
-  });
-});
 
 
   </script>
 
-<script>
+  <script>
 
-      document.getElementById('toggleCard').addEventListener('click', function () {
-    document.getElementById('cardView').classList.remove('d-none');
-    document.getElementById('listView').classList.add('d-none');
-  });
+    document.getElementById('toggleCard').addEventListener('click', function () {
+      document.getElementById('cardView').classList.remove('d-none');
+      document.getElementById('listView').classList.add('d-none');
+    });
 
-  document.getElementById('toggleList').addEventListener('click', function () {
-    document.getElementById('listView').classList.remove('d-none');
-    document.getElementById('cardView').classList.add('d-none');
-  });
-</script>
+    document.getElementById('toggleList').addEventListener('click', function () {
+      document.getElementById('listView').classList.remove('d-none');
+      document.getElementById('cardView').classList.add('d-none');
+    });
+  </script>
 
 
 

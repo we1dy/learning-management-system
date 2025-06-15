@@ -1,12 +1,16 @@
 <?php
 require_once "../db.php";
 session_start();
+
 if (!isset($_SESSION['employee_id'])) {
   header("Location: login.php");
   exit();
 }
+
 $course_id = isset($_GET['course_id']) ? intval($_GET['course_id']) : 0;
 $employee_id = $_SESSION['employee_id'];
+
+// Get course information
 $sql = "
     SELECT c.course_name, c.course_desc, ec.status
     FROM employee_courses ec
@@ -24,8 +28,69 @@ if ($result->num_rows !== 1) {
   exit();
 }
 
-
 $course = $result->fetch_assoc();
+
+// Load modules for this course - MOVE THIS TO THE TOP!
+$module_query = "SELECT * FROM course_modules WHERE course_id = ?";
+$stmt = $conn->prepare($module_query);
+$stmt->bind_param("i", $course_id);
+$stmt->execute();
+$modules = $stmt->get_result();
+
+// File viewer function for localhost
+function getFileViewer($file_path, $base_url = 'http://localhost/')
+{
+  $file_ext = strtolower(pathinfo($file_path, PATHINFO_EXTENSION));
+  $file_name = basename($file_path);
+
+  switch ($file_ext) {
+    case 'pdf':
+      return '<iframe src="' . htmlspecialchars($file_path) . '#toolbar=0" width="100%" height="700px" frameborder="0" style="border: 1px solid #ddd; border-radius: 8px;"></iframe>';
+
+    case 'jpg':
+    case 'jpeg':
+    case 'png':
+    case 'gif':
+    case 'bmp':
+    case 'webp':
+      return '<div class="text-center p-3" style="border: 1px solid #ddd; border-radius: 8px;">
+                        <img src="' . htmlspecialchars($file_path) . '" class="img-fluid" style="max-height: 600px; border-radius: 4px;" alt="Course Image">
+                    </div>';
+
+    case 'pptx':
+    case 'ppt':
+      return '<div class="alert alert-info text-center" style="min-height: 200px; display: flex; flex-direction: column; justify-content: center;">
+                        <i class="bi bi-file-earmark-ppt" style="font-size: 3rem; color: #d63384;"></i>
+                        <h5 class="mt-3">PowerPoint Presentation</h5>
+                        <p class="mb-3"><strong>' . htmlspecialchars($file_name) . '</strong></p>
+                        <p class="text-muted small">PowerPoint files require download to view on localhost</p>
+                        <a href="' . htmlspecialchars($file_path) . '" class="btn btn-primary" download>
+                            <i class="bi bi-download"></i> Download & Open
+                        </a>
+                    </div>';
+
+    case 'docx':
+    case 'doc':
+      return '<div class="alert alert-info text-center" style="min-height: 200px; display: flex; flex-direction: column; justify-content: center;">
+                        <i class="bi bi-file-earmark-word" style="font-size: 3rem; color: #0d6efd;"></i>
+                        <h5 class="mt-3">Word Document</h5>
+                        <p class="mb-3"><strong>' . htmlspecialchars($file_name) . '</strong></p>
+                        <p class="text-muted small">Word documents require download to view on localhost</p>
+                        <a href="' . htmlspecialchars($file_path) . '" class="btn btn-primary" download>
+                            <i class="bi bi-download"></i> Download & Open
+                        </a>
+                    </div>';
+
+    default:
+      return '<div class="alert alert-warning text-center">
+                        <i class="bi bi-exclamation-triangle"></i>
+                        Unsupported file format: ' . strtoupper($file_ext) . '
+                        <br><a href="' . htmlspecialchars($file_path) . '" class="btn btn-primary btn-sm mt-2" download>
+                            <i class="bi bi-download"></i> Download File
+                        </a>
+                    </div>';
+  }
+}
 ?>
 
 <!DOCTYPE html>
@@ -34,6 +99,8 @@ $course = $result->fetch_assoc();
 <head>
   <title><?= htmlspecialchars($course['course_name']) ?> - Course View</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Logo icon -->
+  <link rel="icon" type="image/x-icon" href="../assets/images/pbcom.jpg">
 
   <!-- Aileron Font -->
   <link href="https://fonts.cdnfonts.com/css/aileron" rel="stylesheet">
@@ -45,14 +112,13 @@ $course = $result->fetch_assoc();
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
   <!-- Custom CSS -->
   <link rel="stylesheet" href="../assets/css/dashboard.css">
-    <link rel="stylesheet" href="../assets/css/view_courses.css">
+  <link rel="stylesheet" href="../assets/css/view_courses.css">
+    <link rel="stylesheet" href="../assets/css/top_nsidebar.css">
 
-  <link rel="icon" type="image/x-icon" href="../assets/images/pbcom.jpg">
 </head>
 
 <body>
-
-  <div class="d-flex">
+  <div class="wrapper">
     <!-- Header -->
     <?php include 'topbar.php' ?>
 
@@ -62,19 +128,18 @@ $course = $result->fetch_assoc();
 
       <!-- Main Content -->
       <main class="main-content">
-        <!-- Course Header -->  
+
+        <!-- Course Header -->
         <div class="mb-4">
           <div class="breadcrumb-container mb-3">
             <a href="regulatory_courses.php" style="text-decoration: none; color:black"><span>Regulatory</span></a>
-            <!-- <i class="bi bi-chevron-right"></i>
-            <a href="employee_dashboard.php"><span>Compliance Training</span></a> -->
             <i class="bi bi-chevron-right"></i>
-            <span class="current"><?= htmlspecialchars($course['course_name']) ?></span>
+            <span class="current">Money Laundering</span>
           </div>
 
           <div class="d-flex justify-content-between align-items-start flex-wrap">
             <div>
-              <h1 class="course-title mb-3"><?= htmlspecialchars($course['course_name']) ?></h1>
+              <h1 class="course-title mb-3">Money Laundering Prevention</h1>
               <div class="d-flex gap-3 mb-4 flex-wrap">
                 <span class="badge bg-light-blue">
                   <i class="bi bi-clock"></i>
@@ -84,10 +149,10 @@ $course = $result->fetch_assoc();
                   <i class="bi bi-shield"></i>
                   <span>Compliance Required</span>
                 </div>
-                <!-- <div class="badge-text">
+                <div class="badge-text">
                   <i class="bi bi-star-fill text-warning"></i>
                   <span>4.8 Rating</span>
-                </div> -->
+                </div>
               </div>
             </div>
 
@@ -153,42 +218,38 @@ $course = $result->fetch_assoc();
           </div>
           <div class="card-body">
             <div class="modules-container">
-              <?php
-              // Load modules for this course
-              $module_query = "SELECT * FROM course_modules WHERE course_id = ?";
-              $stmt = $conn->prepare($module_query);
-              $stmt->bind_param("i", $course_id);
-              $stmt->execute();
-              $modules = $stmt->get_result();
-              ?>
-
-              <!-- <h4 class="mt-4">Course Modules</h4> -->
-
               <?php if ($modules->num_rows === 0): ?>
                 <div class="alert alert-warning">No modules found for this course.</div>
               <?php else: ?>
-                <ul class="list-group mb-3">
+                <div class="modules-list p-3" style="border: 0.25pt solid #ccc; border-radius: 8px;">
                   <?php while ($mod = $modules->fetch_assoc()): ?>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-
-                      <iframe src="<?= htmlspecialchars($mod['file_path']) ?>#toolbar=0" width="100%" height="600px"
-                        style="border:1px solid #ccc;"></iframe>
-
-
-
-                    </li>
+                    <div class="module-content">
+                      <h5><?= htmlspecialchars($mod['title'] ?? 'Module ' . $mod['module_id']) ?></h5>
+                      <div class="module-body">
+                        <?= getFileViewer($mod['file_path']) ?>
+                      </div>
+                    </div>
                   <?php endwhile; ?>
-                </ul>
+                </div>
               <?php endif; ?>
+            </div>
+          </div>
+        </div>
+
+        <!-- Your existing hardcoded modules section -->
+        <div class="card">
+          <div class="card-body">
+            <div class="module-list mb-4">
+
               <!-- Module 1 -->
-              <div class="module-item completed" data-module="1">
+              <div class="module-item completed mb-3" data-module="1">
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="d-flex gap-3">
                     <div class="module-icon">
                       <i class="bi bi-check-circle-fill text-success"></i>
                     </div>
                     <div>
-                      <h5 class="module-title">Introduction to <?= htmlspecialchars($course['course_name']) ?></h5>
+                      <h5 class="module-title">Introduction to Money Laundering</h5>
                       <p class="module-description">Understanding the basics of money laundering and its impact on
                         financial institutions</p>
                       <div class="d-flex gap-2 align-items-center">
@@ -207,7 +268,7 @@ $course = $result->fetch_assoc();
               </div>
 
               <!-- Module 2 -->
-              <div class="module-item completed" data-module="2">
+              <div class="module-item completed mb-3" data-module="2">
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="d-flex gap-3">
                     <div class="module-icon">
@@ -233,7 +294,7 @@ $course = $result->fetch_assoc();
               </div>
 
               <!-- Module 3 -->
-              <div class="module-item current" data-module="3">
+              <div class="module-item current mb-3" data-module="3">
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="d-flex gap-3">
                     <div class="module-icon">
@@ -258,7 +319,7 @@ $course = $result->fetch_assoc();
               </div>
 
               <!-- Module 4 -->
-              <div class="module-item" data-module="4">
+              <div class="module-item mb-3" data-module="4">
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="d-flex gap-3">
                     <div class="module-icon">
@@ -283,7 +344,7 @@ $course = $result->fetch_assoc();
               </div>
 
               <!-- Module 5 -->
-              <div class="module-item" data-module="5">
+              <div class="module-item mb-3" data-module="5">
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="d-flex gap-3">
                     <div class="module-icon">
@@ -308,7 +369,7 @@ $course = $result->fetch_assoc();
               </div>
 
               <!-- Module 6 -->
-              <div class="module-item" data-module="6">
+              <div class="module-item mb-3" data-module="6">
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="d-flex gap-3">
                     <div class="module-icon">
@@ -332,60 +393,19 @@ $course = $result->fetch_assoc();
                 </div>
               </div>
             </div>
+
           </div>
         </div>
       </main>
     </div>
-
-    <!-- Bootstrap JS Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Custom JavaScript -->
-    <script src="script.js"></script>
-    <script src="../assets/js/sidebar.js"></script>
-</body>
-
-</html>
-
-
-<body>
-  <div class="wrapper">
-    <!-- Header -->
-    <?php include 'topbar.php' ?>
-
-    <div class="content-wrapper">
-      <!-- Sidebar -->
-      <?php include 'sidebar.php' ?>
-
-      <!-- <div class="container mt-4">
-        <h2><?= htmlspecialchars($course['course_name']) ?></h2>
-        <p class="text-muted">Status: <strong><?= $course['status'] ?></strong></p>
-        <div class="card mb-3">
-          <div class="card-body">
-            <h2>Course Description</h2>
-            <hr>
-            <p><?= nl2br(htmlspecialchars($course['course_desc'])) ?></p>
-          </div>
-        </div>
- -->
-        <!-- Optional: Mark progress -->
-
-        <!-- <?php if ($course['status'] !== 'Completed'): ?>
-            <form method="post" action="update_course_status.php">
-                <input type="hidden" name="course_id" value="<?= $course_id ?>">
-                <button name="status" value="In Progress" class="btn btn-info">Mark as In Progress</button>
-                <button name="status" value="Completed" class="btn btn-success">Mark as Completed</button>
-            </form>
-        <?php endif; ?> -->
-        <hr>
-
-
-        <!-- <a href="employee_dashboard.php" class="btn btn-secondary mt-3">Back to Dashboard</a> -->
-      </div>
-    </div>
   </div>
 
+  <!-- Bootstrap JS Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-
+  <!-- Custom JS -->
+  <script src="../assets/js/script.js"></script>
+  <script src="../assets/js/sidebar.js"></script>
 </body>
 
 </html>

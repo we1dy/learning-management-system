@@ -19,9 +19,11 @@ echo "<h1>Welcome to the $course course page!</h1>";
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Bootstrap Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
-  <!-- CSS Custom -->
-  <link rel="stylesheet" href="assets/css/dashboard.css">
-  <link rel="icon" type="image/x-icon" href="assets/images/pbcom.jpg">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="../assets/css/view_courses.css">
+  <link rel="stylesheet" href="../assets/css/card_list.css">
+  <link rel="stylesheet" href="../assets/css/courses.css">
+  <link rel="stylesheet" href="../assets/css/top_nsidebar.css">
 </head>
 
 <body>
