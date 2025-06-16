@@ -77,6 +77,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PBCOM LMS</title>
+   <!-- Logo icon-->
+  <link rel="icon" type="image/x-icon" href="../assets/images/pbcom.jpg">
   <link href="https://fonts.cdnfonts.com/css/aileron" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://kit.fontawesome.com/538907d71c.js" crossorigin="anonymous"></script>
@@ -163,7 +165,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="signup-box">
           <h4>New to PBCOM LMS?</h4>
           <p>Sign up now!</p>
-          <button>Register</button>
+          <button class="btn btn-primary w-100" onclick="location.href='registration.php'">Register</button>
         </div>
       </div>
     </div>

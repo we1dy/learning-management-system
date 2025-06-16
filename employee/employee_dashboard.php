@@ -69,16 +69,11 @@ $statusClass = [
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Bootstrap Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
-<<<<<<< HEAD
-  <!-- CSS Custom -->
-  <link rel="stylesheet" href="../assets/css/dashboard.css">
-=======
 
   <!-- Custom CSS -->
   <link rel="stylesheet" href="../assets/css/dashboard.css">
   <link rel="stylesheet" href="../assets/css/top_nsidebar.css">
   <link rel="icon" type="image/x-icon" href="../assets/images/pbcom.jpg">
->>>>>>> bbc0b812c5269a573af50c6593a3a04ed9bcfa5a
 </head>
 
 <body>
@@ -101,35 +96,35 @@ $statusClass = [
               <input type="text" class="form-control" placeholder="Search...">
             </div>
           </div>
-        
+          &nbsp;
+          &nbsp;
+          &nbsp;
           <h1 class="dashboard-title">Dashboard</h1>
 
           <!-- Stats Cards -->
           <div class="row mb-4">
             <div class="col-md-12 mb-3 mb-md-3">
-              <div class="card stat-card">
+              <div class="card header-card">
                 <div class="card-body">
                   <div class="d-flex justify-content-between align-items-center">
                     <div>
                       <div id="card_title">
-                        <h3 class="mb-1" style="font-weight: 600;">Welcome back,
-                          <?php echo htmlspecialchars($_SESSION['employee_name'] ?? ''); ?></h3>
+                        <h1>Hi, <?php echo htmlspecialchars($_SESSION['employee_name'] ?? ''); ?>! 👋</h1>
                       </div>
-                      <p class="text-muted mb-1">Track your progress</p>
+                      <p>What are you going to do today?</p>
                     </div>
-                    <div class="stat-icon bg-primary-light text-primary">
-                      <i class="bi bi-clock"></i>
-                    </div>
+                    <!-- <img src="../images/header.png" id="welcome-header" class="img-fluid" style="max-width: 750px; width: 100%; flex-shrink: 1;"> -->
                   </div>
                 </div>
               </div>
             </div>
+            <h2 class="section-title mb-3">OVERVIEW</h2>
             <div class="col-md-4 mb-3 mb-md-0">
-              <div class="card stat-card">
+              <div class="card stat-card1">
                 <div class="card-body">
                   <div class="d-flex justify-content-between align-items-center">
                     <div>
-                      <p class="text-muted mb-1">Completed Courses</p>
+                      <p class="mb-1">Completed Courses</p>
                       <div id="completed_courses_card">
                         <h3 class="mb-0">Loading...</h3>
                       </div>
@@ -142,11 +137,11 @@ $statusClass = [
               </div>
             </div>
             <div class="col-md-4 mb-3 mb-md-0">
-              <div class="card stat-card">
+              <div class="card stat-card2">
                 <div class="card-body">
                   <div class="d-flex justify-content-between align-items-center">
                     <div>
-                      <p class="text-muted mb-1">In Progress</p>
+                      <p class="mb-1">In Progress</p>
                       <div id="in_progress_courses_card">
                         <h3 class="mb-0">Loading...</h3>
                       </div>
@@ -159,11 +154,11 @@ $statusClass = [
               </div>
             </div>
             <div class="col-md-4">
-              <div class="card stat-card">
+              <div class="card stat-card3">
                 <div class="card-body">
                   <div class="d-flex justify-content-between align-items-center">
                     <div>
-                      <p class="text-muted mb-1">Completion Rate</p>
+                      <p class="mb-1">Completion Rate</p>
                       <div id="completion_rate_card">
                         <h3 class="mb-0">Loading...</h3>
                       </div>
@@ -176,7 +171,9 @@ $statusClass = [
               </div>
             </div>
           </div>
-
+          &nbsp;
+          &nbsp;
+          &nbsp;
           <!-- History Section -->
           <section class="mb-5">
             <div class="d-flex justify-content-between align-items-center mb-3">
@@ -185,36 +182,36 @@ $statusClass = [
             </div>
             <div class="row">
               <?php if ($in_progress_result->num_rows > 0): ?>
-              <?php while ($row = mysqli_fetch_assoc($history_result)): ?>
-                <div class="col-md-4 mb-3">
-                  <div class="card course-card">
-                    <div class="course-image">
-                      <img src="<?php echo htmlspecialchars($row['course_image'] ?? 'images/placeholder.jpg'); ?>"
-                        alt="<?php echo htmlspecialchars($row['course_name']); ?>"
-                        style="width: 100%; height: 150px; object-fit: cover;">
-                      <span class="badge bg-<?= $statusClass[$row['status']] ?>"><?= $row['status'] ?></span>
-                    </div>
-                    <div class="card-body">
-                      <h5 class="card-title">
-                        <?php echo htmlspecialchars($row['course_name']); ?>
-                      </h5>
-                      <p class="card-text text-muted">Last accessed on
-                        <?php echo date('m/d/Y', strtotime($row['last_accessed'])); ?>
-                      </p>
-                      <div class="progress mt-2">
-                        <div class="progress-bar bg-danger" style="width: 100%"></div>
+                <?php while ($row = mysqli_fetch_assoc($history_result)): ?>
+                  <div class="col-md-4 mb-3">
+                    <div class="card course-card">
+                      <div class="course-image">
+                        <img src="<?php echo htmlspecialchars($row['course_image'] ?? 'images/placeholder.jpg'); ?>"
+                          alt="<?php echo htmlspecialchars($row['course_name']); ?>"
+                          style="width: 100%; height: 150px; object-fit: cover;">
+                        <span class="badge bg-<?= $statusClass[$row['status']] ?>"><?= $row['status'] ?></span>
                       </div>
-                      <br>
-                      <a href="view_course.php?course_id=<?= $row['course_id'] ?>" class="btn btn-primary">Go to
-                        Course</a>
+                      <div class="card-body">
+                        <h5 class="card-title">
+                          <?php echo htmlspecialchars($row['course_name']); ?>
+                        </h5>
+                        <p class="card-text text-muted">Last accessed on
+                          <?php echo date('m/d/Y', strtotime($row['last_accessed'])); ?>
+                        </p>
+                        <div class="progress mt-2">
+                          <div class="progress-bar bg-danger" style="width: 100%"></div>
+                        </div>
+                        <br>
+                        <a href="view_course.php?course_id=<?= $row['course_id'] ?>" class="btn btn-primary">Go to
+                          Course</a>
+                      </div>
                     </div>
                   </div>
-                </div>
-              <?php endwhile; ?>
+                <?php endwhile; ?>
               <?php else: ?>
-              <div class="col-12">
-                <p class="text-muted">No recently accessed courses.</p>
-              </div>
+                <div class="col-12">
+                  <p class="text-muted">No recently accessed courses.</p>
+                </div>
               <?php endif; ?>
             </div>
           </section>
@@ -229,36 +226,34 @@ $statusClass = [
 
               <!-- Course Card A -->
               <?php if ($in_progress_result->num_rows > 0): ?>
-              <?php while ($row = mysqli_fetch_assoc($completed_result)): ?>
-                <div class="col-md-4 mb-3">
-                  <div class="card course-card">
-                    <div class="course-image">
-                      <img src="<?php echo htmlspecialchars($row['course_image'] ?? 'images/placeholder.jpg'); ?>"
-                        alt="<?php echo htmlspecialchars($row['course_name']); ?>"
-                        style="width: 100%; height: 150px; object-fit: cover;">
-                      <span class="badge bg-<?= $statusClass[$row['status']] ?>"><?= $row['status'] ?></span>
-                    </div>
-                    <div class="card-body">
-                      <h5 class="card-title"><?php echo $row['course_name']; ?></h5>
-                      <p class="card-text text-muted">Completed on
-                        <?php echo date('m/d/Y', strtotime($row['completed_at'])); ?>
-                      </p>
-                      <div class="progress mt-2">
-                        <div class="progress-bar bg-danger" style="width: 100%"></div>
+                <?php while ($row = mysqli_fetch_assoc($completed_result)): ?>
+                  <div class="col-md-4 mb-3">
+                    <div class="card course-card">
+                      <div class="course-image">
+                        <img src="<?php echo htmlspecialchars($row['course_image'] ?? 'images/placeholder.jpg'); ?>"
+                          alt="<?php echo htmlspecialchars($row['course_name']); ?>"
+                          style="width: 100%; height: 150px; object-fit: cover;">
+                        <span class="badge bg-<?= $statusClass[$row['status']] ?>"><?= $row['status'] ?></span>
                       </div>
-                      <br>
-                      <a href="view_course.php?course_id=<?= $row['course_id'] ?>" class="btn btn-primary">Go to
-                        Course</a>
+                      <div class="card-body">
+                        <h5 class="card-title"><?php echo $row['course_name']; ?></h5>
+                        <p class="card-text text-muted">Completed on
+                          <?php echo date('m/d/Y', strtotime($row['completed_at'])); ?>
+                        </p>
+                        <div class="progress mt-2">
+                          <div class="progress-bar bg-danger" style="width: 100%"></div>
+                        </div>
+                        <br>
+                        <a href="view_course.php?course_id=<?= $row['course_id'] ?>" class="btn btn-primary">Go to
+                          Course</a>
+                      </div>
                     </div>
                   </div>
-                </div>
-              <?php endwhile; ?>
-<<<<<<< HEAD
-=======
+                <?php endwhile; ?>
               <?php else: ?>
-              <div class="col-12">
-                <p class="text-muted">No completed courses at the moment.</p>
-              </div>
+                <div class="col-12">
+                  <p class="text-muted">No completed courses at the moment.</p>
+                </div>
               <?php endif; ?>
               <!-- Course Card B -->
               <!-- <div class="col-md-4 mb-3">
@@ -278,9 +273,6 @@ $statusClass = [
                 </div>
               </div> -->
               <!-- Course Card C -->
-
-
->>>>>>> bbc0b812c5269a573af50c6593a3a04ed9bcfa5a
             </div>
           </section>
 

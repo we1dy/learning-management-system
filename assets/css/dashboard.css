@@ -300,12 +300,102 @@ body {
 
 
 /* Stats Cards */
-.stat-card {
-  padding: 0.75rem;
+.stat-card1 {
+  font-size: 1.2rem;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 1.5rem;
   border: none;
   border-radius: 0.5rem;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
   transition: transform 0.2s, box-shadow 0.2s;
+  background-color: rgba(39, 211, 131, 0.50);
+  font-weight: bold;
+  color:#05691e;
+}
+
+.stat-card2 {
+  font-size: 1.2rem;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 1.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s, box-shadow 0.2s;
+  background-color: rgb(58, 176, 253, 0.50);
+  font-weight: bold;
+  color:#16297e;
+}
+
+.stat-card3 {
+  font-size: 1.2rem;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 1.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s, box-shadow 0.2s;
+  background-color: rgb(240, 207, 24, 0.50);
+  font-weight: bold;
+  color:#946e1b;
+}
+
+#completed_courses_card h3{
+  font-size: 2.5rem;
+  color:#05691e;
+}
+
+#in_progress_courses_card h3{
+  font-size: 2.5rem;
+  color:#16297e;
+}
+
+#completion_rate_card h3{
+  font-size: 2.5rem;
+  color:#946e1b;
+}
+
+.header-card {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.dev/svgjs' width='930' height='255' preserveAspectRatio='none' viewBox='0 0 930 255'%3e%3cg mask='url(%26quot%3b%23SvgjsMask5996%26quot%3b)' fill='none'%3e%3crect width='930' height='255' x='0' y='0' fill='url(%26quot%3b%23SvgjsLinearGradient5997%26quot%3b)'%3e%3c/rect%3e%3cpath d='M24 255L279 0L349.5 0L94.5 255z' fill='url(%26quot%3b%23SvgjsLinearGradient5998%26quot%3b)'%3e%3c/path%3e%3cpath d='M184.45000000000002 255L439.45000000000005 0L553.45 0L298.45000000000005 255z' fill='url(%26quot%3b%23SvgjsLinearGradient5998%26quot%3b)'%3e%3c/path%3e%3cpath d='M310.90000000000003 255L565.9000000000001 0L745.9000000000001 0L490.90000000000003 255z' fill='url(%26quot%3b%23SvgjsLinearGradient5998%26quot%3b)'%3e%3c/path%3e%3cpath d='M484.35 255L739.35 0L767.85 0L512.85 255z' fill='url(%26quot%3b%23SvgjsLinearGradient5998%26quot%3b)'%3e%3c/path%3e%3cpath d='M907 255L652 0L442 0L697 255z' fill='url(%26quot%3b%23SvgjsLinearGradient5999%26quot%3b)'%3e%3c/path%3e%3cpath d='M775.55 255L520.55 0L450.04999999999995 0L705.05 255z' fill='url(%26quot%3b%23SvgjsLinearGradient5999%26quot%3b)'%3e%3c/path%3e%3cpath d='M611.0999999999999 255L356.0999999999999 0L129.5999999999999 0L384.5999999999999 255z' fill='url(%26quot%3b%23SvgjsLinearGradient5999%26quot%3b)'%3e%3c/path%3e%3cpath d='M453.65 255L198.64999999999998 0L12.649999999999977 0L267.65 255z' fill='url(%26quot%3b%23SvgjsLinearGradient5999%26quot%3b)'%3e%3c/path%3e%3cpath d='M718.2057470905635 255L930 43.20574709056348L930 255z' fill='url(%26quot%3b%23SvgjsLinearGradient5998%26quot%3b)'%3e%3c/path%3e%3cpath d='M0 255L211.79425290943652 255L 0 43.20574709056348z' fill='url(%26quot%3b%23SvgjsLinearGradient5999%26quot%3b)'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask5996'%3e%3crect width='930' height='255' fill='white'%3e%3c/rect%3e%3c/mask%3e%3clinearGradient x1='50%25' y1='100%25' x2='50%25' y2='0%25' gradientUnits='userSpaceOnUse' id='SvgjsLinearGradient5997'%3e%3cstop stop-color='rgba(34%2c 34%2c 34%2c 1)' offset='0.15'%3e%3c/stop%3e%3cstop stop-color='rgba(66%2c 66%2c 66%2c 1)' offset='0.33'%3e%3c/stop%3e%3cstop stop-color='rgba(89%2c 89%2c 89%2c 1)' offset='0.54'%3e%3c/stop%3e%3cstop stop-color='rgba(114%2c 114%2c 114%2c 1)' offset='0.75'%3e%3c/stop%3e%3cstop stop-color='rgba(133%2c 133%2c 133%2c 1)' offset='0.88'%3e%3c/stop%3e%3cstop stop-color='rgba(158%2c 158%2c 158%2c 1)' offset='1'%3e%3c/stop%3e%3c/linearGradient%3e%3clinearGradient x1='0%25' y1='100%25' x2='100%25' y2='0%25' id='SvgjsLinearGradient5998'%3e%3cstop stop-color='rgba(197%2c 197%2c 197%2c 0.23)' offset='0'%3e%3c/stop%3e%3cstop stop-opacity='0' stop-color='rgba(197%2c 197%2c 197%2c 0.23)' offset='0.66'%3e%3c/stop%3e%3c/linearGradient%3e%3clinearGradient x1='100%25' y1='100%25' x2='0%25' y2='0%25' id='SvgjsLinearGradient5999'%3e%3cstop stop-color='rgba(197%2c 197%2c 197%2c 0.23)' offset='0'%3e%3c/stop%3e%3cstop stop-opacity='0' stop-color='rgba(197%2c 197%2c 197%2c 0.23)' offset='0.66'%3e%3c/stop%3e%3c/linearGradient%3e%3c/defs%3e%3c/svg%3e");
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 3rem 5rem;
+  border: none;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  font-weight: bold;
+  font-size: 1rem;
+  color: #f0f0f0;
+}
+
+.header-card h1{
+  font-size: 4rem;
+  font-weight: 600;
+}
+
+/* On large screens, align everything to the left */
+@media (max-width: 1026px) {
+    .header-card {
+        padding-left: 40px;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        text-align: left;
+        gap: 30px;
+    }
+
+
+    .header-card h1 {
+        font-size: 2.5rem;
+        margin-top: 75px;
+    }
+}
+
+@media (max-width: 1026px) {
+    .profile-header {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.dev/svgjs' width='400' height='360' preserveAspectRatio='none' viewBox='0 0 400 360'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1128%26quot%3b)' fill='none'%3e%3crect width='400' height='360' x='0' y='0' fill='url(%26quot%3b%23SvgjsLinearGradient1129%26quot%3b)'%3e%3c/rect%3e%3cpath d='M39 360L399 0L606 0L246 360z' fill='url(%26quot%3b%23SvgjsLinearGradient1130%26quot%3b)'%3e%3c/path%3e%3cpath d='M364 360L4 0L-221 0L139 360z' fill='url(%26quot%3b%23SvgjsLinearGradient1131%26quot%3b)'%3e%3c/path%3e%3cpath d='M141.07659261217736 360L400 101.07659261217736L400 360z' fill='url(%26quot%3b%23SvgjsLinearGradient1130%26quot%3b)'%3e%3c/path%3e%3cpath d='M0 360L258.92340738782264 360L 0 101.07659261217736z' fill='url(%26quot%3b%23SvgjsLinearGradient1131%26quot%3b)'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1128'%3e%3crect width='400' height='360' fill='white'%3e%3c/rect%3e%3c/mask%3e%3clinearGradient x1='50%25' y1='100%25' x2='50%25' y2='0%25' gradientUnits='userSpaceOnUse' id='SvgjsLinearGradient1129'%3e%3cstop stop-color='rgba(34%2c 34%2c 34%2c 1)' offset='0.15'%3e%3c/stop%3e%3cstop stop-color='rgba(66%2c 66%2c 66%2c 1)' offset='0.33'%3e%3c/stop%3e%3cstop stop-color='rgba(89%2c 89%2c 89%2c 1)' offset='0.54'%3e%3c/stop%3e%3cstop stop-color='rgba(114%2c 114%2c 114%2c 1)' offset='0.75'%3e%3c/stop%3e%3cstop stop-color='rgba(133%2c 133%2c 133%2c 1)' offset='0.88'%3e%3c/stop%3e%3cstop stop-color='rgba(158%2c 158%2c 158%2c 1)' offset='1'%3e%3c/stop%3e%3c/linearGradient%3e%3clinearGradient x1='0%25' y1='100%25' x2='100%25' y2='0%25' id='SvgjsLinearGradient1130'%3e%3cstop stop-color='rgba(197%2c 197%2c 197%2c 0.23)' offset='0'%3e%3c/stop%3e%3cstop stop-opacity='0' stop-color='rgba(197%2c 197%2c 197%2c 0.23)' offset='0.66'%3e%3c/stop%3e%3c/linearGradient%3e%3clinearGradient x1='100%25' y1='100%25' x2='0%25' y2='0%25' id='SvgjsLinearGradient1131'%3e%3cstop stop-color='rgba(197%2c 197%2c 197%2c 0.23)' offset='0'%3e%3c/stop%3e%3cstop stop-opacity='0' stop-color='rgba(197%2c 197%2c 197%2c 0.23)' offset='0.66'%3e%3c/stop%3e%3c/linearGradient%3e%3c/defs%3e%3c/svg%3e");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
 }
 
 #completed-card{
@@ -326,7 +416,7 @@ body {
   border-top: 4px solid;
   border-bottom: 4px solid;
   border-color: rgb(221, 155, 57);
-  background-color: rgba(247, 206, 118, 0.884);
+  background-color: rgba(255, 248, 145, 0.884);
 }
 
 .stat-card:hover {
@@ -335,13 +425,17 @@ body {
 }
 
 .stat-icon {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  border-radius: 20%;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.5rem;
+}
+
+.bi-award, .bi-clock, .bi-bar-chart{
+  font-size: 2.5rem;
 }
 
 .bg-success-light {
@@ -354,7 +448,7 @@ body {
 
 .bg-warning-light {
   color: #333;
-  background-color: rgba(255, 248, 147, 0.466);
+  background-color: rgba(252, 244, 139, 0.651);
 }
 
 /* Section Titles */

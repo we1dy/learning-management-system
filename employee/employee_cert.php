@@ -11,17 +11,11 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
   <!-- CSS Custom -->
   <link rel="stylesheet" href="../assets/css/dashboard.css">
-<<<<<<< HEAD
-  <link rel="icon" type="image/x-icon" href="assets/images/pbcom.jpg">
-=======
->>>>>>> bbc0b812c5269a573af50c6593a3a04ed9bcfa5a
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
   <!-- Font Awesome Icons -->
   <script src="https://kit.fontawesome.com/538907d71c.js" crossorigin="anonymous"></script>
   <!-- Aileron Font -->
   <link href="https://fonts.cdnfonts.com/css/aileron" rel="stylesheet">
-
-  
   <!-- Custom CSS -->
   <link rel="stylesheet" href="../assets/css/courses.css">
   <link rel="stylesheet" href="../assets/css/cert.css">

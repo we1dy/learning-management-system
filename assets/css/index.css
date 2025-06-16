@@ -162,6 +162,10 @@ body {
   padding: 12px;
 }
 
+.signup-box button {
+  padding-left: 25px;
+}
+
 .form-box button:hover,
 .signup-box button:hover {
   background-color: #ededed;

@@ -1,0 +1,211 @@
+@import url('https://fonts.cdnfonts.com/css/aileron');
+
+body {
+  font-family: 'Aileron', sans-serif;
+  background: #f0f0f0;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #292939;
+}
+
+.d-flex {
+  display: flex;
+  flex-wrap: nowrap;
+  /* Ensure no wrapping happens */
+}
+
+#pbcom-logo {
+  max-width: 150px;
+  width: 100%;
+  border-radius: 15px;
+  flex-shrink: 1;
+  /* Allow the logo to shrink */
+}
+
+#welcome-header {
+  justify-content: center;
+  align-items: center;
+  max-width: 600px;
+  width: 100%;
+  flex-shrink: 1;
+  margin: 25px;
+  /* Allow the header to shrink */
+}
+
+@media (max-width: 768px) {
+  .d-flex {
+    flex-direction: column;
+    /* Stack the items vertically on smaller screens */
+    align-items: center;
+    /* Center the content */
+  }
+
+  #pbcom-logo,
+  #welcome-header {
+    width: 90%;
+    /* Ensure the images take up most of the screen on smaller devices */
+    max-width: none;
+    /* Allow images to shrink with screen size */
+  }
+}
+
+.fa-solid {
+  font-size: 50px;
+  margin-right: 20px;
+}
+
+.left-panel {
+  background-color: #292939;
+  background-image: url("../images/bg2.png");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  z-index: 1;
+  padding: 40px 80px 40px 40px;
+  height: 100%;
+  color: #707172;
+}
+
+.left-panel p {
+  color: #666;
+  font-size: 2vh;
+  margin: 15px 0px 30px 30px;
+}
+
+.right-panel label {
+  text-align-last: left;
+}
+
+.right-panel p {
+  color: #707172;
+}
+
+.form-box h2 {
+  font-family: 'Arial', sans-serif;
+  font-weight: bold;
+
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  margin: 10px 0px 25px 60px;
+}
+
+.feature-icon {
+  font-size: 30px;
+  margin-right: 15px;
+  color: #555;
+}
+
+.feature-title {
+  font-family: 'Arial', sans-serif;
+  font-weight: bold;
+  color: #ef0a0b;
+  font-size: 18px;
+}
+
+.feature-desc {
+  font-size: 14px;
+  color: #666;
+}
+
+.support {
+  margin: 25px 0px 30px 30px;
+  font-size: 1.5vh;
+  color: #555;
+}
+
+.right-panel {
+  /* background: linear-gradient(to bottom right, #ef0a0b, #ff4c4c); */
+  background-image: url("data:image/svg+xml,<svg id='patternId' width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><defs><pattern id='a' patternUnits='userSpaceOnUse' width='29' height='50.115' patternTransform='scale(3) rotate(0)'><rect x='0' y='0' width='100%' height='100%' fill='%23edededff'/><path d='M14.498 16.858L0 8.488.002-8.257l14.5-8.374L29-8.26l-.002 16.745zm0 50.06L0 58.548l.002-16.745 14.5-8.373L29 41.8l-.002 16.744zM28.996 41.8l-14.498-8.37.002-16.744L29 8.312l14.498 8.37-.002 16.745zm-29 0l-14.498-8.37.002-16.744L0 8.312l14.498 8.37-.002 16.745z'  stroke-width='0.5' stroke='%23dbd7d766' fill='none'/></pattern></defs><rect width='800%' height='800%' transform='translate(-129,0)' fill='url(%23a)'/></svg>");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  z-index: 1;
+  padding: 40px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-box {
+  -webkit-box-shadow: -1px 1px 15px 9px rgba(51, 51, 51, 0.4);
+  -moz-box-shadow: -1px 1px 15px 9px rgba(51, 51, 51, 0.4);
+  box-shadow: -1px 1px 15px 9px rgba(51, 51, 51, 0.4);
+}
+
+.form-box{
+  background: #ededed;
+  border-radius: 20px;
+  padding: 50px 60px;
+  width: 100%;
+  max-width: 650px;
+  text-align: center;
+  margin-bottom: 40px;
+  /* border-bottom: 15px solid #707070;
+  border-top: 15px solid #707070; */
+}
+
+.form-box button,
+.signup-box button {
+  width: 100%;
+  margin-top: 10px;
+  border: none;
+  background-color: #ef0a0b;
+  color: #ededed;
+  border-radius: 10px;
+  font-size: 16px;
+  padding: 12px;
+}
+
+
+.form-box button:hover,
+.signup-box button:hover {
+  background-color: #ededed;
+  color: #ef0a0b;
+  box-shadow: 0 0 10px #ef0a0b, 0 0 13px #ef0a0b;
+}
+
+
+a {
+  color: #707172;
+  font-size: 1 .5vh;
+  text-decoration: none;
+  margin-top: 20px;
+  display: block;
+}
+
+.password {
+  position: absolute;
+  top: 71%;
+  right: 0;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.fa-eye-slash{
+  position: absolute;
+  top: 71%;
+  right: 0;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.fa-eye {
+  font-size: 1rem;
+  transition: color 0.3s ease-in-out;
+  line-height: 1;
+  color: #333;
+}
+
+.password .fa-eye:hover, .fa-eye-slash:hover{
+  color: #784d4d;
+}
