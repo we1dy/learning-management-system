@@ -1,3 +1,38 @@
+<?php
+session_start();
+require_once "../db.php";
+
+if (!isset($_SESSION['user_id'])) {
+  // Not logged in
+  header("Location: login.php");
+  exit();
+}
+
+$employee_id = $_SESSION['employee_id']; // Use the correct key
+
+$query = "
+    SELECT e.employee_num, e.first_name, e.last_name, e.middle_initial, e.email, 
+           CONCAT_WS(' - ', g.group_name, s.segment_name, d.division_name) AS department
+    FROM employee e
+    LEFT JOIN `group` g ON e.group_id = g.group_id
+    LEFT JOIN segment s ON e.segment_id = s.segment_id
+    LEFT JOIN division d ON e.division_id = d.division_id
+    WHERE e.employee_id = ?
+";
+
+
+$stmt = $conn->prepare($query);
+$stmt->bind_param("i", $employee_id); // bind employee_id instead of user_id
+$stmt->execute();
+$result = $stmt->get_result();
+
+if ($result->num_rows === 1) {
+  $employee = $result->fetch_assoc();
+} else {
+  echo "Employee not found.";
+  exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -124,11 +159,11 @@
               <div class="row g-3">
                 <div class="col-md-6">
                   <label class="form-label fw-medium text-dark">Employee ID</label>
-                  <p class="font-monospace">EMP-2024-001</p>
+                  <p class="font-monospace"><?= htmlspecialchars($employee['employee_num']) ?></p>
                 </div>
                 <div class="col-md-6">
                   <label class="form-label fw-medium text-dark">Department</label>
-                  <p>Information Technology</p>
+                  <p><?= htmlspecialchars($employee['department']) ?></p>
                 </div>
                 <div class="col-md-6">
                   <label class="form-label fw-medium text-dark">Learning Level</label>

@@ -69,16 +69,11 @@ $statusClass = [
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Bootstrap Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
-<<<<<<< HEAD
-  <!-- CSS Custom -->
-  <link rel="stylesheet" href="../assets/css/dashboard.css">
-=======
 
   <!-- Custom CSS -->
   <link rel="stylesheet" href="../assets/css/dashboard.css">
   <link rel="stylesheet" href="../assets/css/top_nsidebar.css">
   <link rel="icon" type="image/x-icon" href="../assets/images/pbcom.jpg">
->>>>>>> bbc0b812c5269a573af50c6593a3a04ed9bcfa5a
 </head>
 
 <body>
@@ -253,8 +248,6 @@ $statusClass = [
                   </div>
                 </div>
               <?php endwhile; ?>
-<<<<<<< HEAD
-=======
               <?php else: ?>
               <div class="col-12">
                 <p class="text-muted">No completed courses at the moment.</p>
@@ -280,7 +273,6 @@ $statusClass = [
               <!-- Course Card C -->
 
 
->>>>>>> bbc0b812c5269a573af50c6593a3a04ed9bcfa5a
             </div>
           </section>
 

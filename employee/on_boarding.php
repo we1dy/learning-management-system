@@ -37,7 +37,7 @@ $numCourses = $result1->fetch_assoc();
   <!-- Logo Icon -->
   <link rel="icon" type="image/x-icon" href="../assets/images/pbcom.jpg">
   <!-- Aileron Font -->
-  <<!-- Aileron Font -->
+
   <link href="https://fonts.cdnfonts.com/css/aileron" rel="stylesheet">
   <!-- FontAwesome Icons -->
   <script src="https://kit.fontawesome.com/538907d71c.js" crossorigin="anonymous"></script>
