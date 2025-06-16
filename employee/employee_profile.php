@@ -1,3 +1,66 @@
+<?php
+session_start();
+require_once "../db.php";
+
+if (!isset($_SESSION['user_id'])) {
+  // Not logged in
+  header("Location: login.php");
+  exit();
+}
+
+$employee_id = $_SESSION['employee_id']; // Use the correct key
+
+$query = "
+    SELECT e.employee_num, 
+    CONCAT(e.first_name, '  ', e.middle_initial, '  ', e.last_name) AS employee_name, 
+    e.email, e.birthdate, e.profile_image,
+           CONCAT_WS(' - ', g.group_name, s.segment_name, d.division_name) AS department
+    
+    FROM employee e
+    LEFT JOIN `group` g ON e.group_id = g.group_id
+    LEFT JOIN segment s ON e.segment_id = s.segment_id
+    LEFT JOIN division d ON e.division_id = d.division_id
+    LEFT JOIN user_account ua ON ua.user_id = e.user_id
+    WHERE e.employee_id = ?
+";
+
+
+$stmt = $conn->prepare($query);
+$stmt->bind_param("i", $employee_id); // bind employee_id instead of user_id
+$stmt->execute();
+$result = $stmt->get_result();
+
+if ($result->num_rows === 1) {
+  $employee = $result->fetch_assoc();
+} else {
+  echo "Employee not found.";
+  exit();
+}
+
+// Get user_id from session
+$user_id = $_SESSION['user_id']; // use this for user_log
+
+// Query first and last access
+$logQuery = "
+  SELECT 
+    MIN(login_date) AS first_access, 
+    MAX(login_date) AS last_access 
+  FROM user_log 
+  WHERE user_id = ?
+";
+$stmt = $conn->prepare($logQuery);
+$stmt->bind_param("i", $user_id);
+$stmt->execute();
+$logResult = $stmt->get_result();
+$logRow = $logResult->fetch_assoc();
+
+// Format dates (if they exist)
+$first_access = $logRow['first_access'] ? date("l, j F Y, g:i A", strtotime($logRow['first_access'])) : 'N/A';
+$last_access = $logRow['last_access'] ? date("l, j F Y, g:i A", strtotime($logRow['last_access'])) : 'N/A';
+
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,11 +69,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/x-icon" href="../assets/images/pbcom.jpg">
   <title>PBCOM LMS | Profile</title>
-<<<<<<< HEAD
   <!-- Aileron Font -->
-=======
- 
->>>>>>> bbc0b812c5269a573af50c6593a3a04ed9bcfa5a
+
   <link href="https://fonts.cdnfonts.com/css/aileron" rel="stylesheet">
   <!-- FontAwesome Icons -->
   <script src="https://kit.fontawesome.com/538907d71c.js" crossorigin="anonymous"></script>
@@ -21,14 +81,10 @@
 
   <!-- CSS Custom -->
   <link rel="stylesheet" href="../assets/css/dashboard.css">
-<<<<<<< HEAD
   <link rel="stylesheet" href="../assets/css/employee_profile.css">
   <style>
-    
-  </style>
-=======
 
->>>>>>> bbc0b812c5269a573af50c6593a3a04ed9bcfa5a
+  </style>
 </head>
 
 <body>
@@ -43,7 +99,7 @@
       <!-- Main Content -->
       <main class="main-content">
         <div class="container-fluid">
-          
+
           <!-- Mobile Search -->
           <div class="mobile-search d-md-none mb-3">
             <div class="position-relative">
@@ -60,11 +116,15 @@
           <!-- Profile Display -->
           <div class="profile-header mb-4">
             <div class="image-wrapper">
-              <img src="../assets/images/profile_icon.png" alt="Profile Image" class="avatar img-fluid">
+              <?php
+              $profile_img = $employee['profile_image'] ? "../" . $employee['profile_image'] : "../assets/images/profile_icon.png";
+              ?>
+              <img src="<?= htmlspecialchars($profile_img) ?>" alt="Profile Image" class="avatar img-fluid">
+
             </div>
             <div>
-              <div class="profile-title">LADY CHRISTINE ABOLEDA</div>
-              <div class="profile-role">Chief Information Officer</div>
+              <div class="profile-title"><?= htmlspecialchars($employee['employee_name']) ?></div>
+              <!-- <div class="profile-role">Chief Information Officer</div> -->
             </div>
           </div>
 
@@ -75,11 +135,11 @@
               <div class="info-box">
                 <h5>Personal Information</h5>
                 <ul class="list-unstyled">
-                  <li><strong>Email Address:</strong> ladyarboleda26@gmail.com</li>
-                  <li><strong>Employee Number:</strong> A1274929302</li>
-                  <li><strong>Birthdate:</strong> 12/26/2003</li>
-                  <li><strong>Country:</strong> Philippines</li>
-                  <li><strong>City/Town:</strong> Makati City</li>
+                  <li><strong>Email Address:</strong> <?= htmlspecialchars($employee['email']) ?></li>
+                  <li><strong>Employee Number:</strong> <?= htmlspecialchars($employee['employee_num']) ?></li>
+                  <li><strong>Birthdate:</strong> <?= htmlspecialchars($employee['birthdate']) ?></li>
+                  <!-- <li><strong>Country:</strong> Philippines</li>
+                                                                                                                                                                                                                                                                                                                                    <li><strong>City/Town:</strong> Makati City</li> -->
                 </ul>
               </div>
             </div>
@@ -106,8 +166,9 @@
               <div class="info-box">
                 <h5>Login Activity</h5>
                 <ul class="list-unstyled">
-                  <li><strong>First access to site:</strong><br>Monday, 22 August 2022, 6:05 AM</li>
-                  <li class="mt-2"><strong>Last access to site:</strong><br>Sunday, 1 June 2025, 9:20 PM</li>
+                  <li><strong>First access to site:</strong><br><?= htmlspecialchars($first_access) ?></li>
+                  <li class="mt-2"><strong>Last access to site:</strong><br><?= htmlspecialchars($last_access) ?></li>
+
                 </ul>
               </div>
             </div>
@@ -129,10 +190,6 @@
   <!-- Custom JavaScript -->
   <script src="../assets/js/script.js"></script>
   <script src="../assets/js/sidebar.js"></script>
-<<<<<<< HEAD
 </body>
 
 </html>
-=======
-</body>
->>>>>>> bbc0b812c5269a573af50c6593a3a04ed9bcfa5a

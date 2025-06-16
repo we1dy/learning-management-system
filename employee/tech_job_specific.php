@@ -85,7 +85,7 @@ $numCourses = $result1->fetch_assoc();
             </p>
           </div>
 
-          <!-- Course Description -->
+					<!-- Course Description -->
           <div class="card mb-3 p-2">
             <div class="card-header">
               <h5 class="card-title">
@@ -106,29 +106,25 @@ $numCourses = $result1->fetch_assoc();
               </p>
               <div class="row mt-4 pt-3 border-top text-center">
                 <div class="col-md-4">
-                  <div class="stat-value text-primary">
-                    <?= htmlspecialchars($numCourses['total_courses']) ?>
-                  </div>
-                  <div class="stat-label">Modules</div>
-                </div>
-                <div class="col-md-4">
-                  <div class="stat-value text-success">2.5h</div>
-                  <div class="stat-label">Duration</div>
-                </div>
-                <div class="col-md-4">
-                  <div class="stat-value text-purple">95%</div>
-                  <div class="stat-label">Pass Rate</div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="d-flex justify-content-end mb-3">
-            <button class="btn btn-outline-primary me-2" id="toggleCard"><i class="fas fa-th-large"></i>
-              Card View</button>
-            <button class="btn btn-outline-secondary" id="toggleList"><i class="fas fa-list"></i> List
-              View</button>
-          </div>
+                  <div class="stat-value text-primary"><?= htmlspecialchars($numCourses['total_courses']) ?></div>
+									<div class="stat-label">Modules</div>
+								</div>
+								<div class="col-md-4">
+									<div class="stat-value text-success">2.5h</div>
+									<div class="stat-label">Duration</div>
+								</div>
+								<div class="col-md-4">
+									<div class="stat-value text-purple">95%</div>
+									<div class="stat-label">Pass Rate</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="d-flex justify-content-end mb-3">
+						<button class="btn btn-outline-primary me-2" id="toggleCard"><i class="fas fa-th-large"></i> Card View</button>
+						<button class="btn btn-outline-secondary" id="toggleList"><i class="fas fa-list"></i> List View</button>
+					</div>
 
           <!-- Course Grid -->
           <div id="cardView" class="row g-4">

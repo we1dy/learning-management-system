@@ -226,30 +226,30 @@ $statusClass = [
 
               <!-- Course Card A -->
               <?php if ($in_progress_result->num_rows > 0): ?>
-                <?php while ($row = mysqli_fetch_assoc($completed_result)): ?>
-                  <div class="col-md-4 mb-3">
-                    <div class="card course-card">
-                      <div class="course-image">
-                        <img src="<?php echo htmlspecialchars($row['course_image'] ?? 'images/placeholder.jpg'); ?>"
-                          alt="<?php echo htmlspecialchars($row['course_name']); ?>"
-                          style="width: 100%; height: 150px; object-fit: cover;">
-                        <span class="badge bg-<?= $statusClass[$row['status']] ?>"><?= $row['status'] ?></span>
+              <?php while ($row = mysqli_fetch_assoc($completed_result)): ?>
+                <div class="col-md-4 mb-3">
+                  <div class="card course-card">
+                    <div class="course-image">
+                      <img src="<?php echo htmlspecialchars($row['course_image'] ?? 'images/placeholder.jpg'); ?>"
+                        alt="<?php echo htmlspecialchars($row['course_name']); ?>"
+                        style="width: 100%; height: 150px; object-fit: cover;">
+                      <span class="badge bg-<?= $statusClass[$row['status']] ?>"><?= $row['status'] ?></span>
+                    </div>
+                    <div class="card-body">
+                      <h5 class="card-title"><?php echo $row['course_name']; ?></h5>
+                      <p class="card-text text-muted">Completed on
+                        <?php echo date('m/d/Y', strtotime($row['completed_at'])); ?>
+                      </p>
+                      <div class="progress mt-2">
+                        <div class="progress-bar bg-danger" style="width: 100%"></div>
                       </div>
-                      <div class="card-body">
-                        <h5 class="card-title"><?php echo $row['course_name']; ?></h5>
-                        <p class="card-text text-muted">Completed on
-                          <?php echo date('m/d/Y', strtotime($row['completed_at'])); ?>
-                        </p>
-                        <div class="progress mt-2">
-                          <div class="progress-bar bg-danger" style="width: 100%"></div>
-                        </div>
-                        <br>
-                        <a href="view_course.php?course_id=<?= $row['course_id'] ?>" class="btn btn-primary">Go to
-                          Course</a>
-                      </div>
+                      <br>
+                      <a href="view_course.php?course_id=<?= $row['course_id'] ?>" class="btn btn-primary">Go to
+                        Course</a>
                     </div>
                   </div>
-                <?php endwhile; ?>
+                </div>
+              <?php endwhile; ?>
               <?php else: ?>
                 <div class="col-12">
                   <p class="text-muted">No completed courses at the moment.</p>
@@ -273,6 +273,9 @@ $statusClass = [
                 </div>
               </div> -->
               <!-- Course Card C -->
+
+
+>>>>>>> bbc0b812c5269a573af50c6593a3a04ed9bcfa5a
             </div>
           </section>
 

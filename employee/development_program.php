@@ -46,17 +46,12 @@ $numCourses = $result1->fetch_assoc();
   <!-- Bootstrap Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
   <!-- CSS Custom -->
-<<<<<<< HEAD
-  <link rel="stylesheet" href="../assets/css/courses.css">
-  <link rel="icon" type="image/x-icon" href="assets/images/pbcom.jpg">
-=======
      <link rel="stylesheet" href="../assets/css/view_courses.css">
   <link rel="stylesheet" href="../assets/css/card_list.css">
   <link rel="stylesheet" href="../assets/css/top_nsidebar.css">
   <link rel="stylesheet" href="../assets/css/courses.css">
   <link rel="stylesheet" href="../assets/css/employee.css">
   <link rel="icon" type="image/x-icon" href="../assets/images/pbcom.jpg">
->>>>>>> bbc0b812c5269a573af50c6593a3a04ed9bcfa5a
 </head>
 
 <body>
@@ -114,25 +109,25 @@ $numCourses = $result1->fetch_assoc();
               <div class="row mt-4 pt-3 border-top text-center">
                 <div class="col-md-4">
                   <div class="stat-value text-primary"><?= htmlspecialchars($numCourses['total_courses']) ?></div>
-                  <div class="stat-label">Modules</div>
-                </div>
-                <div class="col-md-4">
-                  <div class="stat-value text-success">2.5h</div>
-                  <div class="stat-label">Duration</div>
-                </div>
-                <div class="col-md-4">
-                  <div class="stat-value text-purple">95%</div>
-                  <div class="stat-label">Pass Rate</div>
-                </div>
+                <div class="stat-label">Modules</div>
+              </div>
+              <div class="col-md-4">
+                <div class="stat-value text-success">2.5h</div>
+                <div class="stat-label">Duration</div>
+              </div>
+              <div class="col-md-4">
+                <div class="stat-value text-purple">95%</div>
+                <div class="stat-label">Pass Rate</div>
+>>>>>>> bbc0b812c5269a573af50c6593a3a04ed9bcfa5a
               </div>
             </div>
           </div>
-
-          <div class="d-flex justify-content-end mb-3">
-            <button class="btn btn-outline-primary me-2" id="toggleCard"><i class="fas fa-th-large"></i> Card
-              View</button>
-            <button class="btn btn-outline-secondary" id="toggleList"><i class="fas fa-list"></i> List View</button>
-          </div>
+        </div>
+        
+        <div class="d-flex justify-content-end mb-3">
+          <button class="btn btn-outline-primary me-2" id="toggleCard"><i class="fas fa-th-large"></i> Card View</button>
+          <button class="btn btn-outline-secondary" id="toggleList"><i class="fas fa-list"></i> List View</button>
+        </div>
 
          <!-- Course Grid -->
           <div id="cardView" class="row g-4">

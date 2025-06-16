@@ -38,6 +38,11 @@ $numCourses = mysqli_fetch_assoc($result1);
   <title>PBCOM | Regulatory Courses</title>
   <link href="https://fonts.cdnfonts.com/css/aileron" rel="stylesheet">
   <script src="https://kit.fontawesome.com/538907d71c.js" crossorigin="anonymous"></script>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+  <!-- CSS Custom -->
   <!-- Logo icon-->
   <link rel="icon" type="image/x-icon" href="../assets/images/pbcom.jpg">
 

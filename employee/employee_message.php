@@ -11,14 +11,11 @@ if (session_status() == PHP_SESSION_NONE) {
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PBCOM LMS | Message</title>
-<<<<<<< HEAD
   <link href="https://fonts.cdnfonts.com/css/aileron" rel="stylesheet" />
-=======
   <!-- Logo icon-->
-  <link rel="icon" type="image/x-icon" href="../assets/     images/pbcom.jpg">
+  <link rel="icon" type="image/x-icon" href="../assets/images/pbcom.jpg">
 
   <link href="https://fonts.cdnfonts.com/css/aileron" rel="stylesheet">
->>>>>>> bbc0b812c5269a573af50c6593a3a04ed9bcfa5a
   <script src="https://kit.fontawesome.com/538907d71c.js" crossorigin="anonymous"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" />
@@ -87,6 +84,35 @@ if (session_status() == PHP_SESSION_NONE) {
     .chat-input input {
       flex-grow: 1;
     }
+
+    .chat-message {
+      margin-bottom: 10px;
+      display: flex;
+    }
+    .user-bubble {
+      justify-content: flex-end;
+    }
+    .other-bubble {
+      justify-content: flex-start;
+    }
+    .bubble-content {
+      background: #e6e6e6;
+      border-radius: 15px;
+      padding: 10px 15px;
+      max-width: 60%;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.07);
+      word-break: break-word;
+    }
+    .user-bubble .bubble-content {
+      background: #d1e7dd;
+      color: #155724;
+      align-self: flex-end;
+    }
+    .other-bubble .bubble-content {
+      background: #f8d7da;
+      color: #721c24;
+      align-self: flex-start;
+    }
   </style>
 </head>
 
@@ -140,42 +166,48 @@ if (session_status() == PHP_SESSION_NONE) {
   </div>
 
   <script>
-      function sendMessage() {
-        const username = document.getElementById("username").value.trim();
-        const message = document.getElementById("message").value.trim();
-
-        if (!message) {
-          alert("Message cannot be empty.");
-          return;
-        }
-
-
-        // Immediately show the message on screen
-        const chatBox = document.getElementById("chat-box");
-        const msgHTML = `
-      <div class='chat-message user'>
-        <strong>${username}</strong> <small>[Now]</small><br>
-        ${message}
-      </div>`;
-        chatBox.innerHTML += msgHTML;
-        chatBox.scrollTop = chatBox.scrollHeight;
-
-        // Clear the input
-        document.getElementById("message").value = "";
-
-        // Send to database
-        const xhr = new XMLHttpRequest();
-        xhr.open("POST", "employee_sendmesage.php", true);
-        xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        xhr.onload = function() {
-          if (xhr.responseText.trim() !== "success") {
-            alert("Error sending message: " + xhr.responseText);
-          }
-        };
-        xhr.send("username=" + encodeURIComponent(username) + "&message=" + encodeURIComponent(message));
+    function sendMessage() {
+      const message = document.getElementById("message").value.trim();
+      if (!message) {
+        alert("Message cannot be empty.");
+        return;
       }
-    </script>
 
+      // Show the message immediately as a chat bubble
+      const chatBox = document.getElementById("chat-box");
+      const now = new Date();
+      const time = now.getHours().toString().padStart(2, '0') + ":" + now.getMinutes().toString().padStart(2, '0');
+      const msgHTML = `
+        <div class='chat-message user-bubble'>
+          <div class="bubble-content">
+            <strong>You</strong> <small>[${time}]</small><br>
+            ${message}
+          </div>
+        </div>`;
+      chatBox.innerHTML += msgHTML;
+      chatBox.scrollTop = chatBox.scrollHeight;
+
+      document.getElementById("message").value = "";
+
+      // Send to database
+      const xhr = new XMLHttpRequest();
+      xhr.open("POST", "employee_sendmesage.php", true);
+      xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      xhr.onload = function() {
+        if (xhr.responseText.trim() !== "success") {
+          alert("Error sending message: " + xhr.responseText);
+        }
+      };
+      xhr.send("message=" + encodeURIComponent(message));
+    }
+
+    document.getElementById("message").addEventListener("keydown", function(event) {
+      if (event.key === "Enter" && !event.shiftKey) {
+        event.preventDefault();
+        sendMessage();
+      }
+    });
+  </script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script src="assets/js/sidebar.js"></script>

@@ -40,6 +40,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->bind_result($employee_id);
         $stmt->fetch();
         $stmt->close();
+        $login_time = date("Y-m-d H:i:s");
+        $stmt = $conn->prepare("INSERT INTO user_log (username, login_date, logout_date, user_id) VALUES (?, ?, NULL, ?)");
+        $stmt->bind_param("ssi", $username, $login_time, $user_id);
+        $stmt->execute();
+
 
         if (!$employee_id) {
           die('Error: No employee record for user ID ' . htmlspecialchars($user_id));
