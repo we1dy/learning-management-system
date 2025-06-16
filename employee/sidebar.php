@@ -21,13 +21,14 @@
     <div class="nav-section">
       <div class="nav-section-title">Main</div>
 
-      <a href="employee_dashboard.php" class="nav-link <?= ($currentPage == 'employee_dashboard.php') ? 'active' : '' ?>">
-        <i class="bi bi-bar-chart"></i>
+      <a href="employee_dashboard.php"
+        class="nav-link <?= ($currentPage == 'employee_dashboard.php') ? 'active' : '' ?>">
+        <i class="fas fa-chart-line"></i>
         <span>Dashboard</span>
       </a>
 
       <a href="employee_profile.php" class="nav-link <?= ($currentPage == 'employee_profile.php') ? 'active' : '' ?>">
-        <i class="bi bi-person-circle"></i>
+        <i class="fas fa-user"></i>
         <span>Profile</span>
       </a>
 
@@ -38,7 +39,7 @@
       <div class="nav-dropdown">
         <div class="nav-dropdown <?= $isDropdownActive ? 'open' : '' ?>">
           <a href="#" class="nav-link nav-dropdown-toggle">
-            <i class="bi bi-book"></i>
+            <i class="fas fa-book-open"></i>
             <span>Courses</span>
             <i class="bi bi-chevron-down dropdown-icon"></i>
           </a>
@@ -55,19 +56,20 @@
               class="nav-dropdown-item <?= ($currentPage == 'tech_job_specific.php') ? 'active' : '' ?>">Technical/Job Specific</a>
           </div>
         </div>
-        <a href="employee_announcement.php" class="nav-link <?= ($currentPage == 'employee_announcement.php') ? 'active' : '' ?>">
-          <i class="bi bi-megaphone me-2"></i>&nbsp;
+        <a href="employee_announcement.php"
+          class="nav-link <?= ($currentPage == 'employee_announcement.php') ? 'active' : '' ?>">
+          <i class="fa-solid fa-bullhorn"></i>
           <span>Announcements</span>
         </a>
 
         <a href="employee_quiz.php" class="nav-link <?= ($currentPage == 'employee_quiz.php') ? 'active' : '' ?>">
-          <i class="bi bi-journal-check me-2"></i>&nbsp;
+          <i class="fas fa-question-circle"></i>
           <span>Quiz</span>
         </a>
 
         <a href="employee_cert.php" class="nav-link <?= ($currentPage == 'employee_cert.php') ? 'active' : '' ?>">
-          <i class="bi bi-patch-check"></i>
-          <span>Certificate</span>
+          <i class="fas fa-award"></i>
+          <span>Certifications</span>
         </a>
 
       </div>

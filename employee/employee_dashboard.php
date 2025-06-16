@@ -63,7 +63,7 @@ $statusClass = [
   <title>PBCOM LMS | Dashboard</title>
   <!-- Aileron Font -->
   <link href="https://fonts.cdnfonts.com/css/aileron" rel="stylesheet">
-  <!-- FontAwesome Icons -->
+  <!-- Font Awesome Icons -->
   <script src="https://kit.fontawesome.com/538907d71c.js" crossorigin="anonymous"></script>
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -76,6 +76,7 @@ $statusClass = [
 
   <!-- Custom CSS -->
   <link rel="stylesheet" href="../assets/css/dashboard.css">
+  <link rel="stylesheet" href="../assets/css/top_nsidebar.css">
   <link rel="icon" type="image/x-icon" href="../assets/images/pbcom.jpg">
 >>>>>>> bbc0b812c5269a573af50c6593a3a04ed9bcfa5a
 </head>
@@ -111,7 +112,8 @@ $statusClass = [
                   <div class="d-flex justify-content-between align-items-center">
                     <div>
                       <div id="card_title">
-                        <h3 class="mb-1">Welcome back, <?php echo htmlspecialchars($_SESSION['employee_name'] ?? ''); ?></h3>
+                        <h3 class="mb-1" style="font-weight: 600;">Welcome back,
+                          <?php echo htmlspecialchars($_SESSION['employee_name'] ?? ''); ?></h3>
                       </div>
                       <p class="text-muted mb-1">Track your progress</p>
                     </div>
