@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 29, 2025 at 12:18 PM
+-- Generation Time: Jun 16, 2025 at 03:49 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -148,17 +148,6 @@ CREATE TABLE `employee_courses` (
   `completed_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-
---
--- Table structure for table `emp_messages`
---
-CREATE TABLE `em_messages` (
-  `id` int(11) NOT NULL,
-  `username` varchar(50) NOT NULL,
-  `message` text NOT NULL,
-  `sent_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
 --
 -- Dumping data for table `employee_courses`
 --
@@ -169,6 +158,29 @@ INSERT INTO `employee_courses` (`id`, `employee_id`, `course_id`, `status`, `ass
 (3, 1, 4, 'Completed', '2025-05-08', '2025-05-30', '2025-05-07 17:19:31', NULL),
 (4, 1, 5, 'In Progress', '2025-05-22', '2025-05-23', '2025-05-29 17:21:00', '2025-05-27 17:21:00'),
 (5, 1, 6, 'In Progress', '2025-05-29', '2025-05-30', '2025-05-29 17:29:41', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `em_messages`
+--
+
+CREATE TABLE `em_messages` (
+  `user_id` int(11) NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `message` text NOT NULL,
+  `sent_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `em_messages`
+--
+
+INSERT INTO `em_messages` (`user_id`, `username`, `message`, `sent_at`) VALUES
+(1, 'sampleee sample', 'test', '2025-06-15 08:58:42'),
+(2, 'sampleee sample', 'test', '2025-06-15 10:16:50'),
+(3, 'sampleee sample', 'test', '2025-06-15 15:31:39'),
+(4, 'sampleee sample', 'test', '2025-06-15 15:39:05');
 
 -- --------------------------------------------------------
 
@@ -347,6 +359,12 @@ ALTER TABLE `employee_courses`
   ADD KEY `course_id` (`course_id`);
 
 --
+-- Indexes for table `em_messages`
+--
+ALTER TABLE `em_messages`
+  ADD PRIMARY KEY (`user_id`);
+
+--
 -- Indexes for table `group`
 --
 ALTER TABLE `group`
@@ -437,6 +455,12 @@ ALTER TABLE `employee`
 --
 ALTER TABLE `employee_courses`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `em_messages`
+--
+ALTER TABLE `em_messages`
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `group`

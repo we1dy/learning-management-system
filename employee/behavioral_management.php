@@ -3,29 +3,16 @@ if (session_status() == PHP_SESSION_NONE) {
   session_start();
 }
 $employee_id = $_SESSION['employee_id'];
-$course_id = isset($_GET['course_id']) ? intval($_GET['course_id']) : 0;
 $query = "SELECT c.*, cc.course_category_name 
-          FROM employee_courses ec
-          INNER JOIN course c ON ec.course_id = c.course_id
+          FROM course c 
           INNER JOIN course_category cc ON c.course_category_id = cc.course_category_id
-          WHERE ec.employee_id = ? AND cc.course_category_id = 3";
-
-$stmt = $conn->prepare($query);
-$stmt->bind_param("i", $employee_id);
-$stmt->execute();
-$result = $stmt->get_result();
-
+          WHERE cc.course_category_id= 3";
+$result = mysqli_query($conn, $query);
 $query1 = "SELECT COUNT(*) AS total_courses 
-           FROM employee_courses ec
-           INNER JOIN course c ON ec.course_id = c.course_id
-           WHERE ec.employee_id = ? AND c.course_category_id = 3";
-
-$stmt1 = $conn->prepare($query1);
-$stmt1->bind_param("i", $employee_id);
-$stmt1->execute();
-$result1 = $stmt1->get_result();
-$numCourses = $result1->fetch_assoc();
-
+          FROM course 
+          WHERE course_category_id = 3";
+$result1 = mysqli_query($conn, $query1);
+$numCourses = mysqli_fetch_assoc($result1);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,6 +21,8 @@ $numCourses = $result1->fetch_assoc();
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PBCOM LMS | Behavioral and Management</title>
+  <!-- Logo Icon -->
+  <link rel="icon" type="image/x-icon" href="../assets/images/pbcom.jpg">
   <!-- Aileron Font -->
   <link href="https://fonts.cdnfonts.com/css/aileron" rel="stylesheet">
   <!-- FontAwesome Icons -->
@@ -42,12 +31,11 @@ $numCourses = $result1->fetch_assoc();
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Bootstrap Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
-  <!-- CSS Custom -->
+  <!-- Custom CSS -->
   <link rel="stylesheet" href="../assets/css/view_courses.css">
   <link rel="stylesheet" href="../assets/css/card_list.css">
-
+  <link rel="stylesheet" href="../assets/css/top_nsidebar.css">
   <link rel="stylesheet" href="../assets/css/courses.css">
-  <link rel="icon" type="image/x-icon" href="assets/images/pbcom.jpg">
 </head>
 
 <body>
@@ -62,7 +50,6 @@ $numCourses = $result1->fetch_assoc();
       <!-- Main Content -->
       <main class="main-content">
         <div class="container-fluid">
-
           <!-- Mobile Search -->
           <div class="mobile-search d-md-none mb-4">
             <div class="input-group">
@@ -75,7 +62,6 @@ $numCourses = $result1->fetch_assoc();
           &nbsp;
           &nbsp;
           &nbsp;
-
           <!-- Page Header -->
           <div class="page-header mb-3">
             <div class="d-flex justify-content-between align-items-center">
@@ -127,7 +113,6 @@ $numCourses = $result1->fetch_assoc();
 
           <!-- Course Grid -->
           <div id="cardView" class="row g-4">
-            <?php if ($result->num_rows > 0): ?>
             <?php while ($row = mysqli_fetch_assoc($result)): ?>
               <div class="col-md-6 col-lg-4">
                 <div class="course-card">
@@ -152,44 +137,27 @@ $numCourses = $result1->fetch_assoc();
                 </div>
               </div>
             <?php endwhile; ?>
-            <?php else: ?>
-            <div class="col-12">
-              <div class="alert alert-info text-center">
-                No assigned courses available in this category.
-      </div>
-    </div>
-  <?php endif; ?>
-    </div>
-    
-    <!-- List View -->
+          </div>
           <div id="listView" class="d-none">
-            <?php if ($result->num_rows > 0): ?>
-              <?php mysqli_data_seek($result, 0); // rewind for reuse ?>
-              <?php while ($row = mysqli_fetch_assoc($result)): ?>
-                <div
-                  class="list-course-item d-flex flex-column flex-md-row align-items-md-center justify-content-between p-3 mb-2 border rounded">
-                  <div class="flex-grow-1 me-md-3">
-                    <h5 class="mb-1"><?= htmlspecialchars($row['course_name']) ?></h5>
-                    <p class="mb-1 text-muted small"><?= htmlspecialchars($row['course_desc']) ?></p>
-                    <span class="text-secondary small">Duration: 2 hours</span>
-                  </div>
-                  <div class="mt-2 mt-md-0 text-md-end">
-                    <button class="btn btn-outline-primary btn-sm start-course-btn"
-                      data-url="view_course.php?course_id=<?= $row['course_id'] ?>"
-                      data-name="<?= htmlspecialchars($row['course_name']) ?>">
-                      Start Course <i class="fas fa-play ms-1"></i>
-                    </button>
-                  </div>
+            <?php mysqli_data_seek($result, 0);
+            while ($row = mysqli_fetch_assoc($result)): ?>
+              <div
+                class="list-course-item d-flex flex-column flex-md-row align-items-md-center justify-content-between p-3 mb-2 border rounded">
+                <div class="flex-grow-1 me-md-3">
+                  <h5 class="mb-1"><?= htmlspecialchars($row['course_name']) ?></h5>
+                  <p class="mb-1 text-muted small"><?= htmlspecialchars($row['course_desc']) ?></p>
+                  <span class="text-secondary small">Duration: 2 hours</span>
                 </div>
-              <?php endwhile; ?>
-            <?php else: ?>
-            <div class="col-12">
-              <div class="alert alert-info text-center">
-                No assigned courses available in this category.
+                <div class="mt-2 mt-md-0 text-md-end">
+                  <button class="btn btn-outline-primary btn-sm start-course-btn"
+                    data-url="view_course.php?course_id=<?= $row['course_id'] ?>"
+                    data-name="<?= htmlspecialchars($row['course_name']) ?>">
+                    Start Course <i class="fas fa-play ms-1"></i>
+                  </button>
+                </div>
               </div>
-            </div>
-            <?php endif; ?>
-            </div>
+            <?php endwhile; ?>
+          </div>
 
           <!-- Effective Communication -->
           <!-- <div class="col-md-6 col-lg-4">
